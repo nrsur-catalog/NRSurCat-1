@@ -1,0 +1,9 @@
+format: jb-book
+root: intro
+chapters:
+- file: catalog_plots.ipynb
+- file: fits/NRSur_Fits
+  sections:
+    - glob: fits/GW*
+
+- file: citation

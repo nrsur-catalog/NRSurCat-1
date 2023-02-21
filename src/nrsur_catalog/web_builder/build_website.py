@@ -22,30 +22,35 @@ from ..logger import logger
 HERE = os.path.dirname(__file__)
 WEB_TEMPLATE = os.path.join(HERE, "template")
 GW_PAGE_TEMPLATE = os.path.join(HERE, "gw_notebook_template.py")
-TABLE_PAGE_TEMPLATE = "fits/NRSur_Fits.md"
+TABLE_PAGE_TEMPLATE = "events/NRSur_Events.md"
 
 
-def build_website(fit_dir: str, outdir: str, clean: bool = False) -> None:
+def build_website(event_dir: str, outdir: str, clean: bool = True) -> None:
     """Build the website for the catalog"""
-    CACHE.cache_dir = fit_dir
+    CACHE.cache_dir = event_dir
     event_names = CACHE.event_names
     num_events = len(event_names)
+    if num_events == 0:
+        raise ValueError("No events found in the cache directory")
 
-    logger.info(f"Building website with {num_events} fits: {event_names}")
+    if clean:
+        shutil.rmtree(outdir, ignore_errors=True)
+
+    logger.info(f"Building website with {num_events} events: {event_names}")
     shutil.copytree(WEB_TEMPLATE, outdir, dirs_exist_ok=True)
-    write_fits_table_page(os.path.join(outdir, TABLE_PAGE_TEMPLATE))
+    write_events_table_page(os.path.join(outdir, TABLE_PAGE_TEMPLATE))
 
     num_threads = cpu_count() // 2
     if num_events < num_threads:
         num_threads = num_events
 
-    logger.info(f"Executing GW fit notebooks with {num_threads} threads")
-    fit_dir = os.path.join(outdir, "fits")
+    logger.info(f"Executing GW event notebooks with {num_threads} threads")
+    event_ipynb_dir = os.path.join(outdir, "events")
     try:
         process_map(
             write_and_execute_gw_notebook,
             event_names,
-            repeat(fit_dir),
+            repeat(event_ipynb_dir),
             desc="Executing Notebooks",
             max_workers=num_threads,
             total=len(CACHE.event_names),
@@ -53,13 +58,13 @@ def build_website(fit_dir: str, outdir: str, clean: bool = False) -> None:
     except Exception as e:
         logger.warning(f"Not executing in parallel: {e}")
         for name in tqdm(event_names, desc="Executing notebooks"):
-            write_and_execute_gw_notebook(name, fit_dir)
+            write_and_execute_gw_notebook(name, event_ipynb_dir)
 
     command = f"jupyter-book build {outdir}"
     os.system(command)
 
 
-def write_fits_table_page(path: str) -> None:
+def write_events_table_page(path: str) -> None:
     with open(path, "r") as f:
         template_txt = f.read()
 
@@ -112,9 +117,7 @@ def execute_ipynb(notebook_filename: str):
         run_path = os.path.dirname(notebook_filename)
         ep.preprocess(notebook, {"metadata": {"path": run_path}})
     except CellExecutionError as e:
-        logger.error(
-            f"Preprocessing {notebook_filename} failed:\n\n {e.traceback}"
-        )
+        logger.error(f"Preprocessing {notebook_filename} failed:\n\n {e.traceback}")
         success = False
     finally:
         with open(notebook_filename, mode="wt") as f:
@@ -123,12 +126,13 @@ def execute_ipynb(notebook_filename: str):
 
 
 def main():
+    """Executes and builds the website [build_nrsur_website]"""
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--fit-dir",
+        "--event-dir",
         type=str,
         default=".",
-        help="Directory to load the fits from",
+        help="Directory to load the events from",
     )
     parser.add_argument(
         "--outdir",
@@ -142,4 +146,4 @@ def main():
         help="Clean the output directory",
     )
     args = parser.parse_args()
-    build_website(args.fit_dir, args.outdir, args.clean)
+    build_website(args.event_dir, args.outdir, args.clean)

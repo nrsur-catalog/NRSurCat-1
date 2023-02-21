@@ -3,8 +3,10 @@ from bilby.gw.result import CompactBinaryCoalescenceResult
 from bilby.gw.conversion import generate_all_bbh_parameters
 import pandas as pd
 import os
+import shutil
 
 END_LABEL = "_NRSur7dq4_merged_result"
+TEST_DIR = os.path.join(os.path.dirname(__file__), "test_cache_dir")
 
 
 def generate_fake_result(n=100, outdir="outdir", event_name="test"):
@@ -12,7 +14,7 @@ def generate_fake_result(n=100, outdir="outdir", event_name="test"):
     priors = bilby.gw.prior.BBHPriorDict()
     priors["geocent_time"] = 2
     posterior = pd.DataFrame(priors.sample(n))
-    posterior =  generate_all_bbh_parameters(posterior)
+    posterior = generate_all_bbh_parameters(posterior)
 
     result = CompactBinaryCoalescenceResult(
         label=event_name,
@@ -22,7 +24,7 @@ def generate_fake_result(n=100, outdir="outdir", event_name="test"):
         fixed_parameter_keys=list(),
         priors=priors,
         sampler_kwargs=dict(test="test", func=lambda x: x),
-        meta_data= dict(
+        meta_data=dict(
             likelihood=dict(
                 phase_marginalization=False,
                 distance_marginalization=False,
@@ -46,18 +48,30 @@ def generate_fake_result(n=100, outdir="outdir", event_name="test"):
     )
     filename = os.path.join(outdir, f"{event_name}.json")
     result.save_to_file(filename=filename)
+    print(f"Generated mock event {event_name} in {filename}")
     return filename
 
 
-def get_test_cache_dir():
-    test_dir = os.path.join(os.path.dirname(__file__), "test_cache_dir")
-
-    if not os.path.isdir(test_dir):
-        os.mkdir(test_dir)
-        filename = generate_fake_result(outdir=test_dir)
-        for event_names in ["GW170729", "GW150914", "GW190521"]:
-            os.symlink(
-                filename,
-                os.path.join(test_dir, f"{event_names}{END_LABEL}.json"),
-            )
+def get_mock_cache_dir(test_dir=TEST_DIR):
+    events = ["GW170729", "GW150914"]
+    os.makedirs(test_dir, exist_ok=True)
+    test_filename = generate_fake_result(outdir=test_dir)
+    for i, event_names in enumerate(events):
+        new_fname = os.path.join(test_dir, f"{event_names}{END_LABEL}.json")
+        if not os.path.exists(new_fname):
+            if i == 0:
+                shutil.move(test_filename, new_fname)
+                test_filename = new_fname
+            else:
+                os.symlink(test_filename, new_fname)
+    print(f"Generated {len(events)} mock events in {test_dir}")
     return test_dir
+
+
+def cleanup_mock_data(test_dir=TEST_DIR):
+    if os.path.isdir(test_dir):
+        shutil.rmtree(test_dir)
+
+
+if __name__ == "__main__":
+    get_mock_cache_dir()

@@ -21,19 +21,21 @@
 
 
 import pandas as pd
+
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
-# ! python -m pip install --upgrade pip
+# ! python -m pip install --upgrade pip -q
 # # ! pip install nrsur_catalog -q
-# ! pip install -e "git+https://github.com/avivajpeyi/NRSurCatalog@website#egg=nrsur_catalog&subdirectory=nrsur_catalog"
+# ! pip install -e "git+https://github.com/avivajpeyi/NRSurCatalog@website#egg=nrsur_catalog&subdirectory=nrsur_catalog" -q
 
 # # {{GW EVENT NAME}}
 #
 # Below are some plots for {{GW EVENT NAME}} from the NRSurrogate Catalog.
 
 from nrsur_catalog import NRsurResult
-nrsur_result = NRsurResult.load("{{GW EVENT NAME}}", cache_dir=None) 
-# cache_dir is where the fits will be downloaded to (defaults to "~/.nrsur_catalog_cache")
+
+nrsur_result = NRsurResult.load("{{GW EVENT NAME}}")
+# cache_dir is where the events will be downloaded to (defaults to "~/.nrsur_catalog_cache")
 nrsur_result.posterior_summary()
 
 # + tags=["hide-input"]

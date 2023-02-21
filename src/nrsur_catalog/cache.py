@@ -33,6 +33,7 @@ class _CatalogCache:
             logger.warning(
                 f"Overwriting cache dir {env_cache} with {cache_dir}"
             )
+        logger.info("Setting cache dir to: {}".format(cache_dir))
         os.environ[CACHE_ENV_VAR] = cache_dir
         self._cache = cache_dir
         os.makedirs(self._cache, exist_ok=True)
@@ -41,10 +42,9 @@ class _CatalogCache:
     def list(self) -> List[str]:
         """List the contents of the cache directory (sorted by number in filename)"""
         file_regex = os.path.join(self.cache_dir, f"*{FILE_EXTENSION}")
-        files =  glob(file_regex)
+        files = glob(file_regex)
         files = sorted(
-            files,
-            key=lambda x: int(re.findall(r"\d+", os.path.basename(x))[0])
+            files, key=lambda x: int(re.findall(r"\d+", os.path.basename(x))[0])
         )
         return files
 
@@ -59,9 +59,7 @@ class _CatalogCache:
         if os.path.exists(filepath):
             return filepath
         if hard_fail:
-            logger.debug(
-                f"Current cache: {self.list} (doesnt have {filepath})"
-            )
+            logger.debug(f"Current cache: {self.list} (doesnt have {filepath})")
             raise FileNotFoundError(
                 f"Could not find {name} in cache dir {self.cache_dir}"
             )

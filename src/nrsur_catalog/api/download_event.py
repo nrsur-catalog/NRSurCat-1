@@ -8,7 +8,7 @@ from typing import Optional
 
 from ..cache import CACHE, DEFAULT_CACHE_DIR
 from ..logger import logger
-from .zenodo_interface import get_zenodo_urls
+from .zenodo_interface import ZenodoInterface
 
 
 def get_cli_args(args=None) -> argparse.Namespace:
@@ -53,7 +53,7 @@ def download_event(
         logger.debug(f"Fit {event_name} already downloaded")
         return
 
-    analysed_events = get_zenodo_urls()
+    analysed_events = ZenodoInterface.get_event_urls()
     if event_name not in analysed_events:
         raise ValueError(
             f"{event_name} has not been analysed yet -- please choose from {list(analysed_events.keys())}"
@@ -69,7 +69,7 @@ def download_event(
 
 def download_all_events() -> None:
     """Download all NRSur Catlog events from Zenodo"""
-    analysed_events = get_zenodo_urls()
+    analysed_events = ZenodoInterface.get_event_urls()
     logger.info(f"Downloading all {len(analysed_events)} events...")
     for event_name in analysed_events:
         download_event(event_name)

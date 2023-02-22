@@ -4,6 +4,7 @@ from bilby.gw.conversion import generate_all_bbh_parameters
 import pandas as pd
 import os
 import shutil
+import numpy as np
 
 END_LABEL = "_NRSur7dq4_merged_result"
 TEST_DIR = os.path.join(os.path.dirname(__file__), "test_cache_dir")
@@ -52,8 +53,10 @@ def generate_fake_result(n=100, outdir="outdir", event_name="test"):
     return filename
 
 
-def get_mock_cache_dir(test_dir=TEST_DIR):
-    events = ["GW170729", "GW150914"]
+def get_mock_cache_dir(test_dir=TEST_DIR, num_events=3):
+    assert num_events > 0
+    events = [f"GW{n}" for n in np.random.randint(159999, 209999, num_events)]
+    events[0] = "GW170729"
     os.makedirs(test_dir, exist_ok=True)
     test_filename = generate_fake_result(outdir=test_dir)
     for i, event_names in enumerate(events):
@@ -74,4 +77,4 @@ def cleanup_mock_data(test_dir=TEST_DIR):
 
 
 if __name__ == "__main__":
-    get_mock_cache_dir()
+    get_mock_cache_dir(num_events=10)

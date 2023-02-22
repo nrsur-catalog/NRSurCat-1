@@ -1,2 +1,8 @@
-https://sandbox.zenodo.org/record/1164558/files/GW150914_result.json
-https://sandbox.zenodo.org/record/1164558/files/GW190521_injection_result.json
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/GW150914_NRSur7dq4_merged_result.json
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/GW170729_NRSur7dq4_merged_result.json
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/test.json
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/tmp_bogus_0.2617134886723267.txt
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/tmp_bogus_0.3353181914080371.txt
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/tmp_bogus_0.34377217756885825.txt
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/tmp_bogus_0.9297447985099586.txt
+https://sandbox.zenodo.org/api/files/9372376b-2828-467e-9940-09d12a43e95d/tmp_bogus_0.9538792287577549.txt

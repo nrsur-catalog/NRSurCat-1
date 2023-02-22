@@ -24,9 +24,9 @@ import pandas as pd
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
-# ! python -m pip install --upgrade pip -q
+# # ! python -m pip install --upgrade pip -q
 # # ! pip install nrsur_catalog -q
-# ! pip install -e "git+https://github.com/avivajpeyi/NRSurCatalog@website#egg=nrsur_catalog&subdirectory=nrsur_catalog" -q
+# # ! pip install -e "git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg=nrsur_catalog" -q
 
 # # {{GW EVENT NAME}}
 #
@@ -46,6 +46,9 @@ fig = nrsur_result.plot_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
 
 # + tags=["hide-input"]
 fig = nrsur_result.plot_corner(["mass_ratio", "chi_eff", "chi_p"])
+
+# + tags=["hide-input"]
+fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
 
 # + tags=["hide-input"]
 fig = nrsur_result.plot_signal(outdir=".")

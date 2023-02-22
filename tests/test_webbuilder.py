@@ -7,20 +7,28 @@ import glob
 
 
 class TestWebbuilder(unittest.TestCase):
+
+    def setUp(self) -> None:
+        self.num_events = 2
+        self.cache_dir = get_mock_cache_dir(num_events=self.num_events)
+    def tearDown(self) -> None:
+        cleanup_mock_data()
+
     def test_web(self):
         webout = "out_test_website"
         build_website(
-            event_dir=get_mock_cache_dir(),
+            event_dir=self.cache_dir,
             outdir=webout,
         )
         self.assertTrue(os.path.exists(webout))
-        html_dir = os.path.join(webout, "html")
+        html_dir = os.path.join(webout, "_build/html")
         self.assertTrue(os.path.exists(f"{html_dir}/index.html"))
-        self.assertTrue(os.path.exists(f"{html_dir}/_sources/events/GW150914.ipynb"))
-        self.assertTrue(os.path.exists(f"{html_dir}/_images/GW150914_waveform.png"))
+        event_nbs = glob.glob(f"{html_dir}/_sources/events/*.ipynb")
+        images = glob.glob(f"{html_dir}/_images/*waveform.png")
+        self.assertEqual(len(event_nbs), self.num_events)
+        self.assertEqual(len(images), self.num_events)
 
-    def tearDown(self) -> None:
-        cleanup_mock_data()
+
 
 
 if __name__ == "__main__":

@@ -30,11 +30,11 @@ INSTALL_REQUIRES = [
 EXTRA_REQUIRE = dict(
     dev=[
         "jupyter-book>=0.13.2",
-        "zenodopy",  # for uploading to zenodo
-        "zenodo_get",  # for creating WGET url list
+        "zenodo_python @ git+https://github.com/avivajpeyi/zenodo-python.git@main#egg",
         "jupytext",  # for converting py-ipynb
         "ghp-import",  # for publishing to github pages
         "sphinx_inline_tabs",  # for tabs (https://sphinx-inline-tabs.readthedocs.io/en/latest/)
+        "pytest"
     ]
 )
 
@@ -47,6 +47,7 @@ setup(
     url="nrsur_catalog_url",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
+    package_data={NAME: ['*.txt']},
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRA_REQUIRE,

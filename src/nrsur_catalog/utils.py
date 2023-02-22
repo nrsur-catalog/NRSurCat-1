@@ -3,6 +3,7 @@ import os
 import numpy as np
 import re
 
+from .logger import logger
 
 def get_size_of_file(filename: str) -> str:
     """Get the size of a file in human-readable format"""
@@ -31,4 +32,5 @@ def get_event_name(s: str):
     try:
         return re.findall(r"(GW\d{6}\_\d{6}|GW\d{6})", s)[0]
     except IndexError:
-        raise ValueError(f"Could not parse event name from {s}")
+        logger.debug(f"Could not parse event name from {s}")
+        return None

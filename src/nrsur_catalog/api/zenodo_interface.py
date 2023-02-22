@@ -8,6 +8,7 @@ from ..logger import logger
 from ..utils import get_event_name
 from glob import glob
 from tqdm.auto import tqdm
+import git
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 URL_FILE = os.path.join(
@@ -31,6 +32,7 @@ class ZenodoInterface:
             self.project_key = ZENODO_KEYS['TEST']
 
         self._files_json = self._z.deposition_files_list(self.project_key).json()
+        logger.debug(f"Zenodo project key: {self.project_key}, filedata: {self._files_json}")
 
     def cache_download_urls(self):
         """
@@ -52,10 +54,12 @@ class ZenodoInterface:
         file_id = [f['id'] for f in self._files_json if f['filename'] == fname][0]
         self._z.deposition_files_delete(self.project_key, file_id)
 
+    @property
     def url(self):
         return self._z.base_url.replace('api/', f'deposit/{self.project_key}')
 
     def upload_files(self, file_regex: str) -> None:
+        logger.info(f"Uploading files to Zenodo: {self.url}")
         files = glob(file_regex)
         for filepath in tqdm(files, desc="Uploading"):
             fname = os.path.basename(filepath)
@@ -64,9 +68,24 @@ class ZenodoInterface:
             r = self._z.deposition_files_create(self.project_key, fname, filepath)
             if r.status_code != 200:
                 raise RuntimeError(f"Failed to upload {fname} to Zenodo: {r.json()}")
-        logger.info(f"Finished uploading {len(files)} files to Zenodo: {self.url}")
+        logger.info(f"Finished uploading {len(files)} files to Zenodo")
         self._z.session.close()
         self.cache_download_urls()
+        self._commit_url_file()
+
+    def _commit_url_file(self):
+        try:
+            repo_root = os.path.join(HERE, "../../..")
+            repo = git.Repo(repo_root)
+            repo.git.add(URL_FILE)
+            repo.git.commit(m=f"update urls [automated]")
+            repo.git.push()
+        except Exception as e:
+            logger.warning(
+                f"Failed to commit {URL_FILE}."
+                f"\n{e}\n"
+                f"Commit and push manually."
+            )
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self._z.session.close()
@@ -87,6 +106,10 @@ class ZenodoInterface:
         return dict(zip(event_names, urls))
 
 
+def upload_to_zenodo(path_regex: str, test: bool = True) -> None:
+    """Upload the NRSur Catlog events to Zenodo"""
+    ZenodoInterface(test=test).upload_files(path_regex)
+
 def main() -> None:
     """Main function to upload the NRSur Catlog events to Zenodo"""
     parser = argparse.ArgumentParser(
@@ -98,10 +121,11 @@ def main() -> None:
         help="Path regex to the events to upload to Zenodo",
     )
     parser.add_argument(
-        "--not-sandbox",
+        "--main",
         help="Upload to the main zenodo page (not sandbox).",
-        action="store_false",
+        action="store_true",
+        default=False,
     )
     args = parser.parse_args()
-    test = not args.not_sandbox
-    ZenodoInterface(test=test).upload_files(args.path_regex)
+    test = not args.main
+    upload_to_zenodo(args.path_regex, test=test)

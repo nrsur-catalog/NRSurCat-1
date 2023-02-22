@@ -43,11 +43,11 @@ class NRsurResult(CompactBinaryCoalescenceResult):
     """Class to store the results of a NRsur event"""
 
     @classmethod
-    def load(cls, event_name: str, cache_dir: Optional[str] = None) -> "NRsurResult":
+    def load(cls, event_name: str, cache_dir: Optional[str] = CACHE.cache_dir) -> "NRsurResult":
         """Load a CBCResult from the NRSur Catalog"""
-        if cache_dir is not None:
-            CACHE.cache_dir = cache_dir
+        CACHE.cache_dir = cache_dir
         if CACHE.find(event_name) is None:
+            logger.debug(f"{event_name} not in {CACHE.event_names}, downloading...")
             download_event(event_name, cache_dir)
         event_path = CACHE.find(event_name)
         r = cls.from_json(event_path)

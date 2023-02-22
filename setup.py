@@ -34,7 +34,8 @@ EXTRA_REQUIRE = dict(
         "jupytext",  # for converting py-ipynb
         "ghp-import",  # for publishing to github pages
         "sphinx_inline_tabs",  # for tabs (https://sphinx-inline-tabs.readthedocs.io/en/latest/)
-        "pytest"
+        "pytest",
+        "GitPython"
     ]
 )
 
@@ -47,7 +48,7 @@ setup(
     url="nrsur_catalog_url",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    package_data={NAME: ['*.txt']},
+    package_data={NAME: ['*/**.txt']},
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRA_REQUIRE,

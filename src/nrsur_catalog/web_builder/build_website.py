@@ -27,11 +27,11 @@ TABLE_PAGE_TEMPLATE = "events/NRSur_Events.md"
 
 def build_website(event_dir: str, outdir: str, clean: bool = True) -> None:
     """Build the website for the catalog"""
-    CACHE.cache_dir = event_dir
+    CACHE.cache_dir = os.path.abspath(event_dir)
     event_names = CACHE.event_names
     num_events = len(event_names)
     if num_events == 0:
-        raise ValueError("No events found in the cache directory")
+        raise ValueError(f"No events found in the cache directory: {event_dir}")
 
     if clean:
         shutil.rmtree(outdir, ignore_errors=True)
@@ -46,19 +46,25 @@ def build_website(event_dir: str, outdir: str, clean: bool = True) -> None:
 
     logger.info(f"Executing GW event notebooks with {num_threads} threads")
     event_ipynb_dir = os.path.join(outdir, "events")
-    try:
-        process_map(
-            write_and_execute_gw_notebook,
-            event_names,
-            repeat(event_ipynb_dir),
-            desc="Executing Notebooks",
-            max_workers=num_threads,
-            total=len(CACHE.event_names),
-        )
-    except Exception as e:
-        logger.warning(f"Not executing in parallel: {e}")
-        for name in tqdm(event_names, desc="Executing notebooks"):
-            write_and_execute_gw_notebook(name, event_ipynb_dir)
+
+    for name in tqdm(event_names, desc="Executing notebooks"):
+        success = write_and_execute_gw_notebook(name, event_ipynb_dir)
+        if not success:
+            raise RuntimeError(f"Failed to execute notebook for {name}")
+
+    # try:
+    #     process_map(
+    #         write_and_execute_gw_notebook,
+    #         event_names,
+    #         repeat(event_ipynb_dir),
+    #         desc="Executing Notebooks",
+    #         max_workers=num_threads,
+    #         total=len(CACHE.event_names),
+    #     )
+    # except Exception as e:
+    #     logger.warning(f"Not executing in parallel: {e}")
+    #     for name in tqdm(event_names, desc="Executing notebooks"):
+    #         write_and_execute_gw_notebook(name, event_ipynb_dir)
 
     command = f"jupyter-book build {outdir}"
     os.system(command)
@@ -98,7 +104,7 @@ def write_and_execute_gw_notebook(event_name: str, outdir: str):
     with open(py_fn, "w") as f:
         f.write(template_txt.replace("{{GW EVENT NAME}}", event_name))
     ipynb_fn = convert_py_to_ipynb(py_fn)
-    execute_ipynb(ipynb_fn)
+    return execute_ipynb(ipynb_fn)
 
 
 def execute_ipynb(notebook_filename: str):
@@ -110,7 +116,7 @@ def execute_ipynb(notebook_filename: str):
     with open(notebook_filename) as f:
         notebook = nbformat.read(f, as_version=4)
 
-    ep = ExecutePreprocessor(timeout=-1)
+    ep = ExecutePreprocessor(timeout=-1, kernel_name="nrsur")
     logger.debug(f"Executing {notebook_filename}")
     try:
         # Note that path specifies in which folder to execute the notebook.

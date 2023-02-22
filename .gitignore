@@ -10,6 +10,9 @@ out*
 *.png
 *.json
 .ipynb_checkpoints
+test_cache_dir
+test_events_dir
+test_website
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -13,23 +13,20 @@ FILE_EXTENSION = "_NRSur7dq4_merged_result.json"
 
 class _CatalogCache:
     def __init__(self):
-        self._cache = os.environ.get(CACHE_ENV_VAR, None)
+        self._cache = os.environ.get(CACHE_ENV_VAR, DEFAULT_CACHE_DIR)
 
     @property
     def cache_dir(self) -> str:
-        """Get the cache directory environment variable"""
-        if self._cache is None:
-            logger.warning(
-                f"Cache dir not set, setting default cache dir: {DEFAULT_CACHE_DIR}"
-            )
-            self._cache = DEFAULT_CACHE_DIR
         return self._cache
 
     @cache_dir.setter
     def cache_dir(self, cache_dir: str) -> None:
         """Set the cache directory environment variable"""
-        env_cache = os.environ.get(CACHE_ENV_VAR, None)
-        if env_cache is not None and env_cache != cache_dir:
+        env_cache = os.environ.get(CACHE_ENV_VAR, DEFAULT_CACHE_DIR)
+        if cache_dir is None:
+            logger.error("Cache dir cannot be None, setting to default")
+            cache_dir = env_cache
+        if env_cache != cache_dir :
             logger.warning(
                 f"Overwriting cache dir {env_cache} with {cache_dir}"
             )

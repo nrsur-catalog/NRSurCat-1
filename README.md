@@ -8,10 +8,11 @@ This repository contains the code used to generate the NRSur catalog website and
 pip install -e .[dev]
 ```
 
-Generate the website:
+Generate a test website:
 ```bash
-build_nrsur_website --fit-dir /home/tousif.islam/NRSurCatalog/merged_results --outdir ../nrsur_web
+python tests/generate_mock_data.py
+upload_to_zenodo "tests/test_cache_dir/*.json"
+build_nrsur_website --event-dir tests/test_cache_dir --outdir out_test_website
+ghp-import -n -p -f out_test_website/_build/html
+rm -rf test_cache_dir
 ```
-This command will
-- look for the NRSur fits in the `fit-dir`
-- save the website in the `outdir`

@@ -5,6 +5,7 @@ import pandas as pd
 import os
 import shutil
 import numpy as np
+np.random.seed(0)
 
 END_LABEL = "_NRSur7dq4_merged_result"
 TEST_DIR = os.path.join(os.path.dirname(__file__), "test_cache_dir")

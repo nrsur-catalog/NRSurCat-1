@@ -1,11 +1,11 @@
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW150914_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW170729_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW180756_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW181242_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW190402_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW192102_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW201992_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW202612_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW203566_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW205890_NRSur7dq4_merged_result.json
-https://sandbox.zenodo.org/api/files/f4d286b4-1fcd-4c38-823a-65e6a48f8476/GW206883_NRSur7dq4_merged_result.json
+https://sandbox.zenodo.org/record/<built-in function id>/files/2cf4014e-6818-4951-acec-915060763b29
+https://sandbox.zenodo.org/record/<built-in function id>/files/692cb8c0-52d8-4a74-85bd-3a0b4996eaf9
+https://sandbox.zenodo.org/record/<built-in function id>/files/0953e58c-f341-4912-a22c-e4e708886db7
+https://sandbox.zenodo.org/record/<built-in function id>/files/2cf28ef8-cafb-4c7e-bdd1-9ebf9bdab5d8
+https://sandbox.zenodo.org/record/<built-in function id>/files/afb401bf-6306-465b-8e47-5a88688fe3bf
+https://sandbox.zenodo.org/record/<built-in function id>/files/946cafda-6e3c-4138-ae7e-6001fa30aeb1
+https://sandbox.zenodo.org/record/<built-in function id>/files/6c369f81-aa48-44c2-9624-4b49339997a5
+https://sandbox.zenodo.org/record/<built-in function id>/files/af4fbde3-c391-484d-bfee-785ed882f52b
+https://sandbox.zenodo.org/record/<built-in function id>/files/aa55933e-aa42-4563-a5c3-e90d8434e708
+https://sandbox.zenodo.org/record/<built-in function id>/files/079745f9-74dd-488a-a1a5-565877d3da22
+https://sandbox.zenodo.org/record/<built-in function id>/files/28eceb91-ae48-4b39-9e62-5a6a7cb3f0cf

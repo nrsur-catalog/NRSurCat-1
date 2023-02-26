@@ -57,7 +57,6 @@ setup(
         "console_scripts": [
             f"get_nrsur_event={NAME}.api.download_event:main",
             f"build_nrsur_website={NAME}.web_builder.build_website:main",
-            f"upload_to_zenodo={NAME}.api.zenodo_interface:main",
         ]
     },
 )

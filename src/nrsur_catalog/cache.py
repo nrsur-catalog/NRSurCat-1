@@ -7,7 +7,7 @@ from .logger import logger
 from .utils import get_event_name
 
 CACHE_ENV_VAR = "NRSUR_CATALOG_CACHE_DIR"
-DEFAULT_CACHE_DIR = "~/.nrsur_catalog_cache"
+DEFAULT_CACHE_DIR = os.path.abspath("./.nrsur_catalog_cache")
 FILE_EXTENSION = "_NRSur7dq4_merged_result.json"
 
 

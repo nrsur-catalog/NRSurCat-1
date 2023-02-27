@@ -1,8 +1,12 @@
-# NRSur Catalog
+# [NRSurrogate Catalog](https://cjhaster.github.io/NRSurrogateCatalog)
 
 This repository contains the code used to generate the NRSur catalog website and its API.
 
+
+
 ## Development
+
+
 
 ```bash
 pip install -e .[dev]

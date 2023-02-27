@@ -15,6 +15,7 @@ bibtex_bibfiles:
 repository:
   url: https://github.com/cjhaster/NRSurrogateCatalog
   branch: gh-pages
+  path_to_book: _sources
 
 html:
   use_issues_button: true

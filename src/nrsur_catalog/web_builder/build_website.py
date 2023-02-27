@@ -18,6 +18,7 @@ from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
 
 from ..cache import CACHE
 from ..logger import logger
+from ..api.zenodo_interface import cache_zenodo_urls_file
 
 HERE = os.path.dirname(__file__)
 WEB_TEMPLATE = os.path.join(HERE, "template")
@@ -28,6 +29,8 @@ TABLE_PAGE_TEMPLATE = "events/NRSur_Events.md"
 def build_website(event_dir: str, outdir: str, clean: bool = True) -> None:
     """Build the website for the catalog"""
     CACHE.cache_dir = os.path.abspath(event_dir)
+    CACHE.check_if_events_cached_in_zenodo()
+    cache_zenodo_urls_file()
     event_names = CACHE.event_names
     num_events = len(event_names)
     if num_events == 0:

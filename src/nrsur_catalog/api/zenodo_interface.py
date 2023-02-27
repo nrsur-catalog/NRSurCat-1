@@ -1,11 +1,8 @@
 """Module to get zenodo URLs from NRSur Catlog zenodo page"""
 
 import os
-import argparse
 from ..logger import logger
 from ..utils import get_event_name
-
-import git
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 URL_FILE = os.path.join(
@@ -17,6 +14,7 @@ TITLE = "NRSurrogate Catalog Posteriors"
 
 def _commit_url_file():
     try:
+        import git
         repo_root = os.path.join(HERE, "../../..")
         repo = git.Repo(repo_root)
         repo.git.add(URL_FILE)

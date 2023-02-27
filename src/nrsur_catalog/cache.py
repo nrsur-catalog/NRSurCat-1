@@ -5,6 +5,7 @@ import re
 
 from .logger import logger
 from .utils import get_event_name
+from .api.zenodo_interface import get_zenodo_urls
 
 CACHE_ENV_VAR = "NRSUR_CATALOG_CACHE_DIR"
 DEFAULT_CACHE_DIR = os.path.abspath("./.nrsur_catalog_cache")
@@ -62,5 +63,18 @@ class _CatalogCache:
             )
         return None
 
+
+    def check_if_events_cached_in_zenodo(self):
+        """Return a list of events that are in the cache and in Zenodo"""
+        zenodo_events = set(get_zenodo_urls().keys())
+        local_events = set(self.event_names)
+        if zenodo_events != local_events:
+            logger.warning(
+                f"Events in cache do not match events in Zenodo.\n"
+                f"local: {local_events},\n"
+                f"zenodo: {zenodo_events},\n"
+                f"missing: {zenodo_events - local_events},\n"
+                "Uploading the events to zenodo after building the website."
+            )
 
 CACHE = _CatalogCache()  # create a singleton instance of the cache

@@ -10,7 +10,7 @@ from bilby.gw.result import CompactBinaryCoalescenceResult
 from .api import download_event
 from .cache import CACHE
 from .logger import logger
-from .utils import get_1d_summary_str
+from .utils import get_1d_summary_str, get_dir_tree
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -197,3 +197,17 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         return super(NRsurResult, self).plot_corner(
             parameters, priors, titles, save, filename, dpi, **kwargs
         )
+
+    def print_configs(self):
+        logger.info("To be implemented...")
+
+    def download_analysis_datafiles(self, outdir=None):
+        if outdir is None:
+            outdir = f"outdir_{self.label}"
+        logger.info(f"Saving files to {outdir}")
+        logger.info("To be implemented...")
+        logger.info("Downloading analysis strain")
+        logger.info("Downloading PSDs")
+        logger.info("Downloading calibration files")
+        logger.info("writing analysis config file")
+        logger.info(f"Files:\n{get_dir_tree(outdir)}")

@@ -21,11 +21,7 @@ def _commit_url_file():
         repo.git.commit(m=f"update urls [automated]")
         repo.git.push()
     except Exception as e:
-        logger.warning(
-            f"Failed to commit {URL_FILE}."
-            f"\n{e}\n"
-            f"Commit and push manually."
-        )
+        pass
 
 
 def cache_zenodo_urls_file(sandbox=True) -> None:
@@ -36,7 +32,7 @@ def cache_zenodo_urls_file(sandbox=True) -> None:
     logger.info(f"Zenodo {zeno} has {len(zeno.files)} files. Caching download URLs.")
     zeno.save_wget_file(URL_FILE)
     file_contents = open(URL_FILE, "r").read()
-    logger.info(f"Finished caching Zenodo URLs to {URL_FILE}: {file_contents}")
+    logger.info(f"Finished caching Zenodo URLs to {URL_FILE}:\n{file_contents}")
     _commit_url_file()
 
 

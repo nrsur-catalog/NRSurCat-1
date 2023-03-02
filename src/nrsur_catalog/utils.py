@@ -2,6 +2,8 @@ import os
 
 import numpy as np
 import re
+import requests
+from tqdm.auto import tqdm
 
 from .logger import logger
 
@@ -47,3 +49,21 @@ def get_dir_tree(path):
         for f in files:
             tree += f"{subindent}{f}\n"
     return tree
+
+
+def download(url: str, fname: str) -> None:
+    """Download a file from a URL and save it to a file"""
+    resp = requests.get(url, timeout=5)
+    if resp.status_code != 200:
+        raise ValueError(f"Failed to download {url}: {resp.json()}")
+    total = int(resp.headers.get("content-length", 0))
+    with open(fname, "wb") as file, tqdm(
+        desc=f"Downloading file",
+        total=total,
+        unit="iB",
+        unit_scale=True,
+        unit_divisor=1024,
+    ) as bar:
+        for data in resp.iter_content(chunk_size=1024):
+            size = file.write(data)
+            bar.update(size)

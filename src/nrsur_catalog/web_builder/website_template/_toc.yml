@@ -2,7 +2,7 @@ format: jb-book
 root: intro
 chapters:
 - file: catalog_plots.ipynb
-- file: events/NRSur_Events
+- file: events/nrsur_events_menu
   sections:
     - glob: events/GW*
 

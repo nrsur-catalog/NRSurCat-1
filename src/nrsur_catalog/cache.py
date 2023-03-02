@@ -77,4 +77,8 @@ class _CatalogCache:
                 "Uploading the events to zenodo after building the website."
             )
 
+    @property
+    def is_empty(self):
+        return len(self.list) == 0
+
 CACHE = _CatalogCache()  # create a singleton instance of the cache

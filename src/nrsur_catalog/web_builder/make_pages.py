@@ -56,4 +56,9 @@ def make_gw_page(event_name: str, outdir: str):
 
 
 def make_catalog_page(outdir:str):
-    pass
+    """Writes the catalog notebook and executes it"""
+    execute_notebook(
+        CATALOG_TEMPLATE,
+        f"{outdir}/catalog_plots.ipynb",
+        cwd=outdir,
+    )

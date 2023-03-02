@@ -1,4 +1,10 @@
-This folder will contain:
+This folder contain the website's dir structire:
 
-- nrsur_events_menu.md: a page with a table of all the events
-- GW*.ipynb: one notebook per event
+Root
+|
+|--- index.md: the main page
+|--- events/
+|    |--- nrsur_events_menu.md: a page with a table of all the events
+|    |--- GW*.ipynb: one notebook per event
+|--- catalog_plots.ipynb: a notebook with some summary plots of the catalog
+|--- citations.md: a page with the citations

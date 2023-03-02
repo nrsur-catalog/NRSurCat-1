@@ -2,13 +2,13 @@
 import argparse
 import os.path
 import sys
-import requests
-from tqdm.auto import tqdm
+
 from typing import Optional
 
 from ..cache import CACHE, DEFAULT_CACHE_DIR
 from ..logger import logger
 from .zenodo_interface import get_zenodo_urls
+from ..utils import download
 
 
 def get_cli_args(args=None) -> argparse.Namespace:
@@ -44,7 +44,7 @@ def get_cli_args(args=None) -> argparse.Namespace:
 
 
 def download_event(
-    event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
+        event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
 ) -> None:
     """Download the NRSur Catlog events from Zenodo given the event name"""
 
@@ -67,36 +67,11 @@ def download_event(
     logger.info("Completed! Enjoy your event!")
 
 
-def download_all_events() -> None:
+def download_all_events(cache_dir:str) -> None:
     """Download all NRSur Catlog events from Zenodo"""
     analysed_events = get_zenodo_urls()
     logger.info(f"Downloading all {len(analysed_events)} events...")
     for event_name in analysed_events:
-        download_event(event_name)
+        download_event(event_name, cache_dir=cache_dir)
 
 
-def download(url: str, fname: str) -> None:
-    """Download a file from a URL and save it to a file"""
-    resp = requests.get(url, timeout=5)
-    if resp.status_code != 200:
-        raise ValueError(f"Failed to download {url}: {resp.json()}")
-    total = int(resp.headers.get("content-length", 0))
-    with open(fname, "wb") as file, tqdm(
-        desc=f"Downloading file",
-        total=total,
-        unit="iB",
-        unit_scale=True,
-        unit_divisor=1024,
-    ) as bar:
-        for data in resp.iter_content(chunk_size=1024):
-            size = file.write(data)
-            bar.update(size)
-
-
-def main():
-    """Download the NRSur Catlog events from Zenodo given the event name [get_nrsur_event]"""
-    event_name, download_all, cache_dir = get_cli_args()
-    if download_all:
-        download_all_events()
-    else:
-        download_event(event_name, cache_dir)

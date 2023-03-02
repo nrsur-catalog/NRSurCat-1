@@ -1,7 +1,7 @@
 """Module to build individual pages for the website"""
 
 from papermill import execute_notebook
-
+from ploomber_engine import execute_notebook
 import jupytext
 import os
 import nbformat

@@ -26,13 +26,12 @@ INSTALL_REQUIRES = [
     "matplotlib",
     "loguru",
     "bilby[gw]>=1.1.5",
-    "plotly",
 ]
 EXTRA_REQUIRE = dict(
     dev=[
         "jupyter-book>=0.13.2",
         "zenodo_python @ git+https://github.com/avivajpeyi/zenodo-python.git@main#egg",
-        "papermill",
+        "ploomber-engine",
         "jupytext",  # for converting py-ipynb
         "ghp-import",  # for publishing to github pages
         "sphinx_inline_tabs",  # for tabs (https://sphinx-inline-tabs.readthedocs.io/en/latest/)

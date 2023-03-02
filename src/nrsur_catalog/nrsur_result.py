@@ -11,32 +11,9 @@ from .api import download_event
 from .cache import CACHE
 from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree
+from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
-
-INTERESTING_PARAMETERS = {
-    "Mass Parameters": ["mass_1", "mass_2", "chirp_mass", "mass_ratio"],
-    "Spin Parameters": ["a_1", "a_2", "tilt_1", "tilt_2", "chi_eff", "chi_p"],
-    "Localisation Parameters": [
-        "ra",
-        "dec",
-        "geocent_time",
-        "luminosity_distance",
-    ],
-    "Other Parameters": [
-        "phase",
-        "azimuth",
-        "zenith",
-        "psi",
-        "phi_jl",
-        "phi_12",
-        "phi_jl",
-        "theta_jn",
-    ],
-}
-
-
-CATALOG_MAIN_COLOR = "tab:orange"
 
 
 class NRsurResult(CompactBinaryCoalescenceResult):
@@ -192,8 +169,14 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         dpi=300,
         **kwargs,
     ):
+        labels  = []
+        if parameters is not None:
+            labels = [LATEX_LABELS[p] for p in parameters]
+        if not 'labels' in kwargs:
+            kwargs['labels'] = labels
         if not "color" in kwargs:
             kwargs["color"] = CATALOG_MAIN_COLOR
+
         return super(NRsurResult, self).plot_corner(
             parameters, priors, titles, save, filename, dpi, **kwargs
         )

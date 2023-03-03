@@ -1,16 +1,16 @@
 """Module to build individual pages for the website"""
 
 from papermill import execute_notebook
-from ploomber_engine import execute_notebook
 import jupytext
 import os
 import nbformat
+import shutil
 
 from ..cache import CACHE
 
 HERE = os.path.dirname(__file__)
 GW_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_notebook_template.py")
-CATALOG_TEMPLATE = os.path.join(HERE, "page_templates/catalog_template.ipynb")
+CATALOG_TEMPLATE = os.path.join(HERE, "page_templates/catalog_plots.py")
 TABLE_PAGE_TEMPLATE = "events/nrsur_events_menu.md"
 
 
@@ -45,20 +45,24 @@ def convert_py_to_ipynb(py_fn) -> str:
 
 def make_gw_page(event_name: str, outdir: str):
     """Writes the GW event notebook and executes it"""
-    py_fn = f"{outdir}/{event_name}.py"
+    md_fn = f"{outdir}/{event_name}.py"
     with open(GW_PAGE_TEMPLATE, "r") as temp_f:
         txt = temp_f.read()
         txt = txt.replace("{{GW EVENT NAME}}", event_name)
-    with open(py_fn, "w") as out_f:
+    with open(md_fn, "w") as out_f:
         out_f.write(txt)
-    ipynb_fn = convert_py_to_ipynb(py_fn)
+    ipynb_fn = convert_py_to_ipynb(md_fn)
+    print(f"Running {ipynb_fn} in {outdir}")
     return execute_notebook(ipynb_fn, ipynb_fn, cwd=outdir)
 
 
 def make_catalog_page(outdir:str):
     """Writes the catalog notebook and executes it"""
+    py_fname = f"{outdir}/catalog_plots.py"
+    shutil.copyfile(CATALOG_TEMPLATE, py_fname)
+    ipynb_fn = convert_py_to_ipynb(py_fname)
     execute_notebook(
-        CATALOG_TEMPLATE,
+        ipynb_fn,
         f"{outdir}/catalog_plots.ipynb",
         cwd=outdir,
     )

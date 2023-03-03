@@ -156,7 +156,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         outdir = self.outdir if outdir == "" else outdir
         filename = os.path.join(outdir, self.label + "_waveform.png")
         fig.tight_layout()
-        fig.savefig(filename, dpi=300, bbox_inches="tight")
+        fig.savefig(filename, dpi=300, bbox_inches="tight", transparent=True)
         return fig
 
     def plot_corner(

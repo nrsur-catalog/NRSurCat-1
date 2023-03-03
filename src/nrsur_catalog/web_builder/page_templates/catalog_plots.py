@@ -1,16 +1,16 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,md:myst,py:light
+#     formats: ipynb,py:light
 #     text_representation:
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
 #       jupytext_version: 1.14.4
 #   kernelspec:
-#     display_name: venv
+#     display_name: nrsur
 #     language: python
-#     name: venv
+#     name: nrsur
 # ---
 
 # # Catalog plots 
@@ -21,20 +21,19 @@
 from nrsur_catalog import Catalog
 
 catalog = Catalog.load()
-
-# +
-from myst_nb import glue
-
-fig = catalog.violin_plot('mass_1')
-glue("mass_1", fig, display=False)
-
-fig = catalog.violin_plot('mass_ratio')
-glue("mass_ratio", fig, display=False)
-
-fig = catalog.violin_plot('chi_eff')
-glue("chi_eff", fig, display=False)
-
 # -
+
+# ## Mass 1
+
+catalog.violin_plot('mass_1')
+
+# ## Mass Ratio
+
+catalog.violin_plot('mass_ratio')
+
+# ## Chi Eff
+
+catalog.violin_plot('chi_eff')
 
 # ````{tab} Mass 1
 # ```{glue:} mass_1

@@ -5,5 +5,3 @@ chapters:
 - file: events/nrsur_events_menu
   sections:
     - glob: events/GW*
-
-- file: citation

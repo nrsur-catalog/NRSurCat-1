@@ -25,6 +25,7 @@ html:
 sphinx:
   extra_extensions:
   - sphinx_inline_tabs
+  - sphinxcontrib.bibtex
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"

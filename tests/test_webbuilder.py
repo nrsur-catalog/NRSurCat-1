@@ -11,8 +11,8 @@ class TestWebbuilder(unittest.TestCase):
     def setUp(self) -> None:
         self.num_events = 2
         self.cache_dir = get_mock_cache_dir(num_events=self.num_events)
-    def tearDown(self) -> None:
-        cleanup_mock_data()
+    # def tearDown(self) -> None:
+    #     cleanup_mock_data()
 
     def test_web(self):
         webout = "out_test_website"

@@ -13,10 +13,9 @@ CLEANUP = False
 
 
 class TestCatalog(unittest.TestCase):
-
     def setUp(self) -> None:
-        self.num_events=2
-        self.outdir = 'tmp_test'
+        self.num_events = 2
+        self.outdir = "tmp_test"
         os.makedirs(self.outdir, exist_ok=True)
         CACHE.cache_dir = get_mock_cache_dir(num_events=self.num_events)
 
@@ -30,10 +29,9 @@ class TestCatalog(unittest.TestCase):
         catalog = Catalog.load()
         fig = catalog.violin_plot("mass_1")
         fig.savefig(os.path.join(self.outdir, "violin_plot.png"))
+        catalog.interactive_violin_plot("mass_1")
+        catalog.interactive_violin_2("mass_1")
 
 
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

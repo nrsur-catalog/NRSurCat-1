@@ -38,7 +38,7 @@ EXTRA_REQUIRE = dict(
         "pytest",
         "GitPython",
         "sphinx-inline-tabs",
-        "sphinxcontrib-bibtex"
+        "sphinxcontrib-bibtex",
     ]
 )
 
@@ -51,7 +51,7 @@ setup(
     url="nrsur_catalog_url",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    package_data={NAME: ['*/**.txt']},
+    package_data={NAME: ["*/**.txt"]},
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRA_REQUIRE,

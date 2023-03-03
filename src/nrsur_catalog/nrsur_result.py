@@ -20,7 +20,9 @@ class NRsurResult(CompactBinaryCoalescenceResult):
     """Class to store the results of a NRsur event"""
 
     @classmethod
-    def load(cls, event_name: str, cache_dir: Optional[str] = CACHE.cache_dir) -> "NRsurResult":
+    def load(
+        cls, event_name: str, cache_dir: Optional[str] = CACHE.cache_dir
+    ) -> "NRsurResult":
         """Load a CBCResult from the NRSur Catalog"""
         CACHE.cache_dir = cache_dir
         if CACHE.find(event_name) is None:
@@ -169,11 +171,11 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         dpi=300,
         **kwargs,
     ):
-        labels  = []
+        labels = []
         if parameters is not None:
             labels = [LATEX_LABELS[p] for p in parameters]
-        if not 'labels' in kwargs:
-            kwargs['labels'] = labels
+        if not "labels" in kwargs:
+            kwargs["labels"] = labels
         if not "color" in kwargs:
             kwargs["color"] = CATALOG_MAIN_COLOR
 

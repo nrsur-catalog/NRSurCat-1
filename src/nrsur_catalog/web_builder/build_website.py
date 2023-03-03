@@ -28,7 +28,9 @@ HERE = os.path.dirname(__file__)
 WEB_TEMPLATE = os.path.join(HERE, "website_template")
 
 
-def build_website(event_dir: str, outdir: str, clean: bool = True, parallel_build=True) -> None:
+def build_website(
+    event_dir: str, outdir: str, clean: bool = False, parallel_build=False
+) -> None:
     """Build the website for the catalog"""
     CACHE.cache_dir = os.path.abspath(event_dir)
     CACHE.check_if_events_cached_in_zenodo()

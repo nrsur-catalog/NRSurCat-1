@@ -13,6 +13,8 @@ out*
 test_cache_dir
 test_events_dir
 test_website
+*.html
+*.ipynb
 .nrsur_catalog_cache/
 
 # Byte-compiled / optimized / DLL files

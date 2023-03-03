@@ -15,6 +15,7 @@ TITLE = "NRSurrogate Catalog Posteriors"
 def _commit_url_file():
     try:
         import git
+
         repo_root = os.path.join(HERE, "../../..")
         repo = git.Repo(repo_root)
         repo.git.add(URL_FILE)
@@ -28,6 +29,7 @@ def cache_zenodo_urls_file(sandbox=True) -> None:
     """Update the file URLs to the data on zenodo"""
     from zenodo_get import zenodo_get
     from zenodo_python import Deposition
+
     zeno = Deposition.from_title(title=TITLE, test=sandbox)
     logger.info(f"Zenodo {zeno} has {len(zeno.files)} files. Caching download URLs.")
     zeno.save_wget_file(URL_FILE)

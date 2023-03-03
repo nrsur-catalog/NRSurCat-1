@@ -19,6 +19,7 @@
 # %matplotlib inline
 
 import pandas as pd
+
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 # ! python -m pip install --upgrade pip -q
@@ -31,6 +32,7 @@ pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 # + tags=["remove-output"]
 from nrsur_catalog import NRsurResult
+
 nrsur_result = NRsurResult.load("{{GW EVENT NAME}}")
 # you can specify a `cache_dir`: folder where data will be downloaded (defaults to "~/.nrsur_catalog_cache")
 # -

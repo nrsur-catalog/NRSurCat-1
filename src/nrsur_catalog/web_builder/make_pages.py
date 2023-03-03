@@ -18,7 +18,9 @@ def make_events_menu_page(outdir: str) -> None:
     """Writes the events menu page"""
     fname = f"{outdir}/{TABLE_PAGE_TEMPLATE}"
     os.makedirs(os.path.dirname(fname), exist_ok=True)
-    top_text = "# NRSur Events\nTable of all the events analyses in the NRSur Catalog.\n"
+    top_text = (
+        "# NRSur Events\nTable of all the events analyses in the NRSur Catalog.\n"
+    )
     table = "|NRSurrogate Fits| |\n"
     table += "|:---------------:|:---------------:|\n"
     for event_name in CACHE.event_names:
@@ -52,11 +54,10 @@ def make_gw_page(event_name: str, outdir: str):
     with open(md_fn, "w") as out_f:
         out_f.write(txt)
     ipynb_fn = convert_py_to_ipynb(md_fn)
-    print(f"Running {ipynb_fn} in {outdir}")
     return execute_notebook(ipynb_fn, ipynb_fn, cwd=outdir)
 
 
-def make_catalog_page(outdir:str):
+def make_catalog_page(outdir: str):
     """Writes the catalog notebook and executes it"""
     py_fname = f"{outdir}/catalog_plots.py"
     shutil.copyfile(CATALOG_TEMPLATE, py_fname)

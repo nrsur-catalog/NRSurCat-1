@@ -8,10 +8,6 @@ from tqdm.auto import tqdm
 from .logger import logger
 
 
-
-
-
-
 INTERESTING_PARAMETERS = {
     "Mass Parameters": ["mass_1", "mass_2", "chirp_mass", "mass_ratio"],
     "Spin Parameters": ["a_1", "a_2", "tilt_1", "tilt_2", "chi_eff", "chi_p"],
@@ -59,6 +55,7 @@ LATEX_LABELS = dict(
     phi_12=r"$\phi_{12}$",
     theta_jn=r"$\theta_{\mathrm{JN}}$",
 )
+
 
 def get_size_of_file(filename: str) -> str:
     """Get the size of a file in human-readable format"""

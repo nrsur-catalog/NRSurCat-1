@@ -44,7 +44,7 @@ def get_cli_args(args=None) -> argparse.Namespace:
 
 
 def download_event(
-        event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
+    event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
 ) -> None:
     """Download the NRSur Catlog events from Zenodo given the event name"""
 
@@ -67,11 +67,9 @@ def download_event(
     logger.info("Completed! Enjoy your event!")
 
 
-def download_all_events(cache_dir:str) -> None:
+def download_all_events(cache_dir: str) -> None:
     """Download all NRSur Catlog events from Zenodo"""
     analysed_events = get_zenodo_urls()
     logger.info(f"Downloading all {len(analysed_events)} events...")
     for event_name in analysed_events:
         download_event(event_name, cache_dir=cache_dir)
-
-

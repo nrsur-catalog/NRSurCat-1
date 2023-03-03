@@ -13,7 +13,11 @@
 #     name: nrsur
 # ---
 
-# # Catalog plots 
+# + tags=["remove-cell"]
+# %matplotlib inline
+# -
+
+# # Catalog plots
 #
 # Here we have some catalog plots showing the ensemble results of the catalog (working on making these plotly-plots).
 
@@ -25,25 +29,30 @@ catalog = Catalog.load()
 
 # ## Mass 1
 
-catalog.violin_plot('mass_1')
+catalog.violin_plot("mass_1")
 
 # ## Mass Ratio
 
-catalog.violin_plot('mass_ratio')
+catalog.violin_plot("mass_ratio")
 
 # ## Chi Eff
 
-catalog.violin_plot('chi_eff')
+catalog.violin_plot("chi_eff")
 
 # ````{tab} Mass 1
-# ```{glue:} mass_1
-# ```
+# ![mass_1_violin.png](mass_1_violin.png)
 # ````
 # ````{tab} Mass Ratio
-# ```{glue:} mass_ratio
-# ```
+# ![mass_ratio_violin.png](mass_ratio_violin.png)
 # ````
 # ````{tab} Chi Eff
-# ```{glue:} chi_eff
-# ```
+# ![chi_eff_violin.png](chi_eff_violin.png)
 # ````
+
+# ## Interactive violin 1
+
+catalog.interactive_violin_plot("mass_1")
+
+# ## Interactive violin 2
+
+catalog.interactive_violin_2("mass_1")

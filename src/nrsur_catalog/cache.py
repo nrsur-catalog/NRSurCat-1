@@ -27,10 +27,8 @@ class _CatalogCache:
         if cache_dir is None:
             logger.error("Cache dir cannot be None, setting to default")
             cache_dir = env_cache
-        if env_cache != cache_dir :
-            logger.warning(
-                f"Overwriting cache dir {env_cache} with {cache_dir}"
-            )
+        if env_cache != cache_dir:
+            logger.warning(f"Overwriting cache dir {env_cache} with {cache_dir}")
         logger.info("Setting cache dir to: {}".format(cache_dir))
         os.environ[CACHE_ENV_VAR] = cache_dir
         self._cache = cache_dir
@@ -63,7 +61,6 @@ class _CatalogCache:
             )
         return None
 
-
     def check_if_events_cached_in_zenodo(self):
         """Return a list of events that are in the cache and in Zenodo"""
         zenodo_events = set(get_zenodo_urls().keys())
@@ -80,5 +77,6 @@ class _CatalogCache:
     @property
     def is_empty(self):
         return len(self.list) == 0
+
 
 CACHE = _CatalogCache()  # create a singleton instance of the cache

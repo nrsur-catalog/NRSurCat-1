@@ -7,10 +7,10 @@ import glob
 
 
 class TestWebbuilder(unittest.TestCase):
-
     def setUp(self) -> None:
         self.num_events = 2
         self.cache_dir = get_mock_cache_dir(num_events=self.num_events)
+
     # def tearDown(self) -> None:
     #     cleanup_mock_data()
 
@@ -27,8 +27,6 @@ class TestWebbuilder(unittest.TestCase):
         images = glob.glob(f"{html_dir}/_images/*waveform.png")
         self.assertEqual(len(event_nbs), self.num_events)
         self.assertEqual(len(images), self.num_events)
-
-
 
 
 if __name__ == "__main__":

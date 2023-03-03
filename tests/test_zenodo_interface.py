@@ -4,7 +4,6 @@ from generate_mock_data import get_mock_cache_dir, cleanup_mock_data
 
 
 class TestZenodoInterface(unittest.TestCase):
-
     def test_update_cache(self):
         zenodo_interface.cache_zenodo_urls_file(sandbox=True)
 
@@ -14,5 +13,5 @@ class TestZenodoInterface(unittest.TestCase):
         self.assertTrue(zenodo_interface.check_if_event_in_zenodo(event0))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

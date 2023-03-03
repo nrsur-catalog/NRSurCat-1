@@ -21,24 +21,17 @@
 #
 # Here we have some catalog plots showing the ensemble results of the catalog (working on making these plotly-plots).
 
-# +
+# + tags=["remove-output"]
 from nrsur_catalog import Catalog
 
 catalog = Catalog.load()
+catalog.violin_plot("mass_1")
+catalog.violin_plot("mass_ratio")
+catalog.violin_plot("chi_eff")
 # -
 
-# ## Mass 1
-
-catalog.violin_plot("mass_1")
-
-# ## Mass Ratio
-
-catalog.violin_plot("mass_ratio")
-
-# ## Chi Eff
-
-catalog.violin_plot("chi_eff")
-
+# ## Violin Plots
+#
 # ````{tab} Mass 1
 # ![mass_1_violin.png](mass_1_violin.png)
 # ````

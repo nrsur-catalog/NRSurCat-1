@@ -49,22 +49,23 @@ def build_website(
 
     event_ipynb_dir = os.path.join(outdir, "events")
 
-    if parallel_build:
-        num_threads = cpu_count() // 2
-        if num_events < num_threads:
-            num_threads = num_events
-        logger.info(f"Executing GW event notebooks with {num_threads} threads")
-        process_map(
-            make_gw_page,
-            event_names,
-            repeat(event_ipynb_dir),
-            desc="Executing GW Notebooks",
-            max_workers=num_threads,
-            total=len(CACHE.event_names),
-        )
-    else:
-        for name in tqdm(event_names, desc="Executing GW notebooks"):
-            make_gw_page(name, event_ipynb_dir)
+    if clean:
+        if parallel_build:
+            num_threads = cpu_count() // 2
+            if num_events < num_threads:
+                num_threads = num_events
+            logger.info(f"Executing GW event notebooks with {num_threads} threads")
+            process_map(
+                make_gw_page,
+                event_names,
+                repeat(event_ipynb_dir),
+                desc="Executing GW Notebooks",
+                max_workers=num_threads,
+                total=len(CACHE.event_names),
+            )
+        else:
+            for name in tqdm(event_names, desc="Executing GW notebooks"):
+                make_gw_page(name, event_ipynb_dir)
 
     logger.info("Executing catalog notebook")
     make_catalog_page(outdir)

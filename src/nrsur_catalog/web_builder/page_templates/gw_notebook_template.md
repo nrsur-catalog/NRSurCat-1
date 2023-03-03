@@ -43,25 +43,56 @@ nrsur_result.posterior_summary()
 ## Corner Plots
 ### Mass
 
+````{tab} NRsur7dq4
 ```python tags=["hide-input"]
 fig = nrsur_result.plot_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
 ```
+````
+````{tab} LVK Comparison
+```python tags=["hide-input"]
+fig = nrsur_result.plot_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
+```
+````
+
+
+
 
 ### Spin
 
+````{tab} NRsur7dq4
 ```python tags=["hide-input"]
 fig = nrsur_result.plot_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
 ```
+````
+````{tab} LVK Comparison
+```python tags=["hide-input"]
+fig = nrsur_result.plot_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
+```
+````
 
+````{tab} NRsur7dq4
 ```python tags=["hide-input"]
 fig = nrsur_result.plot_corner(["mass_ratio", "chi_eff", "chi_p"])
 ```
+````
+````{tab} LVK Comparison
+```python tags=["hide-input"]
+fig = nrsur_result.plot_corner(["mass_ratio", "chi_eff", "chi_p"])
+```
+````
 
 ### Sky-localisation
 
+````{tab} NRsur7dq4
 ```python tags=["hide-input"]
 fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
 ```
+````
+````{tab} LVK Comparison
+```python tags=["hide-input"]
+fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
+```
+````
 
 ## Waveform posterior-predictive plot
 

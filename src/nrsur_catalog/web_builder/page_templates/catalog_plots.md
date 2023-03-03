@@ -15,7 +15,7 @@ jupyter:
 
 # Catalog plots 
 
-Here we have some catalog plots showing the ensemble results of the catalog
+Here we have some catalog plots showing the ensemble results of the catalog (working on making these plotly-plots).
 
 ```python
 from nrsur_catalog import Catalog
@@ -23,10 +23,18 @@ from nrsur_catalog import Catalog
 catalog = Catalog.load()
 ```
 
+````{tab} Mass 1
 ```python
 catalog.violin_plot('mass_1');
 ```
-
+````
+````{tab} Mass Ratio
+```python
+catalog.violin_plot('mass_ratio');
+```
+````
+````{tab} Chi Eff
 ```python
 catalog.violin_plot('chi_eff');
 ```
+````

@@ -13,7 +13,9 @@
 #     name: nrsur
 # ---
 
-# + tags=["hide-cell"]
+# <a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/events/{{GW EVENT NAME}}.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+
+# + tags=["remove-input"]
 # %load_ext autoreload
 # %autoreload 2
 # %matplotlib inline
@@ -21,10 +23,9 @@
 import pandas as pd
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
-
-# ! python -m pip install --upgrade pip -q
-# ! pip install "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg" -q
 # -
+
+# ! pip install "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg" -q
 
 # # {{GW EVENT NAME}}
 #
@@ -37,35 +38,125 @@ nrsur_result = NRsurResult.load("{{GW EVENT NAME}}")
 # you can specify a `cache_dir`: folder where data will be downloaded (defaults to "~/.nrsur_catalog_cache")
 # -
 
-nrsur_result.posterior_summary()
+# ## Summary 
+
+# + tags=["remove-output"]
+nrsur_result.summary()
+# -
+
+#
+# {{SUMMARY_TABLE}}
+#
+
+# Lets make some plots! 
+
+# + tags=["hide-input", "remove-output"]
+# NRSurrogate corner plots
+fig = nrsur_result.plot_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
+fig.savefig("{{GW EVENT NAME}}_mass_corner.png")
+fig = nrsur_result.plot_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
+fig.savefig("{{GW EVENT NAME}}_spin_corner.png")
+fig = nrsur_result.plot_corner(["mass_ratio", "chi_eff", "chi_p"])
+fig.savefig("{{GW EVENT NAME}}_effective_spin.png")
+fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
+fig.savefig("{{GW EVENT NAME}}_sky_localisation.png")
+
+# LVK-Comparison plots
+# -
 
 # ## Corner Plots
+#
 # ### Mass
-
-# + tags=["hide-input"]
-fig = nrsur_result.plot_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
-# -
-
+#
+#
+# ::::{tab-set}
+#
+# :::{tab-item} NRSurrogate
+# :sync: key1
+#
+# !["{{GW EVENT NAME}}_mass_corner.png"]({{GW EVENT NAME}}_mass_corner.png)
+# :::
+#
+# :::{tab-item} LVK-Comparison
+# :sync: key2
+#
+# !["{{GW EVENT NAME}}_mass_corner.png"]({{GW EVENT NAME}}_mass_corner.png)
+# :::
+#
+# ::::
+#
+#
+#
 # ### Spin
-
-# + tags=["hide-input"]
-fig = nrsur_result.plot_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
-
-# + tags=["hide-input"]
-fig = nrsur_result.plot_corner(["mass_ratio", "chi_eff", "chi_p"])
-# -
-
+#
+#
+# ::::{tab-set}
+#
+# :::{tab-item} NRSurrogate
+# :sync: key1
+#
+# !["{{GW EVENT NAME}}_spin_corner.png"]({{GW EVENT NAME}}_spin_corner.png)
+# :::
+#
+# :::{tab-item} LVK-Comparison
+# :sync: key2
+#
+# !["{{GW EVENT NAME}}_spin_corner.png"]({{GW EVENT NAME}}_spin_corner.png)
+# :::
+#
+# ::::
+#
+#
+# ### Effective Spin
+#
+#
+# ::::{tab-set}
+#
+# :::{tab-item} NRSurrogate
+# :sync: key1
+#
+# !["{{GW EVENT NAME}}_effective_spin.png"]({{GW EVENT NAME}}_effective_spin.png)
+# :::
+#
+# :::{tab-item} LVK-Comparison
+# :sync: key2
+#
+# !["{{GW EVENT NAME}}_effective_spin.png"]({{GW EVENT NAME}}_effective_spin.png)
+# :::
+#
+# ::::
+#
+#
+#
 # ### Sky-localisation
-
-# + tags=["hide-input"]
-fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
-# -
+#
+#
+# ::::{tab-set}
+#
+# :::{tab-item} NRSurrogate
+# :sync: key1
+#
+# !["{{GW EVENT NAME}}_sky_localisation.png"]({{GW EVENT NAME}}_sky_localisation.png)
+# :::
+#
+# :::{tab-item} LVK-Comparison
+# :sync: key2
+#
+# !["{{GW EVENT NAME}}_sky_localisation.png"]({{GW EVENT NAME}}_sky_localisation.png)
+# :::
+#
+# ::::
+#
+#
+#
 
 # ## Waveform posterior-predictive plot
 
-# + tags=["hide-input"]
+# + tags=["hide-input", "remove-output"]
 fig = nrsur_result.plot_signal(outdir=".")
 # -
+
+# ![waveform]({{GW EVENT NAME}}_waveform.png)
 
 # ## Analysis configs
 # Below are the configs used for the analysis of this job.

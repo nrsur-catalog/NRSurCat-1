@@ -1,6 +1,6 @@
 import contextlib
 import os
-from typing import Optional
+from typing import Optional, List
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -11,7 +11,8 @@ from .api import download_event
 from .cache import CACHE
 from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree
-from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS
+from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
+
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -31,12 +32,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         event_path = CACHE.find(event_name)
         r = cls.from_json(event_path)
         r.path_to_result = event_path
-        r.outdir = os.path.join("out_nrsur_catalog", event_name)
+        r.outdir = os.path.join(CACHE.cache_dir, event_name)
         r.label = event_name
         os.makedirs(r.outdir, exist_ok=True)
         return r
 
-    def posterior_summary(self):
+    def summary(self, markdown: bool = False) -> str:
         """Generate a table of the event parameters"""
 
         selected_parameters = []
@@ -46,9 +47,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         for _, parameters in INTERESTING_PARAMETERS.items():
             for parameter in parameters:
                 if parameter in self.posterior:
-                    selected_parameters.append(parameter)
+                    selected_parameters.append(LATEX_LABELS[parameter])
                     summary_str.append(get_1d_summary_str(self.posterior[parameter]))
-                    priors.append(str(self.priors.get(parameter, "NA")))
+                    pri = self.priors.get(parameter, "$-$")
+                    if pri != "$-$":
+                        pri = prior_to_str(pri)
+                    priors.append(pri)
 
         df = pd.DataFrame(
             {
@@ -59,7 +63,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         )
         df.index = df["Parameter"]
         df = df.drop(columns=["Parameter"])
-        return df
+        if markdown:
+            md_txt = df.to_markdown()
+            md_txt = "\n".join([f"# {line}" for line in md_txt.splitlines()])
+            return "\n" + md_txt
+        else:
+            return df
 
     def plot_skymap(self, *args, **kwargs):
         """Generate a skymap of the event"""
@@ -79,11 +88,11 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
     def plot_signal(
         self,
-        n_samples=1000,
-        level=0.9,
-        color=CATALOG_MAIN_COLOR,
-        polarisation="plus",
-        outdir="",
+        n_samples:Optional[int]=1000,
+        level:Optional[float]=0.9,
+        color:Optional[str]=CATALOG_MAIN_COLOR,
+        polarisation:Optional[str]="plus",
+        outdir:Optional[str]="",
     ):
         """Generate a signal plot of the event
 
@@ -163,12 +172,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
     def plot_corner(
         self,
-        parameters=None,
-        priors=None,
-        titles=True,
-        save=False,
-        filename=None,
-        dpi=300,
+        parameters:Optional[List[str]]=None,
+        priors:Optional[bool]=None,
+        titles:Optional[List[str]]=True,
+        save:Optional[bool]=False,
+        filename:Optional[str]=None,
+        dpi:Optional[int]=300,
         **kwargs,
     ):
         labels = []
@@ -182,6 +191,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         return super(NRsurResult, self).plot_corner(
             parameters, priors, titles, save, filename, dpi, **kwargs
         )
+
+
+    def plot_lvk_comparison_corner(self, parameters:List[str]):
+        """Plot a corner plot comparing the posterior to the LVK catalog"""
+        pass
+
 
     def print_configs(self):
         logger.info("To be implemented...")

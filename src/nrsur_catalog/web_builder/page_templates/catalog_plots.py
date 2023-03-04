@@ -13,6 +13,8 @@
 #     name: nrsur
 # ---
 
+# <a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/catalog_plots.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+
 # + tags=["remove-cell"]
 # %matplotlib inline
 # -
@@ -32,13 +34,13 @@ catalog.violin_plot("chi_eff")
 
 # ## Violin Plots
 #
-# ````{tab} Mass 1
+# ````{tab} $m_1$
 # ![mass_1_violin.png](mass_1_violin.png)
 # ````
-# ````{tab} Mass Ratio
+# ````{tab} $q$
 # ![mass_ratio_violin.png](mass_ratio_violin.png)
 # ````
-# ````{tab} Chi Eff
+# ````{tab} $\chi_{\text{EFF}}$
 # ![chi_eff_violin.png](chi_eff_violin.png)
 # ````
 

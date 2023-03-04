@@ -116,7 +116,7 @@ def generate_fake_posterior(npts=100):
 
 
 def generate_fake_result(
-    n=100, outdir="outdir", event_name="test", fname=None, save=True
+    n=100, outdir="outdir", event_name="test", fname=None, save=True,
 ):
     bilby.utils.command_line_args.bilby_test_mode = False
     priors = bilby.gw.prior.BBHPriorDict()
@@ -126,7 +126,7 @@ def generate_fake_result(
     result = CompactBinaryCoalescenceResult(
         label=event_name,
         outdir=outdir,
-        sampler="nestle",
+        sampler="dynesty",
         search_parameter_keys=list(priors.keys()),
         fixed_parameter_keys=list(),
         priors=bilby.gw.prior.BBHPriorDict(),
@@ -172,7 +172,7 @@ def get_mock_results(num_events=3, pts=1000):
     return res_dic
 
 
-def get_mock_cache_dir(test_dir=TEST_DIR, num_events=3, symlinks=True, pts=100):
+def get_mock_cache_dir(test_dir=TEST_DIR, num_events=3, symlinks=True, pts=100, end_label=END_LABEL):
     assert num_events > 0
     events = [f"GW{n}" for n in np.random.randint(159999, 209999, num_events)]
     events[0] = "GW170729"
@@ -181,7 +181,7 @@ def get_mock_cache_dir(test_dir=TEST_DIR, num_events=3, symlinks=True, pts=100):
     os.makedirs(test_dir, exist_ok=False)
     test_filename = ""
     for i, event_names in enumerate(events):
-        new_fname = os.path.join(test_dir, f"{event_names}{END_LABEL}.json")
+        new_fname = os.path.join(test_dir, f"{event_names}{end_label}.json")
         if i == 0:
             test_filename = generate_fake_result(fname=new_fname, n=pts)
         else:

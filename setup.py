@@ -32,6 +32,7 @@ EXTRA_REQUIRE = dict(
         "jupyter-book>=0.13.2",
         "zenodo_python @ git+https://github.com/avivajpeyi/zenodo-python.git@main#egg",
         "ploomber-engine>=0.0.23",
+        "tabulate",
         "jupytext",  # for converting py-ipynb
         "ghp-import",  # for publishing to github pages
         "sphinx_inline_tabs",  # for tabs (https://sphinx-inline-tabs.readthedocs.io/en/latest/)

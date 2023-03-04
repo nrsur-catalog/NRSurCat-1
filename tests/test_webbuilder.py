@@ -19,6 +19,7 @@ class TestWebbuilder(unittest.TestCase):
         build_website(
             event_dir=self.cache_dir,
             outdir=webout,
+            clean=True,
         )
         self.assertTrue(os.path.exists(webout))
         html_dir = os.path.join(webout, "_build/html")

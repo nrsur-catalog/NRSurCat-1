@@ -7,6 +7,7 @@ import nbformat
 import shutil
 
 from ..cache import CACHE
+from ..nrsur_result import NRsurResult
 
 HERE = os.path.dirname(__file__)
 GW_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_notebook_template.py")
@@ -48,9 +49,12 @@ def convert_py_to_ipynb(py_fn) -> str:
 def make_gw_page(event_name: str, outdir: str):
     """Writes the GW event notebook and executes it"""
     md_fn = f"{outdir}/{event_name}.py"
+    nrsurr_res = NRsurResult.load(event_name)
+    summary_md = nrsurr_res.summary(markdown=True)
     with open(GW_PAGE_TEMPLATE, "r") as temp_f:
         txt = temp_f.read()
         txt = txt.replace("{{GW EVENT NAME}}", event_name)
+        txt = txt.replace("{{SUMMARY_TABLE}}", summary_md)
     with open(md_fn, "w") as out_f:
         out_f.write(txt)
     ipynb_fn = convert_py_to_ipynb(md_fn)

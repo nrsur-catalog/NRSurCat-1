@@ -4,6 +4,7 @@ import numpy as np
 import re
 import requests
 from tqdm.auto import tqdm
+from bilby.core.prior import Prior
 
 from .logger import logger
 
@@ -24,7 +25,6 @@ INTERESTING_PARAMETERS = {
         "psi",
         "phi_jl",
         "phi_12",
-        "phi_jl",
         "theta_jn",
     ],
 }
@@ -33,9 +33,9 @@ INTERESTING_PARAMETERS = {
 CATALOG_MAIN_COLOR = "tab:orange"
 
 LATEX_LABELS = dict(
-    mass_1=r"$m_1$",
-    mass_2=r"$m_2$",
-    chirp_mass=r"$\mathcal{M} [M_{\odot}]$",
+    mass_1=r"$m_1\ [M_{\odot}]$",
+    mass_2=r"$m_2\ [M_{\odot}]$",
+    chirp_mass=r"$\mathcal{M}\ [M_{\odot}]$",
     mass_ratio=r"$q$",
     a_1=r"$a_1$",
     a_2=r"$a_2$",
@@ -45,8 +45,8 @@ LATEX_LABELS = dict(
     chi_p=r"$\chi_{\mathrm{p}}$",
     ra=r"$\alpha$",
     dec=r"$\delta$",
-    geocent_time=r"$t_c$",
-    luminosity_distance=r"$d_L$",
+    geocent_time=r"$t_c\ [s]$",
+    luminosity_distance=r"$d_L\ [Mpc]$",
     phase=r"$\phi$",
     azimuth=r"$\phi$",
     zenith=r"$\theta$",
@@ -117,3 +117,18 @@ def download(url: str, fname: str) -> None:
         for data in resp.iter_content(chunk_size=1024):
             size = file.write(data)
             bar.update(size)
+
+
+def prior_to_str(prior:Prior):
+    """Convert a prior to a string"""
+    # get class name
+    name = prior.__class__.__name__
+    min_val, max_val = None, None
+    if hasattr(prior, "minimum"):
+        min_val = round(prior.minimum, 2)
+    if hasattr(prior, "maximum"):
+        max_val = round(prior.maximum, 2)
+    repr = r"$\text{" + name + "}"
+    if min_val is not None and max_val is not None:
+        repr += f" [{min_val}, {max_val}]"
+    return repr + "$"

@@ -10,8 +10,11 @@ class TestZenodoInterface(unittest.TestCase):
     def test_names_of_events(self):
         events = zenodo_interface.get_zenodo_urls()
         event0 = events.keys()[0]
-        self.assertTrue(zenodo_interface.check_if_event_in_zenodo(event0))
+        present, name = zenodo_interface.check_if_event_in_zenodo(event0)
+        self.assertTrue(present)
 
+    def test_zenodo_check(self):
+        zenodo_interface.check_if_event_in_zenodo("GW150914", lvk_posteriors=True)
 
 if __name__ == "__main__":
     unittest.main()

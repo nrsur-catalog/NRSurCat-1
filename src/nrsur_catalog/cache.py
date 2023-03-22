@@ -9,7 +9,8 @@ from .api.zenodo_interface import get_zenodo_urls
 
 CACHE_ENV_VAR = "NRSUR_CATALOG_CACHE_DIR"
 DEFAULT_CACHE_DIR = os.path.abspath("./.nrsur_catalog_cache")
-FILE_EXTENSION = "_NRSur7dq4_merged_result.json"
+NR_FILE_EXTENSION = "_NRSur7dq4_merged_result.json"
+LVK_FILE_EXTENSION = "_mixed_cosmo.h5"
 
 
 class _CatalogCache:
@@ -35,9 +36,17 @@ class _CatalogCache:
         os.makedirs(self._cache, exist_ok=True)
 
     @property
-    def list(self) -> List[str]:
+    def list(self):
+        return self._list()
+
+    @property
+    def list_lvk(self):
+        return self._list(lvk_posteriors=True)
+
+    def _list(self, lvk_posteriors=False) -> List[str]:
         """List the contents of the cache directory (sorted by number in filename)"""
-        file_regex = os.path.join(self.cache_dir, f"*{FILE_EXTENSION}")
+        file_extension = LVK_FILE_EXTENSION if lvk_posteriors else NR_FILE_EXTENSION
+        file_regex = os.path.join(self.cache_dir, f"*{file_extension}")
         files = glob(file_regex)
         files = sorted(
             files, key=lambda x: int(re.findall(r"\d+", os.path.basename(x))[0])
@@ -49,9 +58,15 @@ class _CatalogCache:
         """List the event names in the cache directory"""
         return [get_event_name(f) for f in self.list]
 
-    def find(self, name: str, hard_fail=False) -> Union[str, None]:
+    @property
+    def event_names_lvk(self) -> List[str]:
+        """List the event names in the cache directory"""
+        return [get_event_name(f) for f in self.list_lvk]
+
+    def find(self, name: str, hard_fail=False, lvk_posteriors=False) -> str:
         """Find a file in the cache directory"""
-        filepath = f"{self.cache_dir}/{name}{FILE_EXTENSION}"
+        file_extension = LVK_FILE_EXTENSION if lvk_posteriors else NR_FILE_EXTENSION
+        filepath = f"{self.cache_dir}/{name}{file_extension}"
         if os.path.exists(filepath):
             return filepath
         if hard_fail:
@@ -59,11 +74,12 @@ class _CatalogCache:
             raise FileNotFoundError(
                 f"Could not find {name} in cache dir {self.cache_dir}"
             )
-        return None
+        return ""
 
-    def check_if_events_cached_in_zenodo(self):
+
+    def check_if_events_cached_in_zenodo(self, lvk_posteriors=False):
         """Return a list of events that are in the cache and in Zenodo"""
-        zenodo_events = set(get_zenodo_urls().keys())
+        zenodo_events = set(get_zenodo_urls(lvk_posteriors).keys())
         local_events = set(self.event_names)
         if zenodo_events != local_events:
             logger.warning(

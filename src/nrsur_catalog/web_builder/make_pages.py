@@ -1,6 +1,7 @@
 """Module to build individual pages for the website"""
 
-from papermill import execute_notebook
+from ploomber_engine import execute_notebook
+from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
 import jupytext
 import os
 import nbformat
@@ -58,7 +59,9 @@ def make_gw_page(event_name: str, outdir: str):
     with open(md_fn, "w") as out_f:
         out_f.write(txt)
     ipynb_fn = convert_py_to_ipynb(md_fn)
-    return execute_notebook(ipynb_fn, ipynb_fn, cwd=outdir)
+    return execute_notebook(
+        ipynb_fn, ipynb_fn, cwd=outdir, save_profiling_data=True, profile_memory=True
+    )
 
 
 def make_catalog_page(outdir: str):
@@ -70,4 +73,5 @@ def make_catalog_page(outdir: str):
         ipynb_fn,
         f"{outdir}/catalog_plots.ipynb",
         cwd=outdir,
+        save_profiling_data = True, profile_memory = True
     )

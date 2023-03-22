@@ -6,8 +6,6 @@ from nrsur_catalog import NRsurResult
 from generate_mock_data import get_mock_cache_dir, cleanup_mock_data
 from nrsur_catalog.cache import CACHE
 
-# from nrsur_catalog.api.zenodo_interface import upload_to_zenodo
-from nrsur_catalog.api.zenodo_interface import check_if_event_in_zenodo
 
 
 class TestGWResult(unittest.TestCase):
@@ -37,3 +35,4 @@ class TestGWResult(unittest.TestCase):
     #     self.assertTrue(len(CACHE.event_names)==0)
     #     self.nrsur_result = NRsurResult.load(event, cache_dir=CACHE.cache_dir)
     #     self.assertEqual(CACHE.event_names[0], event)
+

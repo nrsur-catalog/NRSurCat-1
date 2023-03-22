@@ -23,9 +23,19 @@
 import pandas as pd
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
-# -
+import os
+print(os.getcwd())
 
-# ! pip install "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg" -q
+# +
+import pip
+
+
+try:
+    __import__("nrsur_catalog")
+except ImportError:
+    pip.main(['install', "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg", "-q"])   
+
+# -
 
 # # {{GW EVENT NAME}}
 #

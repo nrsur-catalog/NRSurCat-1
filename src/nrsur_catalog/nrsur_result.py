@@ -12,6 +12,7 @@ from .cache import CACHE
 from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree
 from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
+from .lvk_posterior import get_lvk_posterior
 
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
@@ -20,13 +21,17 @@ pd.set_option("display.max_rows", None, "display.max_columns", None)
 class NRsurResult(CompactBinaryCoalescenceResult):
     """Class to store the results of a NRsur event"""
 
+    def __init__(self, *args, **kwargs):
+        super(NRsurResult, self).__init__(*args, **kwargs)
+        self._lvk_posterior = None
+
     @classmethod
     def load(
         cls, event_name: str, cache_dir: Optional[str] = CACHE.cache_dir
     ) -> "NRsurResult":
         """Load a CBCResult from the NRSur Catalog"""
         CACHE.cache_dir = cache_dir
-        if CACHE.find(event_name) is None:
+        if not CACHE.find(event_name):
             logger.debug(f"{event_name} not in {CACHE.event_names}, downloading...")
             download_event(event_name, cache_dir)
         event_path = CACHE.find(event_name)
@@ -211,3 +216,8 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         logger.info("Downloading calibration files")
         logger.info("writing analysis config file")
         logger.info(f"Files:\n{get_dir_tree(outdir)}")
+
+    def lvk_posterior(self):
+        if self._lvk_posterior is None:
+            self._lvk_posterior = get_lvk_posterior(self.label)
+        return self._lvk_posterior

@@ -1,12 +1,9 @@
-import unittest
 import os.path
 import unittest
 import shutil
 
-from nrsur_catalog import NRsurResult
 from generate_mock_data import get_mock_cache_dir, cleanup_mock_data
 from nrsur_catalog.cache import CACHE
-from nrsur_catalog.api.zenodo_interface import check_if_event_in_zenodo
 from nrsur_catalog import Catalog
 
 CLEANUP = False

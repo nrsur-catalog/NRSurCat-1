@@ -14,6 +14,11 @@ class TestUtils(unittest.TestCase):
             ),
             "GW150914",
         )
+        self.assertEqual(
+            get_event_name(
+                "https://zenodo.org/record/5546663/files/IGWN-GWTC3p0-v1-GW200209_085452_PEDataRelease_mixed_cosmo.h5"
+            ), "GW200209_085452"
+        )
 
 
 if __name__ == "__main__":

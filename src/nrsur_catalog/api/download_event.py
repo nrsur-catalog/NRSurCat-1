@@ -1,17 +1,23 @@
-"""Module containing API to let users download NRSur Catlog events from Zenodo"""
+"""Module containing API to let users download NRSur Catlog events from Zenodo
+
+NOTE:
+    GWTC3: https://zenodo.org/record/5546663
+    GWTC2.1: https://zenodo.org/record/6513631
+
+"""
 import argparse
 import os.path
 import sys
 
-from typing import Optional
+from typing import Optional, Tuple
 
 from ..cache import CACHE, DEFAULT_CACHE_DIR
 from ..logger import logger
-from .zenodo_interface import get_zenodo_urls
+from .zenodo_interface import get_zenodo_urls, check_if_event_in_zenodo
 from ..utils import download
 
 
-def get_cli_args(args=None) -> argparse.Namespace:
+def get_cli_args(args=None) -> Tuple[str, bool, str]:
     """Get the NRSur Catlog event name from the CLI and return it"""
 
     if args is None:
@@ -22,7 +28,7 @@ def get_cli_args(args=None) -> argparse.Namespace:
         "event_name",
         type=str,
         default="",
-        help="The name of the NRSur Catlog event to be downloaded (e.g. GW190521)",
+        help="The name of the event to be downloaded (e.g. GW190521)",
     )
     parser.add_argument(
         "--cache-dir",
@@ -44,26 +50,33 @@ def get_cli_args(args=None) -> argparse.Namespace:
 
 
 def download_event(
-    event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
+    event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR, download_lvk: bool = False
 ) -> None:
     """Download the NRSur Catlog events from Zenodo given the event name"""
 
     CACHE.cache_dir = cache_dir
-    if event_name in CACHE.list:  # Check if the event is already cached
+
+    present, event_name = check_if_event_in_zenodo(event_name, lvk_posteriors=download_lvk)
+
+    if not present:
+        logger.debug("Event not found in Zenodo")
+        return
+
+    if event_name in CACHE.find(event_name, lvk_posteriors=download_lvk):  # Check if the event is already cached
         logger.debug(f"Fit {event_name} already downloaded")
         return
 
-    analysed_events = get_zenodo_urls()
-    if event_name not in analysed_events:
+    url_dict = get_zenodo_urls(lvk_posteriors=download_lvk)
+    if event_name not in url_dict:
         raise ValueError(
-            f"{event_name} has not been analysed yet -- please choose from {list(analysed_events.keys())}"
+            f"{event_name} has not been analysed yet -- please choose from {list(url_dict.keys())}"
         )
 
-    url = analysed_events[event_name]
+    url = url_dict[event_name]
     fname = url.split("/")[-1]
     savepath = os.path.join(cache_dir, fname)
     logger.info(f"Downloading {event_name} from the NRSur Catalog -> {savepath}...")
-    download(analysed_events[event_name], savepath)
+    download(url_dict[event_name], savepath)
     logger.info("Completed! Enjoy your event!")
 
 

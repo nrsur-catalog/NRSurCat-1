@@ -6,7 +6,7 @@ import requests
 from tqdm.auto import tqdm
 from bilby.core.prior import Prior
 
-from .logger import logger
+from ..logger import logger
 
 
 INTERESTING_PARAMETERS = {

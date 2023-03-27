@@ -1,4 +1,4 @@
-This folder contain the website's dir structire:
+The `website_template` folder contain the website's dir structure:
 
 Root
 |
@@ -8,3 +8,5 @@ Root
 |    |--- GW*.ipynb: one notebook per event
 |--- catalog_plots.ipynb: a notebook with some summary plots of the catalog
 |--- citations.md: a page with the citations
+
+The `page_template` folder contains the template for the pages of the website.

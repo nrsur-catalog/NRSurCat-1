@@ -1,7 +1,8 @@
 format: jb-book
 root: intro
 chapters:
+- file: citation
 - file: catalog_plots.ipynb
-- file: events/nrsur_events_menu
+- file: events/gw_menu_page
   sections:
     - glob: events/GW*

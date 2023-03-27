@@ -69,4 +69,5 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
-
+venv
+.nrsur_catalog_cache

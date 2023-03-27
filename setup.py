@@ -25,7 +25,7 @@ VERSION = get_version()
 INSTALL_REQUIRES = [
     "matplotlib",
     "loguru",
-    "bilby[gw]>=1.1.5",
+    "bilby[gw]==1.1.5",
 ]
 EXTRA_REQUIRE = dict(
     dev=[
@@ -40,6 +40,9 @@ EXTRA_REQUIRE = dict(
         "GitPython",
         "sphinx-inline-tabs",
         "sphinxcontrib-bibtex",
+        "plotly",
+        "papermill",
+        "nbconvert",
     ]
 )
 
@@ -61,6 +64,7 @@ setup(
         "console_scripts": [
             f"get_nrsur_event={NAME}.api.download_event:main",
             f"build_nrsur_website={NAME}.web_builder.build_website:main",
+            f"build_gwpage={NAME}.web_builder.build_website:gwpage_main",
         ]
     },
 )

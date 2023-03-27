@@ -154,9 +154,9 @@ def generate_fake_result(
         posterior=posterior,
     )
     if fname is None:
-        fname = os.path.join(outdir, f"{event_name}.json")
+        fname = os.path.join(outdir, f"{event_name}.hdf5")
     if save:
-        result.save_to_file(filename=fname)
+        result.save_to_file(filename=fname, extension="hdf5")
         return fname
     else:
         return result
@@ -181,7 +181,7 @@ def get_mock_cache_dir(test_dir=TEST_DIR, num_events=3, symlinks=True, pts=100, 
     os.makedirs(test_dir, exist_ok=False)
     test_filename = ""
     for i, event_names in enumerate(events):
-        new_fname = os.path.join(test_dir, f"{event_names}{end_label}.json")
+        new_fname = os.path.join(test_dir, f"{event_names}{end_label}.hdf5")
         if i == 0:
             test_filename = generate_fake_result(fname=new_fname, n=pts)
         else:
@@ -191,6 +191,7 @@ def get_mock_cache_dir(test_dir=TEST_DIR, num_events=3, symlinks=True, pts=100, 
             else:
                 generate_fake_result(fname=new_fname, n=pts)
     logger.info(f"Generated {len(events)} mock events in {test_dir}")
+    logger.info(f"{os.listdir(test_dir)}")
     return test_dir
 
 

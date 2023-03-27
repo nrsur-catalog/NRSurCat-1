@@ -6,9 +6,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from bilby.gw.result import CompactBinaryCoalescenceResult
+from bilby.gw.waveform_generator import WaveformGenerator
 
 from .api import download_event
-from .cache import CACHE
+from .cache import CatalogCache, DEFAULT_CACHE_DIR
 from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree
 from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
@@ -27,19 +28,26 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
     @classmethod
     def load(
-        cls, event_name: str, cache_dir: Optional[str] = CACHE.cache_dir
+        cls, event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
     ) -> "NRsurResult":
         """Load a CBCResult from the NRSur Catalog"""
-        CACHE.cache_dir = cache_dir
+        CACHE  = CatalogCache(cache_dir)
         if not CACHE.find(event_name):
-            logger.debug(f"{event_name} not in {CACHE.event_names}, downloading...")
+            logger.debug(f"{event_name} not in {CACHE.dir}. Files present:{CACHE.event_names}, downloading...")
             download_event(event_name, cache_dir)
         event_path = CACHE.find(event_name)
-        r = cls.from_json(event_path)
+        extension = os.path.basename(event_path).split(".")[-1]
+        if extension == "json":
+            r = cls.from_json(event_path)
+        elif extension == "hdf5":
+            r = cls.from_hdf5(event_path)
+        else:
+            raise ValueError(f"Unknown extension: {extension}")
         r.path_to_result = event_path
-        r.outdir = os.path.join(CACHE.cache_dir, event_name)
+        r.outdir = os.path.join(CACHE.dir, event_name)
         r.label = event_name
         os.makedirs(r.outdir, exist_ok=True)
+        r.__class__ = NRsurResult
         return r
 
     def summary(self, markdown: bool = False) -> str:
@@ -81,7 +89,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             # call the super class sky map method
             super(NRsurResult, self).plot_skymap()
 
-    def _get_waveform_generator(self):
+    def _get_waveform_generator(self)->WaveformGenerator:
         return self.waveform_generator_class(
             duration=self.duration,
             sampling_frequency=self.sampling_frequency,
@@ -139,6 +147,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
                 "Unable to create a waveform: do you have NrSur7dq4 installed? Defaulting to IMRPhenomPv2"
             )
             self.waveform_arguments["waveform_approximant"] = "IMRPhenomPv2"
+            self.waveform_arguments['minimum_frequency'] = 20
             waveform_generator = self._get_waveform_generator()
             base_wf = waveform_generator.time_domain_strain(base_params)[polarisation]
 
@@ -204,7 +213,10 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
 
     def print_configs(self):
-        logger.info("To be implemented...")
+        configs = self.meta_data["config_file"]
+        for key, config in configs.items():
+            k = f"{key}:"
+            print(f"{k:<35} {config}")
 
     def download_analysis_datafiles(self, outdir=None):
         if outdir is None:

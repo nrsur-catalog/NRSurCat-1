@@ -11,7 +11,7 @@ import sys
 
 from typing import Optional, Tuple
 
-from ..cache import CACHE, DEFAULT_CACHE_DIR
+from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..logger import logger
 from .zenodo_interface import get_zenodo_urls, check_if_event_in_zenodo
 from ..utils import download
@@ -50,11 +50,11 @@ def get_cli_args(args=None) -> Tuple[str, bool, str]:
 
 
 def download_event(
-    event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR, download_lvk: bool = False
+        event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR, download_lvk: bool = False
 ) -> None:
     """Download the NRSur Catlog events from Zenodo given the event name"""
 
-    CACHE.cache_dir = cache_dir
+    CACHE = CatalogCache(cache_dir)
 
     present, event_name = check_if_event_in_zenodo(event_name, lvk_posteriors=download_lvk)
 
@@ -74,7 +74,7 @@ def download_event(
 
     url = url_dict[event_name]
     fname = url.split("/")[-1]
-    savepath = os.path.join(cache_dir, fname)
+    savepath = os.path.abspath(os.path.join(cache_dir, fname))
     logger.info(f"Downloading {event_name} from the NRSur Catalog -> {savepath}...")
     download(url_dict[event_name], savepath)
     logger.info("Completed! Enjoy your event!")

@@ -23,8 +23,6 @@
 import pandas as pd
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
-import os
-print(os.getcwd())
 
 # +
 import pip
@@ -44,8 +42,8 @@ except ImportError:
 # + tags=["remove-output"]
 from nrsur_catalog import NRsurResult
 
-nrsur_result = NRsurResult.load("{{GW EVENT NAME}}")
-# you can specify a `cache_dir`: folder where data will be downloaded (defaults to "~/.nrsur_catalog_cache")
+nrsur_result = NRsurResult.load("{{GW EVENT NAME}}", cache_dir=".nrsur_catalog_cache")
+# you can specify a `cache_dir`: folder where data will be downloaded
 # -
 
 # ## Summary 
@@ -175,6 +173,4 @@ fig = nrsur_result.plot_signal(outdir=".")
 nrsur_result.print_configs()
 # -
 
-# Download the analysis datafiles with the following (you can specify an outdir)
-
-nrsur_result.download_analysis_datafiles()
+# If you used this data, please [cite this work](../citation.md).

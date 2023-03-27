@@ -36,5 +36,14 @@ class TestWebbuilder(unittest.TestCase):
         self.assertTrue(os.path.exists(self.outdir + "/GW150914_waveform.png"))
 
 
+def test_web():
+    outdir = "out_test_website"
+    build_website(
+        event_dir="/home/avaj040/Documents/projects/data/nrsur_results/",
+        outdir="out_test_website",
+        clean=False,
+    )
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -4,14 +4,14 @@ import shutil
 
 from nrsur_catalog import NRsurResult
 from generate_mock_data import get_mock_cache_dir, cleanup_mock_data
-from nrsur_catalog.cache import CACHE
+from nrsur_catalog.cache import CatalogCache
 
 
 
 class TestGWResult(unittest.TestCase):
     def setUp(self) -> None:
         self.num_events = 1
-        CACHE.cache_dir = get_mock_cache_dir(num_events=self.num_events)
+        self.CACHE = CatalogCache(get_mock_cache_dir(num_events=self.num_events))
         self.tmp = "tmp_test"
         os.makedirs(self.tmp, exist_ok=True)
 
@@ -21,7 +21,7 @@ class TestGWResult(unittest.TestCase):
 
     def test_from_cache(self):
         """Test that the GWResult class can be instantiated"""
-        event = CACHE.event_names[0]
+        event = self.CACHE.event_names[0]
         self.nrsur_result = NRsurResult.load(event)
         self.nrsur_result.plot_corner(parameters=["mass_1", "mass_2"])
         self.nrsur_result.plot_signal()

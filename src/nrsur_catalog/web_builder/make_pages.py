@@ -7,31 +7,23 @@ import os
 import nbformat
 import shutil
 
-from ..cache import CACHE
+from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..nrsur_result import NRsurResult
 
 HERE = os.path.dirname(__file__)
 GW_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_notebook_template.py")
 CATALOG_TEMPLATE = os.path.join(HERE, "page_templates/catalog_plots.py")
-TABLE_PAGE_TEMPLATE = "events/nrsur_events_menu.md"
+TABLE_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_menu_page.py")
 
 
 def make_events_menu_page(outdir: str) -> None:
     """Writes the events menu page"""
-    fname = f"{outdir}/{TABLE_PAGE_TEMPLATE}"
-    os.makedirs(os.path.dirname(fname), exist_ok=True)
-    top_text = (
-        "# NRSur Events\nTable of all the events analyses in the NRSur Catalog.\n"
-    )
-    table = "|NRSurrogate Fits| |\n"
-    table += "|:---------------:|:---------------:|\n"
-    for event_name in CACHE.event_names:
-        ipynb = f"[{event_name}]({event_name}.ipynb)"
-        image = f"![{event_name}]({event_name}_waveform.png)"
-        table += f"|{ipynb}|{image}|\n"
-
-    with open(fname, "w") as f:
-        f.write(top_text + table)
+    py_fname = f"{outdir}/events/gw_menu_page.py"
+    events_dir = os.path.abspath(os.path.join(outdir, "events"))
+    _replace_strings_from_file(TABLE_PAGE_TEMPLATE, {"{{IPYNB_DIR}}": events_dir}, py_fname)
+    ipynb_fn = convert_py_to_ipynb(py_fname)
+    return execute_notebook(ipynb_fn, ipynb_fn, cwd=outdir, progress_bar=False, verbose=False,
+                            save_profiling_data=False)
 
 
 def convert_py_to_ipynb(py_fn) -> str:
@@ -47,31 +39,50 @@ def convert_py_to_ipynb(py_fn) -> str:
     return ipynb_fn
 
 
-def make_gw_page(event_name: str, outdir: str):
+def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
     """Writes the GW event notebook and executes it"""
     md_fn = f"{outdir}/{event_name}.py"
-    nrsurr_res = NRsurResult.load(event_name)
+    nrsurr_res = NRsurResult.load(event_name, cache_dir=cache.dir)
     summary_md = nrsurr_res.summary(markdown=True)
-    with open(GW_PAGE_TEMPLATE, "r") as temp_f:
-        txt = temp_f.read()
-        txt = txt.replace("{{GW EVENT NAME}}", event_name)
-        txt = txt.replace("{{SUMMARY_TABLE}}", summary_md)
-    with open(md_fn, "w") as out_f:
-        out_f.write(txt)
+    _replace_strings_from_file(
+        GW_PAGE_TEMPLATE,
+        {"{{GW EVENT NAME}}": event_name, "{{SUMMARY_TABLE}}": summary_md},
+        md_fn
+    )
     ipynb_fn = convert_py_to_ipynb(md_fn)
     return execute_notebook(
-        ipynb_fn, ipynb_fn, cwd=outdir, save_profiling_data=True, profile_memory=True
+        ipynb_fn, ipynb_fn, cwd=outdir, save_profiling_data=True, profile_memory=True,
+        progress_bar=False, verbose=False
     )
 
 
-def make_catalog_page(outdir: str):
+def _replace_strings_from_file(fname: str, replacements: dict, outfname: str) -> None:
+    """Replaces strings in a file"""
+    with open(fname, "r") as f:
+        txt = f.read()
+        for key, value in replacements.items():
+            txt = txt.replace(key, value)
+    with open(outfname, "w") as f:
+        f.write(txt)
+
+
+def make_catalog_page(outdir: str, cache: CatalogCache):
     """Writes the catalog notebook and executes it"""
     py_fname = f"{outdir}/catalog_plots.py"
     shutil.copyfile(CATALOG_TEMPLATE, py_fname)
     ipynb_fn = convert_py_to_ipynb(py_fname)
+
+    tmp_cache = f"{outdir}/{DEFAULT_CACHE_DIR}"
+    os.makedirs(tmp_cache, exist_ok=True)
+    for fname in os.listdir(cache.dir):
+        src = os.path.join(cache.dir, fname)
+        dst = os.path.join(tmp_cache, fname)
+        if not os.path.exists(dst):
+            os.symlink(src, dst)
+
     execute_notebook(
         ipynb_fn,
         f"{outdir}/catalog_plots.ipynb",
         cwd=outdir,
-        save_profiling_data = True, profile_memory = True
+        save_profiling_data=True, profile_memory=True
     )

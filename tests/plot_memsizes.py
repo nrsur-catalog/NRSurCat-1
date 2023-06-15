@@ -1,3 +1,4 @@
+## HACKY SCRIPT TO PLOT CUMULATIVE MEMORY SIZE OF JSON AND HDF5 FILES`
 import matplotlib.pyplot as plt
 import os
 import glob

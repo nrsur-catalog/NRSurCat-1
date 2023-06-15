@@ -1,16 +1,13 @@
-import unittest
+import pytest
 from nrsur_catalog.cache import CatalogCache
-from generate_mock_data import get_mock_cache_dir, cleanup_mock_data
 
 
-class TestCacheCase(unittest.TestCase):
-    def test_cache_list_ordered(self):
-        path = get_mock_cache_dir()
-        CACHE = CatalogCache(path)
-        self.assertTrue(len(CACHE.event_names) > 0)
-        cleanup_mock_data()
-        self.assertTrue(path, CACHE.dir)
+def test_cache(mock_cache_dir):
+    CACHE = CatalogCache(mock_cache_dir)
+    assert (len(CACHE.event_names) > 0)
+    assert (mock_cache_dir == CACHE.dir)
 
+    assert isinstance(CACHE.find(CACHE.event_names[0]), str)
+    with pytest.raises(FileNotFoundError):
+        CACHE.find(name="fake event", hard_fail=True)
 
-if __name__ == "__main__":
-    unittest.main()

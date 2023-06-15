@@ -5,6 +5,7 @@ import re
 import requests
 from tqdm.auto import tqdm
 from bilby.core.prior import Prior
+from .pesummary_result_to_bilby_result import pesummary_to_bilby_result
 
 from ..logger import logger
 

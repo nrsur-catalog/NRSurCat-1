@@ -14,7 +14,7 @@ from typing import Optional, Tuple
 from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..logger import logger
 from .zenodo_interface import get_zenodo_urls, check_if_event_in_zenodo
-from ..utils import download
+from .. import utils
 
 
 def get_cli_args(args=None) -> Tuple[str, bool, str]:
@@ -76,7 +76,7 @@ def download_event(
     fname = url.split("/")[-1]
     savepath = os.path.abspath(os.path.join(cache_dir, fname))
     logger.info(f"Downloading {event_name} from the NRSur Catalog -> {savepath}...")
-    download(url_dict[event_name], savepath)
+    utils.download(url_dict[event_name], savepath)
     logger.info("Completed! Enjoy your event!")
 
 

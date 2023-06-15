@@ -45,7 +45,3 @@ def convert_all_result_json_to_hdf5(result_regex: str):
     for json_path in tqdm(glob(result_regex), desc="Converting"):
         convert_result_json_to_hdf5(json_path)
 
-
-if __name__ == '__main__':
-    r = "/home/avaj040/Documents/projects/data/nr*/*.json"
-    convert_all_result_json_to_hdf5(r)

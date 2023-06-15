@@ -2,21 +2,32 @@ import contextlib
 import os
 from typing import Optional, List
 
+import bilby.gw.prior
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import json
 from bilby.gw.result import CompactBinaryCoalescenceResult
+from bilby.core.prior import PriorDict
+
 from bilby.gw.waveform_generator import WaveformGenerator
+
+
+
 
 from .api import download_event
 from .cache import CatalogCache, DEFAULT_CACHE_DIR
 from .logger import logger
-from .utils import get_1d_summary_str, get_dir_tree
+from .utils import get_1d_summary_str, get_dir_tree, pesummary_to_bilby_result
 from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
 from .lvk_posterior import get_lvk_posterior
 
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
+
+
 
 
 class NRsurResult(CompactBinaryCoalescenceResult):
@@ -28,21 +39,25 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
     @classmethod
     def load(
-        cls, event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR
+        cls,
+            event_name: str,
+            cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
+            event_path: Optional[str] = None,
     ) -> "NRsurResult":
         """Load a CBCResult from the NRSur Catalog"""
+
         CACHE  = CatalogCache(cache_dir)
-        if not CACHE.find(event_name):
+        if not CACHE.find(event_name) and event_path is None:
             logger.debug(f"{event_name} not in {CACHE.dir}. Files present:{CACHE.event_names}, downloading...")
             download_event(event_name, cache_dir)
-        event_path = CACHE.find(event_name)
-        extension = os.path.basename(event_path).split(".")[-1]
-        if extension == "json":
-            r = cls.from_json(event_path)
-        elif extension == "hdf5":
-            r = cls.from_hdf5(event_path)
-        else:
-            raise ValueError(f"Unknown extension: {extension}")
+
+        if event_path is None:
+            event_path = CACHE.find(event_name)
+
+        if event_path is None:
+            raise ValueError(f"Event {event_name} not found.")
+
+        r = pesummary_to_bilby_result(event_path)
         r.path_to_result = event_path
         r.outdir = os.path.join(CACHE.dir, event_name)
         r.label = event_name

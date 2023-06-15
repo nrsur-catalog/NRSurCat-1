@@ -5,6 +5,7 @@ __pycache__
 *.idea
 *.DS_Store
 posterior_samples
+*.h5
 outdir*
 out*
 *.png

@@ -25,7 +25,7 @@ VERSION = get_version()
 INSTALL_REQUIRES = [
     "matplotlib",
     "loguru",
-    "bilby[gw]==1.1.5",
+    "bilby[gw]",
 ]
 EXTRA_REQUIRE = dict(
     dev=[
@@ -43,6 +43,7 @@ EXTRA_REQUIRE = dict(
         "plotly",
         "papermill",
         "nbconvert",
+        'itables'
     ]
 )
 

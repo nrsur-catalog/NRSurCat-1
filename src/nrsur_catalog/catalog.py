@@ -3,12 +3,13 @@ import os.path
 
 from tqdm.auto import tqdm
 from .nrsur_result import NRsurResult
+
 from typing import Dict, Optional
 import matplotlib.pyplot as plt
 from glob import glob
 from .utils import get_event_name
 
-from .cache import CatalogCache, DEFAULT_CACHE_DIR
+from .cache import CatalogCache, DEFAULT_CACHE_DIR, NR_FILE_EXTENSION
 from .logger import logger
 from .api.download_event import download_all_events
 from .utils import LATEX_LABELS, CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS
@@ -22,6 +23,7 @@ import numpy as np
 POSTERIORS_TO_KEEP = list(chain.from_iterable(v for v in INTERESTING_PARAMETERS.values()))
 POSTERIORS_TO_KEEP += ["log_likelihood", "log_prior"]
 MAX_SAMPLES = 10000
+CATALOG_FN = "downsampled_posteriors.h5"
 
 
 class Catalog:
@@ -42,7 +44,7 @@ class Catalog:
     def load(cls, cache_dir: Optional[str] = DEFAULT_CACHE_DIR, max_samples=MAX_SAMPLES, clean=True) -> "Catalog":
         """Load the catalog from the cache"""
         CACHE = CatalogCache(cache_dir)
-        fname = f"{cache_dir}/downsampled_posteriors.hdf5"
+        fname = f"{cache_dir}/{CATALOG_FN}"
 
         if not clean and os.path.isfile(fname):
             logger.info(f"Loading catalog from {fname}")
@@ -53,17 +55,18 @@ class Catalog:
                 download_all_events(CACHE.dir)
             df = Catalog.load_events(cache_dir, max_samples=max_samples)
             catalog = cls(df)
-            catalog.save(f"{cache_dir}/downsampled_posteriors.hdf5")
+            catalog.save(f"{cache_dir}/{CATALOG_FN}")
         return catalog
 
     @staticmethod
     def load_events(events_dir: str, max_samples=MAX_SAMPLES) -> pd.DataFrame:
-        event_paths = glob(f"{events_dir}/GW*.hdf5")
+        event_paths = glob(f"{events_dir}/*{NR_FILE_EXTENSION}")
         dfs = []
         assert len(event_paths) > 0, f"No events found in {events_dir}"
         for path in tqdm(event_paths, desc="Loading events"):
             event_name = get_event_name(path)
-            r = NRsurResult.load(event_name, cache_dir=events_dir)
+
+            r = NRsurResult.load(event_name, event_path=path)
             posterior = r.posterior[POSTERIORS_TO_KEEP]
             if len(r.posterior) > max_samples:
                 logger.debug(
@@ -86,7 +89,7 @@ class Catalog:
 
     def save(self, path: str):
         """Save the catalog to a hdf5 file"""
-        assert path.endswith(".hdf5"), "Path must end with .hdf5"
+        assert path.endswith(".h5"), "Path must end with .h5"
         data = self.to_dict_of_posteriors()
         with h5py.File(path, "w") as f:
             for event_name, posterior in data.items():
@@ -96,7 +99,7 @@ class Catalog:
     @staticmethod
     def from_hdf5(path: str) -> pd.DataFrame:
         """Load the catalog from a hdf5 file"""
-        assert path.endswith(".hdf5"), "Path must end with .hdf5"
+        assert path.endswith(".h5"), "Path must end with .h5"
         with h5py.File(path, "r") as f:
             posteriors = []
             for key in f:
@@ -113,7 +116,7 @@ class Catalog:
 
         # sort by mean
         ylabels = [e for _, e in sorted(zip(means, self.event_names))]
-        data = [d for _, d in sorted(zip(means, data))]
+        data = [d for _, d in sorted(zip(means, data), key=lambda x: x[0])]
 
         fig, ax = plt.subplots(figsize=(7, self.n * 0.8))
         ax.tick_params(axis="x", bottom=True, top=True, labelbottom=True, labeltop=True)
@@ -157,68 +160,3 @@ class Catalog:
         plt.tight_layout()
         fig.savefig(f"{parameter}_violin.png", dpi=300, bbox_inches="tight")
         return fig
-
-
-    #
-    # def interactive_violin_plot(self, parameter):
-    #     df = self._df
-    #
-    #     fig = go.Figure()
-    #     fig.add_trace(
-    #         go.Violin(
-    #             x=df[parameter],
-    #             y=df["event"],
-    #             orientation="h",
-    #             line_color="black",
-    #             fillcolor="orange",
-    #             opacity=0.6,
-    #             meanline_visible=True,
-    #             box_visible=True,
-    #         )
-    #     )
-    #     fig.update_layout(
-    #         title=LATEX_LABELS[parameter],
-    #         xaxis_title=LATEX_LABELS[parameter],
-    #         yaxis_title="Event",
-    #         yaxis_zeroline=False,
-    #         xaxis_zeroline=False,
-    #         template="plotly_white",
-    #         width=600,
-    #         height=1200,
-    #     )
-    #     # fig.show()
-    #     fig.write_html("violin2.html")
-    #     fig_widget = go.FigureWidget(fig)
-    #     return fig_widget
-    #
-    # def interactive_violin_2(self, parameter):
-    #     event_names = self.event_names
-    #     df = self._df
-    #
-    #     fig = go.Figure()
-    #     for event in event_names:
-    #         fig.add_trace(
-    #             go.Violin(
-    #                 x=df[parameter][df["event"] == event],
-    #                 y=df["event"][df["event"] == event],
-    #                 name=event,
-    #                 orientation="h",
-    #                 box_visible=True,
-    #                 meanline_visible=True,
-    #             )
-    #         )
-    #     fig.update_layout(
-    #         title=LATEX_LABELS[parameter],
-    #         xaxis_title=LATEX_LABELS[parameter],
-    #         yaxis_title="Event",
-    #         yaxis_zeroline=False,
-    #         xaxis_zeroline=False,
-    #         template="plotly_white",
-    #         width=600,
-    #         height=1200,
-    #     )
-    #
-    #     # fig.show()
-    #     fig.write_html("violin1.html")
-    #     fig_widget = go.FigureWidget(fig)
-    #     return fig_widget

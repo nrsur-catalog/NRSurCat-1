@@ -47,7 +47,11 @@ def build_website(
     for file in os.listdir(CACHE.dir):
         src = os.path.join(CACHE.dir, file)
         dst = os.path.join(web_cache, file)
+        dst_dir = os.path.dirname(dst)
+        if not os.path.exists(dst_dir):
+            os.makedirs(dst_dir, exist_ok=True)
         if not os.path.exists(dst):
+            assert os.path.exists(src), f"File {src} (src) does not exist"
             os.symlink(src, dst)
 
     event_names = CACHE.event_names

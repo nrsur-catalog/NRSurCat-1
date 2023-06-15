@@ -9,9 +9,11 @@ from .api.zenodo_interface import get_zenodo_urls
 
 CACHE_ENV_VAR = "NRSUR_CATALOG_CACHE_DIR"
 DEFAULT_CACHE_DIR = "./.nrsur_catalog_cache"
-NR_FILE_EXTENSION = "_NRSur7dq4_merged_result.hdf5"
-LVK_FILE_EXTENSION = "_mixed_cosmo.h5"
+NR_FILE_EXTENSION = "_NRSur7dq4_final.h5"
+LVK_FILE_EXTENSION = "_PEDataRelease_mixed_cosmo.h5"
 
+NR_LABEL = "Bilby:NRSur7dq4"
+LVK_LABEL = "C01:IMRPhenomXPHM"
 
 class CatalogCache:
 
@@ -49,6 +51,11 @@ class CatalogCache:
         return [get_event_name(f) for f in self.list]
 
     @property
+    def num_events(self) -> int:
+        """Number of events in the cache directory"""
+        return len(self.event_names)
+
+    @property
     def event_names_lvk(self) -> List[str]:
         """List the event names in the cache directory"""
         return [get_event_name(f) for f in self.list_lvk]
@@ -56,13 +63,16 @@ class CatalogCache:
     def find(self, name: str, hard_fail=False, lvk_posteriors=False) -> str:
         """Find a file in the cache directory"""
         file_extension = LVK_FILE_EXTENSION if lvk_posteriors else NR_FILE_EXTENSION
-        filepath = f"{self._cache}/{name}{file_extension}"
-        if os.path.exists(filepath):
-            return filepath
+        fileregex = os.path.join(self._cache, f"*{name}*{file_extension}")
+        filepath = glob(fileregex)
+        if len(filepath) == 1:
+            return filepath[0]
         if hard_fail:
-            logger.debug(f"Current cache: {self.list} (doesnt have {filepath})")
+            logger.debug(f"Current cache: {self.list} doesnt have {filepath}")
             raise FileNotFoundError(
-                f"Could not find {name} in cache dir {self.cache_dir}"
+                f"Could not find {name} in cache dir {self.dir}. "
+                f"Is {filepath} present?"
+                f"Listdir: {os.listdir(self.dir)}"
             )
         return ""
 
@@ -83,3 +93,6 @@ class CatalogCache:
     def is_empty(self):
         return len(self.list) == 0
 
+
+    def __repr__(self):
+        return f"CatalogCache(nrfiles={len(self.list)}, lvkfiles={len(self.list_lvk)}, cache_dir={self._cache})"

@@ -3,6 +3,15 @@
 This repository contains the code used to generate the NRSur catalog website and its API.
 
 
+To generate the website, run:
+```bash
+build_nrsur_website --event-dir DIR_WITH_RESULTS --outdir out_test_website
+ghp-import -n -p -f out_test_website/_build/html
+upload_to_zenodo test_cache_dir
+rm -rf test_cache_dir
+```
+
+
 
 ## Development
 

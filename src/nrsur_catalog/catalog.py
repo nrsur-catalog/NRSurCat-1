@@ -21,7 +21,7 @@ from itertools import chain
 import numpy as np
 
 POSTERIORS_TO_KEEP = list(chain.from_iterable(v for v in INTERESTING_PARAMETERS.values()))
-POSTERIORS_TO_KEEP += ["log_likelihood", "log_prior"]
+# POSTERIORS_TO_KEEP += ["log_likelihood", "log_prior"]
 MAX_SAMPLES = 10000
 CATALOG_FN = "downsampled_posteriors.h5"
 

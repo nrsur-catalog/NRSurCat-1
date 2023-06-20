@@ -2,32 +2,22 @@ import contextlib
 import os
 from typing import Optional, List
 
-import bilby.gw.prior
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import json
 from bilby.gw.result import CompactBinaryCoalescenceResult
-from bilby.core.prior import PriorDict
+from .utils import plot_overlaid_corner
 
 from bilby.gw.waveform_generator import WaveformGenerator
-
-
-
 
 from .api import download_event
 from .cache import CatalogCache, DEFAULT_CACHE_DIR
 from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree, pesummary_to_bilby_result
 from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
-from .lvk_posterior import get_lvk_posterior
-
+from .lvk_posterior import load_lvk_result
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
-
-
 
 
 class NRsurResult(CompactBinaryCoalescenceResult):
@@ -35,18 +25,18 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
     def __init__(self, *args, **kwargs):
         super(NRsurResult, self).__init__(*args, **kwargs)
-        self._lvk_posterior = None
+        self._lvk_result = None
 
     @classmethod
     def load(
-        cls,
+            cls,
             event_name: str,
             cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
             event_path: Optional[str] = None,
     ) -> "NRsurResult":
         """Load a CBCResult from the NRSur Catalog"""
 
-        CACHE  = CatalogCache(cache_dir)
+        CACHE = CatalogCache(cache_dir)
         if not CACHE.find(event_name) and event_path is None:
             logger.debug(f"{event_name} not in {CACHE.dir}. Files present:{CACHE.event_names}, downloading...")
             download_event(event_name, cache_dir)
@@ -63,6 +53,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         r.label = event_name
         os.makedirs(r.outdir, exist_ok=True)
         r.__class__ = NRsurResult
+        logger.debug(f"Loaded NRresult {event_name} from {event_path}")
         return r
 
     def summary(self, markdown: bool = False) -> str:
@@ -104,7 +95,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             # call the super class sky map method
             super(NRsurResult, self).plot_skymap()
 
-    def _get_waveform_generator(self)->WaveformGenerator:
+    def _get_waveform_generator(self) -> WaveformGenerator:
         return self.waveform_generator_class(
             duration=self.duration,
             sampling_frequency=self.sampling_frequency,
@@ -115,12 +106,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         )
 
     def plot_signal(
-        self,
-        n_samples:Optional[int]=1000,
-        level:Optional[float]=0.9,
-        color:Optional[str]=CATALOG_MAIN_COLOR,
-        polarisation:Optional[str]="plus",
-        outdir:Optional[str]="",
+            self,
+            n_samples: Optional[int] = 1000,
+            level: Optional[float] = 0.9,
+            color: Optional[str] = CATALOG_MAIN_COLOR,
+            polarisation: Optional[str] = "plus",
+            outdir: Optional[str] = "",
     ):
         """Generate a signal plot of the event
 
@@ -172,8 +163,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         for i, params in samples.iterrows():
             params = dict(params)
             waveforms[i] = waveform_generator.time_domain_strain(params)[polarisation]
-        # roll all waveforms halfway
-        waveforms = np.roll(waveforms, len(base_wf) // 2, axis=1)
+        waveforms = np.roll(waveforms, 4 * len(base_wf) // 5, axis=1)
 
         median = np.median(waveforms, axis=0)
         lower, upper = np.quantile(
@@ -200,14 +190,14 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         return fig
 
     def plot_corner(
-        self,
-        parameters:Optional[List[str]]=None,
-        priors:Optional[bool]=None,
-        titles:Optional[List[str]]=True,
-        save:Optional[bool]=False,
-        filename:Optional[str]=None,
-        dpi:Optional[int]=300,
-        **kwargs,
+            self,
+            parameters: Optional[List[str]] = None,
+            priors: Optional[bool] = None,
+            titles: Optional[List[str]] = True,
+            save: Optional[bool] = False,
+            filename: Optional[str] = None,
+            dpi: Optional[int] = 300,
+            **kwargs,
     ):
         labels = []
         if parameters is not None:
@@ -221,11 +211,13 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             parameters, priors, titles, save, filename, dpi, **kwargs
         )
 
-
-    def plot_lvk_comparison_corner(self, parameters:List[str]):
+    def plot_lvk_comparison_corner(self, parameters: List[str]):
         """Plot a corner plot comparing the posterior to the LVK catalog"""
-        pass
-
+        return plot_overlaid_corner(
+            r1=self, r2=self.lvk_result, parameters=parameters,
+            labels=["NRSur7dq4", "LVK [XPHM]"],
+            colors=[CATALOG_MAIN_COLOR, "tab:blue"]
+        )
 
     def print_configs(self):
         configs = self.meta_data["config_file"]
@@ -244,7 +236,9 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         logger.info("writing analysis config file")
         logger.info(f"Files:\n{get_dir_tree(outdir)}")
 
-    def lvk_posterior(self):
-        if self._lvk_posterior is None:
-            self._lvk_posterior = get_lvk_posterior(self.label)
-        return self._lvk_posterior
+    @property
+    def lvk_result(self):
+        if not hasattr(self, "_lvk_result"):
+            self._lvk_result = load_lvk_result(self.label, cache_dir=os.path.dirname(self.outdir))
+            logger.debug(f"Loaded LVKresult{self.label}")
+        return self._lvk_result

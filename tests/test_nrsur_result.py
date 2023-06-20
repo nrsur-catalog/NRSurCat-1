@@ -11,6 +11,7 @@ def test_load_result_from_cache(mock_cache_dir, mock_download):
     event = CACHE.event_names[0]
     nrsur_result = NRsurResult.load(event, cache_dir=mock_cache_dir)
     nrsur_result.plot_corner(parameters=["mass_1", "mass_2"])
+    nrsur_result.plot_lvk_comparison_corner(["luminosity_distance", "ra", "dec"])
     nrsur_result.plot_signal()
 
     # test that ValueError is raised if event is not in cache

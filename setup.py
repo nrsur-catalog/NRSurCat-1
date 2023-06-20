@@ -43,7 +43,7 @@ EXTRA_REQUIRE = dict(
         "plotly",
         "papermill",
         "nbconvert",
-        'itables'
+        'itables @ git+https://github.com/mwouts/itables.git@main#egg=itables',
     ]
 )
 

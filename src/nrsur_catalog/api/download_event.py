@@ -75,7 +75,8 @@ def download_event(
     url = url_dict[event_name]
     fname = url.split("/")[-1]
     savepath = os.path.abspath(os.path.join(cache_dir, fname))
-    logger.info(f"Downloading {event_name} from the NRSur Catalog -> {savepath}...")
+    catalog_name = "LVK" if download_lvk else "NRSur"
+    logger.info(f"Downloading {event_name} from the {catalog_name} Catalog -> {savepath}...")
     utils.download(url_dict[event_name], savepath)
     logger.info("Completed! Enjoy your event!")
 

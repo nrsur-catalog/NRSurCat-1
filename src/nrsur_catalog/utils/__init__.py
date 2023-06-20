@@ -8,54 +8,8 @@ from bilby.core.prior import Prior
 from .pesummary_result_to_bilby_result import pesummary_to_bilby_result
 
 from ..logger import logger
-
-
-INTERESTING_PARAMETERS = {
-    "Mass Parameters": ["mass_1", "mass_2", "chirp_mass", "mass_ratio"],
-    "Spin Parameters": ["a_1", "a_2", "tilt_1", "tilt_2", "chi_eff", "chi_p"],
-    "Localisation Parameters": [
-        "ra",
-        "dec",
-        "geocent_time",
-        "luminosity_distance",
-    ],
-    "Other Parameters": [
-        "phase",
-        "azimuth",
-        "zenith",
-        "psi",
-        "phi_jl",
-        "phi_12",
-        "theta_jn",
-    ],
-}
-
-
-CATALOG_MAIN_COLOR = "tab:orange"
-
-LATEX_LABELS = dict(
-    mass_1=r"$m_1\ [M_{\odot}]$",
-    mass_2=r"$m_2\ [M_{\odot}]$",
-    chirp_mass=r"$\mathcal{M}\ [M_{\odot}]$",
-    mass_ratio=r"$q$",
-    a_1=r"$a_1$",
-    a_2=r"$a_2$",
-    tilt_1=r"$\theta_1$",
-    tilt_2=r"$\theta_2$",
-    chi_eff=r"$\chi_{\mathrm{eff}}$",
-    chi_p=r"$\chi_{\mathrm{p}}$",
-    ra=r"$\alpha$",
-    dec=r"$\delta$",
-    geocent_time=r"$t_c\ [s]$",
-    luminosity_distance=r"$d_L\ [Mpc]$",
-    phase=r"$\phi$",
-    azimuth=r"$\phi$",
-    zenith=r"$\theta$",
-    psi=r"$\psi$",
-    phi_jl=r"$\phi_{\mathrm{JL}}$",
-    phi_12=r"$\phi_{12}$",
-    theta_jn=r"$\theta_{\mathrm{JN}}$",
-)
+from .constants import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS
+from .overlaid_corner import plot_overlaid_corner
 
 
 def get_size_of_file(filename: str) -> str:
@@ -67,13 +21,18 @@ def get_size_of_file(filename: str) -> str:
         size /= 1024.0
 
 
-def get_1d_summary_str(x: np.ndarray):
-    q_lo, q_mid, q_hi = np.quantile(x, [0.16, 0.5, 0.84])
+def format_qts_to_latex(q_lo:float, q_mid:float, q_hi:float) -> str:
+    """Format quantiles to a LaTeX string"""
     q_m, q_p = q_mid - q_lo, q_hi - q_mid
     fmt = "{{0:{0}}}".format(".2f").format
     summary = r"${{{0}}}_{{-{1}}}^{{+{2}}}$"
     return summary.format(fmt(q_mid), fmt(q_m), fmt(q_p))
 
+
+
+def get_1d_summary_str(x: np.ndarray, quantiles=[0.16, 0.5, 0.84]) -> str:
+    q_lo, q_mid, q_hi = np.quantile(x, quantiles)
+    return format_qts_to_latex(q_lo, q_mid, q_hi)
 
 def get_event_name(s: str):
     """Get the event name from a string using a regex

@@ -2,14 +2,17 @@
 import pandas as pd
 
 from nrsur_catalog.api import download_event
-from nrsur_catalog.cache import CatalogCache, LVK_LABEL
+from nrsur_catalog.cache import CatalogCache, LVK_LABEL, DEFAULT_CACHE_DIR
 import h5py
+from bilby.gw.result import CBCResult
+from .logger import logger
 
 
-def get_lvk_posterior(event_name: str, cache_dir='.') -> pd.DataFrame:
+def load_lvk_result(event_name: str, cache_dir=DEFAULT_CACHE_DIR) -> CBCResult:
     """Load the LVK posterior for an event"""
     CACHE = CatalogCache(cache_dir)
     if not CACHE.find(event_name, lvk_posteriors=True):
+        logger.debug(f"LVK {event_name} not in {CACHE.dir}. Files present:{CACHE.list_lvk}, downloading...")
         download_event(event_name, cache_dir=CACHE.dir, download_lvk=True)
     event_path = CACHE.find(event_name, lvk_posteriors=True, hard_fail=True)
 
@@ -17,4 +20,8 @@ def get_lvk_posterior(event_name: str, cache_dir='.') -> pd.DataFrame:
         res = f[LVK_LABEL]
         df = pd.DataFrame(res['posterior_samples'][:])
 
-    return df
+    return CBCResult(
+        label="LVK [XPHM]",
+        posterior=df,
+        search_parameter_keys=list(df.columns),
+    )

@@ -16,35 +16,34 @@
 # # NRSur Events
 # Table of all the events analyses in the NRSur Catalog.
 
+# + tags=["remove-cell"]
+from nrsur_catalog.web_builder.utils import get_catalog_summary
+
+summary_df = get_catalog_summary("{{EVENTS_DIR}}", "{{CACHE_DIR}}")
+
 # + tags=["remove-input"]
-import glob
-import pandas as pd
-from nrsur_catalog.utils import get_event_name
-import os
-from itables import init_notebook_mode, show
+from itables import init_notebook_mode, show, JavascriptFunction
+import itables.options as opt
 
+opt.css = opt.css + """
+.itables table.dataTable tbody td {
+  vertical-align: top;
+}
+"""
+
+opt.drawCallback = JavascriptFunction(
+    "function(settings) " '{MathJax.Hub.Queue(["Typeset",MathJax.Hub]);}'
+)
 init_notebook_mode(all_interactive=True)
+show(
+    summary_df,
+    columnDefs=[{"width": "1000px", "targets": "_all"}],
+    scrollX=True,
+    style="width:3000px",
+    autoWidth=False,
+    lengthMenu=[5, 10, 20, 50]
+)
 
-webroot = 'https://cjhaster.com/NRSurrogateCatalog/'
-LINK = "<a href='{l}'> {txt}</a>"
 
-events_dir = '{{IPYNB_DIR}}'
-event_ipynb = glob.glob(f"{events_dir}/GW*.ipynb")
-event_waveform = glob.glob(f"{events_dir}/*waveform.png")
-event_name = [get_event_name(os.path.basename(f)) for f in event_ipynb]
-event_link = [f"{webroot}/events/{n}.html" for n in event_name]
 
-thumbnails = [f"{webroot}/_images/{os.path.basename(f)}" for f in event_waveform]
-thumbnails = [f"<img src='{f}' height='100'>" for f in thumbnails]
-thumbnails = [LINK.format(l=l, txt=t) for l, t in zip(event_link, thumbnails)]
-event = [LINK.format(l=l, txt=t) for l, t in zip(event_link, event_name)]
-
-df = pd.DataFrame({
-    "Event": event,
-    " ": thumbnails
-})
-
-df = df.sort_values(by="Event")
-df.set_index('Event', inplace=True)
-show(df, dom='ltpr', columnDefs=[{"className": "dt-left", "targets": "_all"}])
 # -

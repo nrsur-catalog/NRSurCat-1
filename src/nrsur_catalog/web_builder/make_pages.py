@@ -9,6 +9,7 @@ import shutil
 
 from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..nrsur_result import NRsurResult
+from ..logger import logger
 
 HERE = os.path.dirname(__file__)
 GW_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_notebook_template.py")
@@ -16,11 +17,15 @@ CATALOG_TEMPLATE = os.path.join(HERE, "page_templates/catalog_plots.py")
 TABLE_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_menu_page.py")
 
 
-def make_events_menu_page(outdir: str) -> None:
+def make_events_menu_page(outdir: str, cache:CatalogCache) -> None:
     """Writes the events menu page"""
     py_fname = f"{outdir}/events/gw_menu_page.py"
+    os.makedirs(os.path.dirname(py_fname), exist_ok=True)
     events_dir = os.path.abspath(os.path.join(outdir, "events"))
-    _replace_strings_from_file(TABLE_PAGE_TEMPLATE, {"{{IPYNB_DIR}}": events_dir}, py_fname)
+    _replace_strings_from_file(TABLE_PAGE_TEMPLATE, {
+        "{{EVENTS_DIR}}": events_dir,
+        "{{CACHE_DIR}}": cache.dir
+    }, py_fname)
     ipynb_fn = convert_py_to_ipynb(py_fname)
     return execute_notebook(ipynb_fn, ipynb_fn, cwd=outdir, progress_bar=False, verbose=False,
                             save_profiling_data=False)
@@ -42,6 +47,7 @@ def convert_py_to_ipynb(py_fn) -> str:
 def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
     """Writes the GW event notebook and executes it"""
     md_fn = f"{outdir}/{event_name}.py"
+    logger.debug(f"Making {event_name} page")
     nrsurr_res = NRsurResult.load(event_name, cache_dir=cache.dir)
     summary_md = nrsurr_res.summary(markdown=True)
     _replace_strings_from_file(
@@ -50,6 +56,12 @@ def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
         md_fn
     )
     ipynb_fn = convert_py_to_ipynb(md_fn)
+    logger.debug(
+        f"Executing GW{event_name}:\n"
+        f"    - cwd: {outdir}\n"
+        f"    - ipynb_fn: {ipynb_fn}\n"
+        f"    - cache: {cache.dir}\n"
+    )
     return execute_notebook(
         ipynb_fn, ipynb_fn, cwd=outdir, save_profiling_data=True, profile_memory=True,
         progress_bar=False, verbose=False

@@ -4,10 +4,10 @@ import os.path
 from tqdm.auto import tqdm
 from .nrsur_result import NRsurResult
 
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 import matplotlib.pyplot as plt
 from glob import glob
-from .utils import get_event_name
+from .utils import get_event_name, format_qts_to_latex
 
 from .cache import CatalogCache, DEFAULT_CACHE_DIR, NR_FILE_EXTENSION
 from .logger import logger
@@ -51,7 +51,7 @@ class Catalog:
             catalog = cls(Catalog.from_hdf5(fname))
         else:
             if CACHE.is_empty:
-                logger.warning("Cache is empty, downloading all events...")
+                logger.warning(f"Cache {cache_dir} is empty, downloading all events...")
                 download_all_events(CACHE.dir)
             df = Catalog.load_events(cache_dir, max_samples=max_samples)
             catalog = cls(df)
@@ -74,7 +74,7 @@ class Catalog:
                     f"downsampling to {max_samples} samples"
                 )
                 posterior = posterior.sample(max_samples, weights=r.posterior.log_likelihood)
-            posterior['event'] = event_name
+            posterior.loc[:, "event"] = event_name
             dfs.append(posterior)
         return pd.concat(dfs)
 
@@ -160,3 +160,38 @@ class Catalog:
         plt.tight_layout()
         fig.savefig(f"{parameter}_violin.png", dpi=300, bbox_inches="tight")
         return fig
+
+    @property
+    def parameters(self) -> List[str]:
+        """Return a list of parameters in the catalog"""
+        p =  list(self._df.columns)
+        p.remove('event')
+        return p
+
+    def get_posterior_quantiles(self, quantiles=[0.16, 0.5, 0.84]) -> pd.DataFrame:
+        """Compute posterior quantiles for each event's posteriors"""
+        quant_df = self._df.groupby("event").quantile(quantiles)
+        quant_df.index = quant_df.index.rename(["event", "quantile"])
+        return quant_df
+
+    @property
+    def events(self) -> List[str]:
+        """Return a list of events in the catalog"""
+        return list(self._df.event.unique())
+
+    def get_latex_summary(self)->pd.DataFrame:
+        """
+        Return a dataframe with the median and 68% credible interval for each parameter
+        """
+        post_quantiles = self.get_posterior_quantiles()
+        latex_summary = {}
+        for event in self.events:
+            event_data = {}
+            for param in self.parameters:
+                event_quants = post_quantiles.loc[event, param].values
+                event_data[param] = format_qts_to_latex(*event_quants)
+            latex_summary[event] = event_data
+
+        latex_summary = pd.DataFrame(latex_summary).T
+        latex_summary.index.name = "event"
+        return latex_summary

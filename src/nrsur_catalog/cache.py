@@ -71,7 +71,7 @@ class CatalogCache:
             logger.debug(f"Current cache: {self.list} doesnt have {filepath}")
             raise FileNotFoundError(
                 f"Could not find {name} in cache dir {self.dir}. "
-                f"Is {filepath} present?"
+                f"Is filepath:{filepath} present in the cache dir:"
                 f"Listdir: {os.listdir(self.dir)}"
             )
         return ""

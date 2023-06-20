@@ -10,7 +10,7 @@ import h5py
 from bilby.core.utils import recursively_save_dict_contents_to_group
 from nrsur_catalog.logger import logger
 
-from nrsur_catalog.cache import LVK_LABEL, LVK_FILE_EXTENSION, NR_LABEL, NR_FILE_EXTENSION
+from nrsur_catalog.cache import LVK_LABEL, LVK_FILE_EXTENSION, NR_LABEL, NR_FILE_EXTENSION, DEFAULT_CACHE_DIR
 
 np.random.seed(0)
 
@@ -117,6 +117,9 @@ def generate_fake_posterior(npts=100):
             geocent_time=bilby.core.prior.Gaussian(0, 1, name="geocent_time", latex_label="$t_c$"),
             azimuth=bilby.core.prior.Gaussian(0, 1, name="azimuth", latex_label="$\phi$"),
             zenith=bilby.core.prior.Gaussian(0, 1, name="zenith", latex_label="$\\theta$"),
+            final_kick=bilby.core.prior.Gaussian(0, 1, name="final_kick", latex_label="$v_k$"),
+            final_spin=bilby.core.prior.Gaussian(0, 1, name="final_spin", latex_label="$\\chi_f$"),
+            final_mass=bilby.core.prior.Gaussian(0, 1, name="final_mass", latex_label="$M_f$"),
         )
     )
     return prior.sample(npts)
@@ -155,7 +158,8 @@ def generate_fake_result(
                 start_time=0,
                 waveform_generator_class=bilby.gw.waveform_generator.WaveformGenerator,
                 parameter_conversion=bilby.gw.conversion.convert_to_lal_binary_black_hole_parameters,
-            )
+            ),
+            config_file=dict(config1="config1", config2="config2")
         ),
         posterior=posterior,
     )
@@ -179,20 +183,21 @@ def get_mock_results(num_events=3, pts=1000):
 
 
 def get_mock_cache_dir(test_dir=TEST_DIR, num_events=2, pts=100):
-    assert num_events > 0
-    events = [f"GW{n}" for n in np.random.randint(159999, 209999, num_events)]
+    mock_dir = os.path.join(test_dir, DEFAULT_CACHE_DIR)
+    assert num_events > 1
+    events = [f"GW{n}" for n in np.random.randint(159999, 209999, num_events-1)]
     events[0] = "GW170729"
-    if os.path.isdir(test_dir):
-        shutil.rmtree(test_dir)
-    os.makedirs(test_dir, exist_ok=False)
+    if os.path.isdir(mock_dir):
+        shutil.rmtree(mock_dir)
+    os.makedirs(mock_dir, exist_ok=False)
     for i, event_names in enumerate(events):
-        nr_fname = os.path.join(test_dir, f"{event_names}{NR_FILE_EXTENSION}")
+        nr_fname = os.path.join(mock_dir, f"{event_names}{NR_FILE_EXTENSION}")
         write_pesummary_like_result(nr_fname, label=NR_LABEL, n=pts)
-        lvk_fname = os.path.join(test_dir, f"{event_names}{LVK_FILE_EXTENSION}")
+        lvk_fname = os.path.join(mock_dir, f"{event_names}{LVK_FILE_EXTENSION}")
         write_pesummary_like_result(lvk_fname, label=LVK_LABEL, n=pts)
-    logger.info(f"Generated {len(events)} mock events in {test_dir}")
-    logger.info(f"{os.listdir(test_dir)}")
-    return test_dir
+    logger.debug(f"Generated {len(events)} mock events in {mock_dir}")
+    logger.debug(f"MOCK FILES: {os.listdir(mock_dir)}")
+    return mock_dir
 
 
 def write_pesummary_like_result(filepath: str, label=LVK_LABEL, n=1000):
@@ -215,7 +220,6 @@ def write_pesummary_like_result(filepath: str, label=LVK_LABEL, n=1000):
             meta_data_grp = grp.create_group("meta_data")
             meta_data_grp.create_group("other")
             recursively_save_dict_contents_to_group(f, f"{label}/meta_data/other/", r.meta_data)
-
             f.close()
 
 

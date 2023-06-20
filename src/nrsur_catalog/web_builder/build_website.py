@@ -19,7 +19,7 @@ from multiprocessing import cpu_count
 import nbformat
 from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
 
-from ..cache import CatalogCache
+from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..logger import logger
 from ..api.zenodo_interface import cache_zenodo_urls_file
 
@@ -41,7 +41,7 @@ def build_website(
     CACHE = CatalogCache(os.path.abspath(event_dir))
 
     # make symlink to the web cache directory
-    web_cache = os.path.join(outdir, "events/.nrsur_catalog_cache")
+    web_cache = os.path.join(outdir, f"events/{DEFAULT_CACHE_DIR}/")
 
     # make each file in the cache directory a symlink to the web cache directory
     for file in os.listdir(CACHE.dir):
@@ -82,7 +82,8 @@ def build_website(
         for cmd in tqdm(build_commands, desc="Executing GW notebooks"):
             os.system(cmd)
 
-    make_events_menu_page(outdir)
+    logger.info("Executing events menu notebook")
+    make_events_menu_page(outdir, CACHE)
 
     logger.info("Executing catalog notebook")
     make_catalog_page(outdir, CACHE)
@@ -100,6 +101,7 @@ def gwpage_main():
     CACHE = CatalogCache(data_dir)
     logger.debug(f"Running GW notebook for {name} in {event_ipynb_dir} with data in {data_dir}")
     make_gw_page(name, event_ipynb_dir, cache=CACHE)
+
 
 
 def main():

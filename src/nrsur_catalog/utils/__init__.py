@@ -8,7 +8,7 @@ from bilby.core.prior import Prior
 from .pesummary_result_to_bilby_result import pesummary_to_bilby_result
 
 from ..logger import logger
-from .constants import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS
+from .constants import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, LOG_PARAMS
 from .overlaid_corner import plot_overlaid_corner
 
 
@@ -92,3 +92,13 @@ def prior_to_str(prior:Prior):
     if min_val is not None and max_val is not None:
         repr += f" [{min_val}, {max_val}]"
     return repr + "$"
+
+
+def safe_plot(func):
+    """Decorator to catch errors when plotting"""
+    def wrapper(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+        except Exception as e:
+            logger.error(f"Failed to plot {func.__name__}: {e}")
+    return wrapper

@@ -16,6 +16,7 @@ from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree, pesummary_to_bilby_result
 from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
 from .lvk_posterior import load_lvk_result
+from .utils import safe_plot
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -38,7 +39,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
         CACHE = CatalogCache(cache_dir)
         if not CACHE.find(event_name) and event_path is None:
-            logger.debug(f"{event_name} not in {CACHE.dir}. Files present:{CACHE.event_names}, downloading...")
+            logger.debug(f"{event_name} not in {CACHE.dir}. Downloading...")
             download_event(event_name, cache_dir)
 
         if event_path is None:
@@ -104,7 +105,6 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             parameter_conversion=self.parameter_conversion,
             waveform_arguments=self.waveform_arguments,
         )
-
     def plot_signal(
             self,
             n_samples: Optional[int] = 1000,

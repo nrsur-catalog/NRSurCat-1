@@ -70,9 +70,7 @@ fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
 fig.savefig("{{GW EVENT NAME}}_sky_localisation.png")
 fig = nrsur_result.plot_corner(["final_mass", "final_spin", "final_kick"])
 fig.savefig("{{GW EVENT NAME}}_remnant_corner.png")
-
 # LVK-Comparison plots
-# -
 fig = nrsur_result.plot_lvk_comparison_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
 fig.savefig("{{GW EVENT NAME}}_compare_mass_corner.png")
 fig = nrsur_result.plot_lvk_comparison_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
@@ -81,6 +79,9 @@ fig = nrsur_result.plot_lvk_comparison_corner(["mass_ratio", "chi_eff", "chi_p"]
 fig.savefig("{{GW EVENT NAME}}_compare_effective_spin.png")
 fig = nrsur_result.plot_lvk_comparison_corner(["luminosity_distance", "ra", "dec"])
 fig.savefig("{{GW EVENT NAME}}_compare_sky_localisation.png")
+
+# -
+
 # ## Corner Plots
 #
 # ### Mass

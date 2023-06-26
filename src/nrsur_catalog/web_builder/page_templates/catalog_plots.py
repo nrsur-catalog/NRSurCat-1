@@ -27,6 +27,12 @@
 from nrsur_catalog import Catalog
 
 catalog = Catalog.load(cache_dir=".nrsur_catalog_cache")
+
+# -
+
+# ## Violin Plots
+
+# + tags=["remove-output"]
 catalog.violin_plot("mass_1")
 catalog.violin_plot("mass_2")
 catalog.violin_plot("final_mass")
@@ -37,7 +43,6 @@ catalog.violin_plot("final_kick")
 
 # -
 
-# ## Violin Plots
 #
 # ````{tab} $m_1$
 # ![mass_1_violin.png](mass_1_violin.png)
@@ -46,7 +51,7 @@ catalog.violin_plot("final_kick")
 # ![mass_2_violin.png](mass_2_violin.png)
 # ````
 # ````{tab} $m_f$
-# ![mass_2_violin.png](mass_2_violin.png)
+# ![mass_final_violin.png](mass_final_violin.png)
 # ````
 # ````{tab} $q$
 # ![mass_ratio_violin.png](mass_ratio_violin.png)
@@ -60,5 +65,28 @@ catalog.violin_plot("final_kick")
 # ````{tab} $v_{\text{kick}}$
 # ![final_kick_violin.png](final_kick_violin.png)
 # ````
+#
+# ## 2D Scatter Plots
+
+# + tags=["remove-output"]
+fig = catalog.plot_2d_posterior("mass_1", "mass_2")
+fig.savefig("catalog_mass_1_mass_2.png")
+fig = catalog.plot_2d_posterior("chi_eff", "mass_ratio", event_posteriors=False, event_quantiles=False)
+fig.savefig("catalog_chi_eff_mass_ratio.png")
+fig = catalog.plot_2d_posterior("chi_p", "final_kick", event_posteriors=True, event_quantiles=False)
+fig.savefig("catalog_chi_p_final_kick.png")
 
 
+# -
+
+#
+# ````{tab} $m_1$ vs $m_2$
+# ![catalog_mass_1_mass_2.png](catalog_mass_1_mass_2.png)
+# ````
+# ````{tab} $\chi_{\text{EFF}}$ vs $q$
+# ![catalog_chi_eff_mass_ratio.png](catalog_chi_eff_mass_ratio.png)
+# ````
+# ````{tab} $\chi_{\text{P}}$ vs $v_{\text{kick}}$
+# ![catalog_chi_p_final_kick.png](catalog_chi_p_final_kick.png)
+# ````
+#

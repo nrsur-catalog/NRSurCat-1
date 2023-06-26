@@ -5,6 +5,7 @@ Most of the code has been grabbed from dfm/tess-atlas
 import argparse
 import shutil
 import sys
+import glob
 from itertools import repeat
 
 from papermill import execute_notebook
@@ -22,6 +23,7 @@ from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
 from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..logger import logger
 from ..api.zenodo_interface import cache_zenodo_urls_file
+from ..utils import get_event_name
 
 from .make_pages import make_events_menu_page, make_catalog_page, make_gw_page
 
@@ -62,9 +64,16 @@ def build_website(
     logger.info(f"Building website with {num_events} events: {event_names}")
     shutil.copytree(WEB_TEMPLATE, outdir, dirs_exist_ok=True)
     event_ipynb_dir = os.path.join(outdir, "events")
+    regex = os.path.join(os.path.abspath(event_ipynb_dir), "GW*.ipynb")
+
+    logger.debug(f"Checking {regex} for processed notebooks")
+    events_processed = [get_event_name(f.split('/')[-1]) for f in glob.glob(regex)]
+    events_not_processed = list(set(event_names) - set(events_processed))
+
+    logger.debug(f"Events to make webpages for: {len(events_not_processed)}/{num_events}")
 
     build_commands = [
-        f"build_gwpage {name} {event_ipynb_dir} {CACHE.dir}" for name in event_names
+        f"build_gwpage {name} {event_ipynb_dir} {CACHE.dir}" for name in events_not_processed
     ]
     if parallel_build:
         num_threads = cpu_count() // 2
@@ -76,7 +85,7 @@ def build_website(
             build_commands,
             desc="Executing GW Notebooks",
             max_workers=num_threads,
-            total=len(CACHE.event_names),
+            total=len(events_not_processed),
         )
     else:
         for cmd in tqdm(build_commands, desc="Executing GW notebooks"):

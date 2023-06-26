@@ -12,7 +12,7 @@ def load_lvk_result(event_name: str, cache_dir=DEFAULT_CACHE_DIR) -> CBCResult:
     """Load the LVK posterior for an event"""
     CACHE = CatalogCache(cache_dir)
     if not CACHE.find(event_name, lvk_posteriors=True):
-        logger.debug(f"LVK {event_name} not in {CACHE.dir}. Files present:{CACHE.list_lvk}, downloading...")
+        logger.debug(f"LVK {event_name} not in {CACHE.dir}. Downloading...")
         download_event(event_name, cache_dir=CACHE.dir, download_lvk=True)
     event_path = CACHE.find(event_name, lvk_posteriors=True, hard_fail=True)
 

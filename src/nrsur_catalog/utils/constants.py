@@ -49,3 +49,8 @@ LATEX_LABELS = dict(
     final_spin=r"$\chi_f$",
     final_kick=r"$v_{\rm kick}\ [{\rm km/s}]$",
 )
+
+
+LOG_PARAMS = [
+    'mass_1', 'mass_2'
+]

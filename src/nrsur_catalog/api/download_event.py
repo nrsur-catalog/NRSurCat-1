@@ -78,7 +78,7 @@ def download_event(
     catalog_name = "LVK" if download_lvk else "NRSur"
     logger.info(f"Downloading {event_name} from the {catalog_name} Catalog -> {savepath}...")
     utils.download(url_dict[event_name], savepath)
-    logger.info("Completed! Enjoy your event!")
+    logger.info("Download completed!")
 
 
 def download_all_events(cache_dir: str) -> None:

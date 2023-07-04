@@ -1,6 +1,6 @@
 import contextlib
 import os
-from typing import Optional, List
+from typing import Optional, List, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -16,13 +16,12 @@ from .logger import logger
 from .utils import get_1d_summary_str, get_dir_tree, pesummary_to_bilby_result
 from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
 from .lvk_posterior import load_lvk_result
-from .utils import safe_plot
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 
 class NRsurResult(CompactBinaryCoalescenceResult):
-    """Class to store the results of a NRsur event"""
+    """Class to interface with a result of a NRSur Catalog analysis."""
 
     def __init__(self, *args, **kwargs):
         super(NRsurResult, self).__init__(*args, **kwargs)
@@ -35,7 +34,23 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
             event_path: Optional[str] = None,
     ) -> "NRsurResult":
-        """Load a CBCResult from the NRSur Catalog"""
+        """Load a result (either by downloading or from a local dir).
+
+        Parameters
+        ----------
+        event_name: str
+            The name of the event to load
+            (list all available events with `nrsur_catalog.catalog.Catalog.
+        cache_dir: Optional[str]
+            The credible level to use in the plot (default 0.9)
+        event_path: Optional[str] = None
+            The path to the NRSur result file to load.
+
+        Returns
+        -------
+        NRsurResult: loaded result object.
+
+        """
 
         CACHE = CatalogCache(cache_dir)
         if not CACHE.find(event_name) and event_path is None:
@@ -57,8 +72,15 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         logger.debug(f"Loaded NRresult {event_name} from {event_path}")
         return r
 
-    def summary(self, markdown: bool = False) -> str:
-        """Generate a table of the event parameters"""
+    def summary(self, markdown: bool = False) -> Union[str, pd.DataFrame]:
+        """Generate a table of the event parameter summary statistics.
+
+        Parameters
+        ----------
+        markdown: bool
+            True, return a string-markdown table of the summary
+            False, return a pd.DataFrame of the summary.
+        """
 
         selected_parameters = []
         summary_str = []
@@ -96,7 +118,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             # call the super class sky map method
             super(NRsurResult, self).plot_skymap()
 
-    def _get_waveform_generator(self) -> WaveformGenerator:
+    def __get_waveform_generator(self) -> WaveformGenerator:
         return self.waveform_generator_class(
             duration=self.duration,
             sampling_frequency=self.sampling_frequency,
@@ -112,7 +134,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             color: Optional[str] = CATALOG_MAIN_COLOR,
             polarisation: Optional[str] = "plus",
             outdir: Optional[str] = "",
-    ):
+    )->Union[plt.Figure, None]:
         """Generate a signal plot of the event
 
         Parameters
@@ -121,6 +143,12 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             The number of samples to use in the plot
         level: float
             The credible level to use in the plot (default 0.9)
+        color: str
+            The color of the waveform.
+        polarisation: str
+            The polarisation to plot
+        outdir:str
+            The outdir to save the plot. If '' not saved.
 
         """
 
@@ -140,7 +168,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         ci = int(upper_percentile - lower_percentile)
 
         # Generate the plotting data
-        waveform_generator = self._get_waveform_generator()
+        waveform_generator = self.__get_waveform_generator()
 
         try:
             # suppress stdout
@@ -154,7 +182,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             )
             self.waveform_arguments["waveform_approximant"] = "IMRPhenomPv2"
             self.waveform_arguments['minimum_frequency'] = 20
-            waveform_generator = self._get_waveform_generator()
+            waveform_generator = self.__get_waveform_generator()
             base_wf = waveform_generator.time_domain_strain(base_params)[polarisation]
 
         time_idx = np.arange(len(base_wf))
@@ -198,7 +226,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             filename: Optional[str] = None,
             dpi: Optional[int] = 300,
             **kwargs,
-    ):
+    )->Union[plt.Figure, None]:
         labels = []
         if parameters is not None:
             labels = [LATEX_LABELS[p] for p in parameters]
@@ -211,23 +239,30 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             parameters, priors, titles, save, filename, dpi, **kwargs
         )
 
-    def plot_lvk_comparison_corner(self, parameters: List[str]):
-        """Plot a corner plot comparing the posterior to the LVK catalog"""
+    def plot_lvk_comparison_corner(self, parameters: List[str], **kwargs):
+        """Plot a corner plot comparing the posterior to the LVK catalog."""
         return plot_overlaid_corner(
             r1=self, r2=self.lvk_result, parameters=parameters,
             labels=["NRSur7dq4", "LVK [XPHM]"],
-            colors=[CATALOG_MAIN_COLOR, "tab:blue"]
+            colors=[CATALOG_MAIN_COLOR, "tab:blue"],
+            **kwargs,
         )
 
-    def print_configs(self):
+    def print_configs(self)->str:
         configs = self.meta_data["config_file"]
         for key, config in configs.items():
             k = f"{key}:"
             print(f"{k:<35} {config}")
 
-    def download_analysis_datafiles(self, outdir=None):
+    def download_analysis_datafiles(self, outdir:str):
+        """Downloads all the analysis datafiles -- CURRENTLY NOT IMPLEMENTED.
+        Please raise a git-issue if this is something you would like us to add.
+        """
         if outdir is None:
             outdir = f"outdir_{self.label}"
+        raise NotImplementedError(
+            "Please raise a git-issue if this is something that you would "
+            "really like us to include.")
         logger.info(f"Saving files to {outdir}")
         logger.info("To be implemented...")
         logger.info("Downloading analysis strain")
@@ -237,7 +272,8 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         logger.info(f"Files:\n{get_dir_tree(outdir)}")
 
     @property
-    def lvk_result(self):
+    def lvk_result(self)->CompactBinaryCoalescenceResult:
+        """The event's corresponding LVK result (from the GWTC)."""
         if not hasattr(self, "_lvk_result"):
             self._lvk_result = load_lvk_result(self.label, cache_dir=os.path.dirname(self.outdir))
             logger.debug(f"Loaded LVKresult{self.label}")

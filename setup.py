@@ -44,6 +44,7 @@ EXTRA_REQUIRE = dict(
         "papermill",
         "nbconvert",
         'itables @ git+https://github.com/mwouts/itables.git@main#egg=itables',
+        'pytest-mock',
     ]
 )
 

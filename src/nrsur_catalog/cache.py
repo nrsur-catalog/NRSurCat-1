@@ -5,7 +5,7 @@ import re
 
 from .logger import logger
 from .utils import get_event_name
-from .api.zenodo_interface import get_zenodo_urls
+from .api.zenodo_interface import get_zenodo_urls, get_analysed_event_names
 
 CACHE_ENV_VAR = "NRSUR_CATALOG_CACHE_DIR"
 DEFAULT_CACHE_DIR = "./.nrsur_catalog_cache"
@@ -16,6 +16,10 @@ NR_LABEL = "Bilby:NRSur7dq4"
 LVK_LABEL = "C01:IMRPhenomXPHM"
 
 class CatalogCache:
+    """CatalogCache helps
+    - check which files are in the cache
+    - download any required new files
+    """
 
     def __init__(self, cache_dir: str):
         """Class to handle the cache directory"""
@@ -78,7 +82,7 @@ class CatalogCache:
 
     def check_if_events_cached_in_zenodo(self, lvk_posteriors=False):
         """Return a list of events that are in the cache and in Zenodo"""
-        zenodo_events = set(get_zenodo_urls(lvk_posteriors).keys())
+        zenodo_events = set(self.zenodo_events)
         local_events = set(self.event_names)
         if zenodo_events != local_events:
             logger.warning(
@@ -90,8 +94,27 @@ class CatalogCache:
             )
 
     @property
-    def is_empty(self):
+    def is_empty(self)->bool:
         return len(self.list) == 0
+
+    @property
+    def missing_events(self):
+        zenodo_events = set(self.zenodo_events)
+        local_events = set(self.event_names)
+        return zenodo_events-local_events
+
+    @property
+    def is_incomplete(self)->bool:
+        """If not all events analysed are present"""
+        return len(self.missing_events) !=0
+
+
+    @property
+    def zenodo_events(self)->List[str]:
+        if not hasattr(self, '__zenodo_events'):
+            self.__zenodo_events = get_analysed_event_names()
+        return self.__zenodo_events
+
 
 
     def __repr__(self):

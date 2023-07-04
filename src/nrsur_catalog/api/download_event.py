@@ -81,9 +81,10 @@ def download_event(
     logger.info("Download completed!")
 
 
-def download_all_events(cache_dir: str) -> None:
-    """Download all NRSur Catlog events from Zenodo"""
-    analysed_events = get_zenodo_urls()
-    logger.info(f"Downloading all {len(analysed_events)} events...")
-    for event_name in analysed_events:
+def download_missing_events(cache_dir: str) -> None:
+    """Download all NRSur Catlog events from Zenodo that are not already present"""
+    cache = CatalogCache(cache_dir)
+    events_to_download = cache.missing_events
+    logger.info(f"Downloading all {len(events_to_download)} events...")
+    for event_name in events_to_download:
         download_event(event_name, cache_dir=cache_dir)

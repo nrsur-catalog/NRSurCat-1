@@ -6,24 +6,17 @@ import argparse
 import shutil
 import sys
 import glob
-from itertools import repeat
 
-from papermill import execute_notebook
-
-import jupytext
 import os
 
 from tqdm.contrib.concurrent import process_map
 from tqdm.auto import tqdm
 from multiprocessing import cpu_count
 
-import nbformat
-from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
-
 from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..logger import logger
-from ..api.zenodo_interface import cache_zenodo_urls_file
 from ..utils import get_event_name
+from .utils import is_file
 
 from .make_pages import make_events_menu_page, make_catalog_page, make_gw_page
 
@@ -52,7 +45,7 @@ def build_website(
         dst_dir = os.path.dirname(dst)
         if not os.path.exists(dst_dir):
             os.makedirs(dst_dir, exist_ok=True)
-        if not os.path.exists(dst):
+        if not is_file(dst):
             assert os.path.exists(src), f"File {src} (src) does not exist"
             os.symlink(src, dst)
 
@@ -110,7 +103,6 @@ def gwpage_main():
     CACHE = CatalogCache(data_dir)
     logger.debug(f"Running GW notebook for {name} in {event_ipynb_dir} with data in {data_dir}")
     make_gw_page(name, event_ipynb_dir, cache=CACHE)
-
 
 
 def main():

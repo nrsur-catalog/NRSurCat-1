@@ -10,6 +10,7 @@ import shutil
 from ..cache import CatalogCache, DEFAULT_CACHE_DIR
 from ..nrsur_result import NRsurResult
 from ..logger import logger
+from .utils import is_file
 
 HERE = os.path.dirname(__file__)
 GW_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_notebook_template.py")
@@ -89,7 +90,7 @@ def make_catalog_page(outdir: str, cache: CatalogCache):
     for fname in os.listdir(cache.dir):
         src = os.path.join(cache.dir, fname)
         dst = os.path.join(tmp_cache, fname)
-        if not os.path.exists(dst):
+        if not is_file(dst):
             os.symlink(src, dst)
 
     execute_notebook(

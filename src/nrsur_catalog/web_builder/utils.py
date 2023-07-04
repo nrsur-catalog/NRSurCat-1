@@ -10,6 +10,8 @@ LINK = "<a href='{l}'> {txt}</a>"
 def get_catalog_summary(events_dir:str, cache_dir:str)->pd.DataFrame:
     """
     Get a summary dataframe of the catalog
+        events_dir: Dir with the notebooks
+        cache_dir: Dir with the NRSurResults
     """
     catalog = Catalog.load(cache_dir)
     df = __load_processed_links_dataframe(catalog, events_dir)
@@ -56,3 +58,7 @@ def __load_posterior_summary(catalog):
         p: LATEX_LABELS.get(p, p) for p in posterior_summary.columns.values}
     )
     return posterior_summary
+
+
+def is_file(f):
+    return os.path.exists(f) or os.path.islink(f)

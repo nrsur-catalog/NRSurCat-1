@@ -6,3 +6,4 @@ chapters:
 - file: events/gw_menu_page
   sections:
     - glob: events/GW*
+- file: api.rst

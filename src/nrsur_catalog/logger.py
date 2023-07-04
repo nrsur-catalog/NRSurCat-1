@@ -8,7 +8,7 @@ logger.add(
     sys.stderr,
     format="|<blue>NURSUR CATALOG</blue>|{time:DD/MM HH:mm:ss}|{level}| <green>{message}</green> ",
     colorize=True,
-    level="DEBUG",
+    level="INFO",
 )
 
 

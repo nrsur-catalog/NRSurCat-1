@@ -22,6 +22,16 @@
 # # Catalog plots
 #
 # Here we have some catalog plots showing the ensemble results of the catalog.
+# (Note: it may take a few minutes to download the data the first time you run this notebook.)
+
+# + tags=["hide-cell"]
+import pip
+
+
+try:
+    __import__("nrsur_catalog")
+except ImportError:
+    pip.main(['install', "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg", "-q"])
 
 # + tags=["remove-output"]
 from nrsur_catalog import Catalog
@@ -51,7 +61,7 @@ catalog.violin_plot("final_kick")
 # ![mass_2_violin.png](mass_2_violin.png)
 # ````
 # ````{tab} $m_f$
-# ![mass_final_violin.png](mass_final_violin.png)
+# ![final_mass_violin.png](final_mass_violin.png)
 # ````
 # ````{tab} $q$
 # ![mass_ratio_violin.png](mass_ratio_violin.png)

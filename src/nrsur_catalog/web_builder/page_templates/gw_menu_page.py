@@ -38,10 +38,11 @@ show(
     scrollX=True,
     autoWidth=True,
     lengthMenu=[5, 10, 20, 50],
-    classes='cell-border nowrap display compact'
+    classes='cell-border nowrap display compact',
+    caption='<caption style="caption-side: bottom-start">Made with <a href="https://mwouts.github.io/itables/">itables</a> and <a href="https://datatables.net/">datatables</a>.</caption>'
 )
 
-
 # -
+
 
 

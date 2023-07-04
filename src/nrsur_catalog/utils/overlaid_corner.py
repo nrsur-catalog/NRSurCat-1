@@ -5,14 +5,14 @@ from .constants import LATEX_LABELS
 
 
 
-def plot_overlaid_corner(r1: CBCResult, r2: CBCResult, parameters: List[str], labels:List[str], colors: List[str]):
+def plot_overlaid_corner(r1: CBCResult, r2: CBCResult, parameters: List[str], labels:List[str], colors: List[str], **kwargs):
     # ensure parameters are in both results posteriors
     _check_list_is_subset(parameters, list(r1.posterior.columns))
     _check_list_is_subset(parameters, list(r2.posterior.columns))
 
     # plot corner
     latex = [LATEX_LABELS[p] for p in parameters]
-    kwgs = dict(parameters=parameters, labels=latex, save=False)
+    kwgs = dict(parameters=parameters, labels=latex, save=False, **kwargs)
     fig = r1.plot_corner(color=colors[0], titles=True, **kwgs)
     fig = r2.plot_corner(fig=fig, color=colors[1], quantiles=[], titles=False, **kwgs)
 

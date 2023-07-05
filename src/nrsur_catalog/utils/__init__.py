@@ -1,15 +1,20 @@
 import os
+import re
 
 import numpy as np
-import re
 import requests
-from tqdm.auto import tqdm
 from bilby.core.prior import Prior
-from .pesummary_result_to_bilby_result import pesummary_to_bilby_result
+from tqdm.auto import tqdm
 
 from ..logger import logger
-from .constants import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, LOG_PARAMS
+from .constants import (
+    CATALOG_MAIN_COLOR,
+    INTERESTING_PARAMETERS,
+    LATEX_LABELS,
+    LOG_PARAMS,
+)
 from .overlaid_corner import plot_overlaid_corner
+from .pesummary_result_to_bilby_result import pesummary_to_bilby_result
 
 
 def get_size_of_file(filename: str) -> str:
@@ -21,7 +26,7 @@ def get_size_of_file(filename: str) -> str:
         size /= 1024.0
 
 
-def format_qts_to_latex(q_lo:float, q_mid:float, q_hi:float) -> str:
+def format_qts_to_latex(q_lo: float, q_mid: float, q_hi: float) -> str:
     """Format quantiles to a LaTeX string"""
     q_m, q_p = q_mid - q_lo, q_hi - q_mid
     fmt = "{{0:{0}}}".format(".2f").format
@@ -29,10 +34,10 @@ def format_qts_to_latex(q_lo:float, q_mid:float, q_hi:float) -> str:
     return summary.format(fmt(q_mid), fmt(q_m), fmt(q_p))
 
 
-
 def get_1d_summary_str(x: np.ndarray, quantiles=[0.16, 0.5, 0.84]) -> str:
     q_lo, q_mid, q_hi = np.quantile(x, quantiles)
     return format_qts_to_latex(q_lo, q_mid, q_hi)
+
 
 def get_event_name(s: str):
     """Get the event name from a string using a regex
@@ -79,7 +84,7 @@ def download(url: str, fname: str) -> None:
             bar.update(size)
 
 
-def prior_to_str(prior:Prior):
+def prior_to_str(prior: Prior):
     """Convert a prior to a string"""
     # get class name
     name = prior.__class__.__name__
@@ -96,9 +101,11 @@ def prior_to_str(prior:Prior):
 
 def safe_plot(func):
     """Decorator to catch errors when plotting"""
+
     def wrapper(*args, **kwargs):
         try:
             func(*args, **kwargs)
         except Exception as e:
             logger.error(f"Failed to plot {func.__name__}: {e}")
+
     return wrapper

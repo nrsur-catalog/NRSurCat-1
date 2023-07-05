@@ -21,16 +21,16 @@ from nrsur_catalog.web_builder.utils import get_catalog_summary
 
 summary_df = get_catalog_summary("{{EVENTS_DIR}}", "{{CACHE_DIR}}")
 
-# + tags=["remove-input", "full-width"]
-from itables import init_notebook_mode, show, JavascriptFunction
 import itables.options as opt
 
+# + tags=["remove-input", "full-width"]
+from itables import JavascriptFunction, init_notebook_mode, show
 
 opt.drawCallback = JavascriptFunction(
     "function(settings) " '{MathJax.Hub.Queue(["Typeset",MathJax.Hub]);}'
 )
 init_notebook_mode(all_interactive=True)
-summary_df.rename(columns={'Waveform': '   '})
+summary_df.rename(columns={"Waveform": "   "})
 summary_df = summary_df.reset_index(drop=True)
 show(
     summary_df,
@@ -38,11 +38,8 @@ show(
     scrollX=True,
     autoWidth=True,
     lengthMenu=[5, 10, 20, 50],
-    classes='cell-border nowrap display compact',
-    caption='<caption style="caption-side: bottom-start">Made with <a href="https://mwouts.github.io/itables/">itables</a> and <a href="https://datatables.net/">datatables</a>.</caption>'
+    classes="cell-border nowrap display compact",
+    caption='<caption style="caption-side: bottom-start">Made with <a href="https://mwouts.github.io/itables/">itables</a> and <a href="https://datatables.net/">datatables</a>.</caption>',
 )
 
 # -
-
-
-

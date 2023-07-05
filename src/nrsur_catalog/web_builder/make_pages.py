@@ -1,15 +1,16 @@
 """Module to build individual pages for the website"""
 
-from ploomber_engine import execute_notebook
-from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
-import jupytext
 import os
-import nbformat
 import shutil
 
-from ..cache import CatalogCache, DEFAULT_CACHE_DIR
-from ..nrsur_result import NRsurResult
+import jupytext
+import nbformat
+from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
+from ploomber_engine import execute_notebook
+
+from ..cache import DEFAULT_CACHE_DIR, CatalogCache
 from ..logger import logger
+from ..nrsur_result import NRsurResult
 from .utils import is_file
 
 HERE = os.path.dirname(__file__)
@@ -18,18 +19,25 @@ CATALOG_TEMPLATE = os.path.join(HERE, "page_templates/catalog_plots.py")
 TABLE_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_menu_page.py")
 
 
-def make_events_menu_page(outdir: str, cache:CatalogCache) -> None:
+def make_events_menu_page(outdir: str, cache: CatalogCache) -> None:
     """Writes the events menu page"""
     py_fname = f"{outdir}/events/gw_menu_page.py"
     os.makedirs(os.path.dirname(py_fname), exist_ok=True)
     events_dir = os.path.abspath(os.path.join(outdir, "events"))
-    _replace_strings_from_file(TABLE_PAGE_TEMPLATE, {
-        "{{EVENTS_DIR}}": events_dir,
-        "{{CACHE_DIR}}": cache.dir
-    }, py_fname)
+    _replace_strings_from_file(
+        TABLE_PAGE_TEMPLATE,
+        {"{{EVENTS_DIR}}": events_dir, "{{CACHE_DIR}}": cache.dir},
+        py_fname,
+    )
     ipynb_fn = convert_py_to_ipynb(py_fname)
-    return execute_notebook(ipynb_fn, ipynb_fn, cwd=outdir, progress_bar=False, verbose=False,
-                            save_profiling_data=False)
+    return execute_notebook(
+        ipynb_fn,
+        ipynb_fn,
+        cwd=outdir,
+        progress_bar=False,
+        verbose=False,
+        save_profiling_data=False,
+    )
 
 
 def convert_py_to_ipynb(py_fn) -> str:
@@ -54,7 +62,7 @@ def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
     _replace_strings_from_file(
         GW_PAGE_TEMPLATE,
         {"{{GW EVENT NAME}}": event_name, "{{SUMMARY_TABLE}}": summary_md},
-        md_fn
+        md_fn,
     )
     ipynb_fn = convert_py_to_ipynb(md_fn)
     logger.debug(
@@ -64,8 +72,13 @@ def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
         f"    - cache: {cache.dir}\n"
     )
     return execute_notebook(
-        ipynb_fn, ipynb_fn, cwd=outdir, save_profiling_data=True, profile_memory=True,
-        progress_bar=False, verbose=False
+        ipynb_fn,
+        ipynb_fn,
+        cwd=outdir,
+        save_profiling_data=True,
+        profile_memory=True,
+        progress_bar=False,
+        verbose=False,
     )
 
 
@@ -97,5 +110,6 @@ def make_catalog_page(outdir: str, cache: CatalogCache):
         ipynb_fn,
         f"{outdir}/catalog_plots.ipynb",
         cwd=outdir,
-        save_profiling_data=True, profile_memory=True
+        save_profiling_data=True,
+        profile_memory=True,
     )

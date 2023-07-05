@@ -3,8 +3,8 @@ import os
 
 import matplotlib.pyplot as plt
 
-from .nrsur_result import NRsurResult
 from .catalog import Catalog
+from .nrsur_result import NRsurResult
 
 __version__ = "0.0.1"
 

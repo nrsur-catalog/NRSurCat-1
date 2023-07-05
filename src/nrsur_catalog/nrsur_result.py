@@ -1,21 +1,27 @@
 import contextlib
 import os
-from typing import Optional, List, Union
+from typing import List, Optional, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from bilby.gw.result import CompactBinaryCoalescenceResult
-from .utils import plot_overlaid_corner
-
 from bilby.gw.waveform_generator import WaveformGenerator
 
 from .api import download_event
-from .cache import CatalogCache, DEFAULT_CACHE_DIR
+from .cache import DEFAULT_CACHE_DIR, CatalogCache
 from .logger import logger
-from .utils import get_1d_summary_str, get_dir_tree, pesummary_to_bilby_result
-from .utils import CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS, LATEX_LABELS, prior_to_str
 from .lvk_posterior import load_lvk_result
+from .utils import (
+    CATALOG_MAIN_COLOR,
+    INTERESTING_PARAMETERS,
+    LATEX_LABELS,
+    get_1d_summary_str,
+    get_dir_tree,
+    pesummary_to_bilby_result,
+    plot_overlaid_corner,
+    prior_to_str,
+)
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -29,10 +35,10 @@ class NRsurResult(CompactBinaryCoalescenceResult):
 
     @classmethod
     def load(
-            cls,
-            event_name: str,
-            cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
-            event_path: Optional[str] = None,
+        cls,
+        event_name: str,
+        cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
+        event_path: Optional[str] = None,
     ) -> "NRsurResult":
         """Load a result (either by downloading or from a local dir).
 
@@ -127,14 +133,15 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             parameter_conversion=self.parameter_conversion,
             waveform_arguments=self.waveform_arguments,
         )
+
     def plot_signal(
-            self,
-            n_samples: Optional[int] = 1000,
-            level: Optional[float] = 0.9,
-            color: Optional[str] = CATALOG_MAIN_COLOR,
-            polarisation: Optional[str] = "plus",
-            outdir: Optional[str] = "",
-    )->Union[plt.Figure, None]:
+        self,
+        n_samples: Optional[int] = 1000,
+        level: Optional[float] = 0.9,
+        color: Optional[str] = CATALOG_MAIN_COLOR,
+        polarisation: Optional[str] = "plus",
+        outdir: Optional[str] = "",
+    ) -> Union[plt.Figure, None]:
         """Generate a signal plot of the event
 
         Parameters
@@ -181,7 +188,7 @@ class NRsurResult(CompactBinaryCoalescenceResult):
                 "Unable to create a waveform: do you have NrSur7dq4 installed? Defaulting to IMRPhenomPv2"
             )
             self.waveform_arguments["waveform_approximant"] = "IMRPhenomPv2"
-            self.waveform_arguments['minimum_frequency'] = 20
+            self.waveform_arguments["minimum_frequency"] = 20
             waveform_generator = self.__get_waveform_generator()
             base_wf = waveform_generator.time_domain_strain(base_params)[polarisation]
 
@@ -218,15 +225,15 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         return fig
 
     def plot_corner(
-            self,
-            parameters: Optional[List[str]] = None,
-            priors: Optional[bool] = None,
-            titles: Optional[List[str]] = True,
-            save: Optional[bool] = False,
-            filename: Optional[str] = None,
-            dpi: Optional[int] = 300,
-            **kwargs,
-    )->Union[plt.Figure, None]:
+        self,
+        parameters: Optional[List[str]] = None,
+        priors: Optional[bool] = None,
+        titles: Optional[List[str]] = True,
+        save: Optional[bool] = False,
+        filename: Optional[str] = None,
+        dpi: Optional[int] = 300,
+        **kwargs,
+    ) -> Union[plt.Figure, None]:
         labels = []
         if parameters is not None:
             labels = [LATEX_LABELS[p] for p in parameters]
@@ -242,19 +249,21 @@ class NRsurResult(CompactBinaryCoalescenceResult):
     def plot_lvk_comparison_corner(self, parameters: List[str], **kwargs):
         """Plot a corner plot comparing the posterior to the LVK catalog."""
         return plot_overlaid_corner(
-            r1=self, r2=self.lvk_result, parameters=parameters,
+            r1=self,
+            r2=self.lvk_result,
+            parameters=parameters,
             labels=["NRSur7dq4", "LVK [XPHM]"],
             colors=[CATALOG_MAIN_COLOR, "tab:blue"],
             **kwargs,
         )
 
-    def print_configs(self)->str:
+    def print_configs(self) -> str:
         configs = self.meta_data["config_file"]
         for key, config in configs.items():
             k = f"{key}:"
             print(f"{k:<35} {config}")
 
-    def download_analysis_datafiles(self, outdir:str):
+    def download_analysis_datafiles(self, outdir: str):
         """Downloads all the analysis datafiles -- CURRENTLY NOT IMPLEMENTED.
         Please raise a git-issue if this is something you would like us to add.
         """
@@ -262,7 +271,8 @@ class NRsurResult(CompactBinaryCoalescenceResult):
             outdir = f"outdir_{self.label}"
         raise NotImplementedError(
             "Please raise a git-issue if this is something that you would "
-            "really like us to include.")
+            "really like us to include."
+        )
         logger.info(f"Saving files to {outdir}")
         logger.info("To be implemented...")
         logger.info("Downloading analysis strain")
@@ -272,9 +282,11 @@ class NRsurResult(CompactBinaryCoalescenceResult):
         logger.info(f"Files:\n{get_dir_tree(outdir)}")
 
     @property
-    def lvk_result(self)->CompactBinaryCoalescenceResult:
+    def lvk_result(self) -> CompactBinaryCoalescenceResult:
         """The event's corresponding LVK result (from the GWTC)."""
         if not hasattr(self, "_lvk_result"):
-            self._lvk_result = load_lvk_result(self.label, cache_dir=os.path.dirname(self.outdir))
+            self._lvk_result = load_lvk_result(
+                self.label, cache_dir=os.path.dirname(self.outdir)
+            )
             logger.debug(f"Loaded LVKresult{self.label}")
         return self._lvk_result

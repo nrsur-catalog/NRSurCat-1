@@ -1,6 +1,7 @@
+import logging
 import sys
 import warnings
-import logging
+
 from loguru import logger
 
 logger.remove(0)
@@ -14,4 +15,4 @@ logger.add(
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
-logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)

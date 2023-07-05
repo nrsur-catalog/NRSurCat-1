@@ -27,11 +27,16 @@
 # + tags=["hide-cell"]
 import pip
 
-
 try:
     __import__("nrsur_catalog")
 except ImportError:
-    pip.main(['install', "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg", "-q"])
+    pip.main(
+        [
+            "install",
+            "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg",
+            "-q",
+        ]
+    )
 
 # + tags=["remove-output"]
 from nrsur_catalog import Catalog
@@ -81,9 +86,13 @@ catalog.violin_plot("final_kick")
 # + tags=["remove-output"]
 fig = catalog.plot_2d_posterior("mass_1", "mass_2")
 fig.savefig("catalog_mass_1_mass_2.png")
-fig = catalog.plot_2d_posterior("chi_eff", "mass_ratio", event_posteriors=False, event_quantiles=False)
+fig = catalog.plot_2d_posterior(
+    "chi_eff", "mass_ratio", event_posteriors=False, event_quantiles=False
+)
 fig.savefig("catalog_chi_eff_mass_ratio.png")
-fig = catalog.plot_2d_posterior("chi_p", "final_kick", event_posteriors=True, event_quantiles=False)
+fig = catalog.plot_2d_posterior(
+    "chi_p", "final_kick", event_posteriors=True, event_quantiles=False
+)
 fig.savefig("catalog_chi_p_final_kick.png")
 
 

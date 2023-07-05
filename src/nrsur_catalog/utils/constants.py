@@ -1,4 +1,3 @@
-
 INTERESTING_PARAMETERS = {
     "Mass Parameters": ["mass_1", "mass_2", "chirp_mass", "mass_ratio"],
     "Spin Parameters": ["a_1", "a_2", "tilt_1", "tilt_2", "chi_eff", "chi_p"],
@@ -51,6 +50,4 @@ LATEX_LABELS = dict(
 )
 
 
-LOG_PARAMS = [
-    'mass_1', 'mass_2'
-]
+LOG_PARAMS = ["mass_1", "mass_2"]

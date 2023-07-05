@@ -1,10 +1,11 @@
 """Module to download, cache, and read the LVK posteriors"""
+import h5py
 import pandas as pd
+from bilby.gw.result import CBCResult
 
 from nrsur_catalog.api import download_event
-from nrsur_catalog.cache import CatalogCache, LVK_LABEL, DEFAULT_CACHE_DIR
-import h5py
-from bilby.gw.result import CBCResult
+from nrsur_catalog.cache import DEFAULT_CACHE_DIR, LVK_LABEL, CatalogCache
+
 from .logger import logger
 
 
@@ -18,7 +19,7 @@ def load_lvk_result(event_name: str, cache_dir=DEFAULT_CACHE_DIR) -> CBCResult:
 
     with h5py.File(event_path, "r") as f:
         res = f[LVK_LABEL]
-        df = pd.DataFrame(res['posterior_samples'][:])
+        df = pd.DataFrame(res["posterior_samples"][:])
 
     return CBCResult(
         label="LVK [XPHM]",

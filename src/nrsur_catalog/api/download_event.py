@@ -8,13 +8,12 @@ NOTE:
 import argparse
 import os.path
 import sys
-
 from typing import Optional, Tuple
 
-from ..cache import CatalogCache, DEFAULT_CACHE_DIR
-from ..logger import logger
-from .zenodo_interface import get_zenodo_urls, check_if_event_in_zenodo
 from .. import utils
+from ..cache import DEFAULT_CACHE_DIR, CatalogCache
+from ..logger import logger
+from .zenodo_interface import check_if_event_in_zenodo, get_zenodo_urls
 
 
 def get_cli_args(args=None) -> Tuple[str, bool, str]:
@@ -50,19 +49,25 @@ def get_cli_args(args=None) -> Tuple[str, bool, str]:
 
 
 def download_event(
-        event_name: str, cache_dir: Optional[str] = DEFAULT_CACHE_DIR, download_lvk: bool = False
+    event_name: str,
+    cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
+    download_lvk: bool = False,
 ) -> None:
     """Download the NRSur Catlog events from Zenodo given the event name"""
 
     CACHE = CatalogCache(cache_dir)
 
-    present, event_name = check_if_event_in_zenodo(event_name, lvk_posteriors=download_lvk)
+    present, event_name = check_if_event_in_zenodo(
+        event_name, lvk_posteriors=download_lvk
+    )
 
     if not present:
         logger.debug("Event not found in Zenodo")
         return
 
-    if event_name in CACHE.find(event_name, lvk_posteriors=download_lvk):  # Check if the event is already cached
+    if event_name in CACHE.find(
+        event_name, lvk_posteriors=download_lvk
+    ):  # Check if the event is already cached
         logger.debug(f"Fit {event_name} already downloaded")
         return
 
@@ -76,7 +81,9 @@ def download_event(
     fname = url.split("/")[-1]
     savepath = os.path.abspath(os.path.join(cache_dir, fname))
     catalog_name = "LVK" if download_lvk else "NRSur"
-    logger.info(f"Downloading {event_name} from the {catalog_name} Catalog -> {savepath}...")
+    logger.info(
+        f"Downloading {event_name} from the {catalog_name} Catalog -> {savepath}..."
+    )
     utils.download(url_dict[event_name], savepath)
     logger.info("Download completed!")
 

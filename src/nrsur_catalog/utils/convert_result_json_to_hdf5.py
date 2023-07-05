@@ -1,7 +1,8 @@
-from bilby.gw.result import CBCResult
 from glob import glob
-from tqdm import tqdm
+
 import numpy as np
+from bilby.gw.result import CBCResult
+from tqdm import tqdm
 
 
 def compute_ln_prior(result: CBCResult) -> np.ndarray:
@@ -31,8 +32,8 @@ def convert_result_json_to_hdf5(json_path: str):
     """
     result = CBCResult.from_json(json_path)
     result.sampling_time = result.sampling_time.total_seconds()
-    result.posterior['log_prior'] = compute_ln_prior(result)
-    col_to_drop = ['catch_waveform_errors', 'waveform_approximant']
+    result.posterior["log_prior"] = compute_ln_prior(result)
+    col_to_drop = ["catch_waveform_errors", "waveform_approximant"]
     result.posterior = result.posterior.drop(columns=col_to_drop)
     for key in result.posterior:
         result.posterior[key] = np.array(result.posterior[key].tolist())
@@ -44,4 +45,3 @@ def convert_all_result_json_to_hdf5(result_regex: str):
     """Convert all result.json files to result.hdf5 files"""
     for json_path in tqdm(glob(result_regex), desc="Converting"):
         convert_result_json_to_hdf5(json_path)
-

@@ -1,33 +1,38 @@
 """Module to load all the catalog events and make plots with them"""
 import os.path
-
-from matplotlib.ticker import AutoMinorLocator
-from tqdm.auto import tqdm
-from .nrsur_result import NRsurResult
-
-from typing import Dict, Optional, List, Union
-import matplotlib.pyplot as plt
 from glob import glob
-from .utils import get_event_name, format_qts_to_latex
-
-from .cache import CatalogCache, DEFAULT_CACHE_DIR, NR_FILE_EXTENSION
-from .logger import logger
-from .api import download_missing_events, get_analysed_event_names
-
-from .utils import LATEX_LABELS, CATALOG_MAIN_COLOR, INTERESTING_PARAMETERS
-from corner import hist2d
+from itertools import chain
+from typing import Dict, List, Optional, Union
 
 import h5py
-import pandas as pd
-from itertools import chain
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+from corner import hist2d
+from matplotlib.ticker import AutoMinorLocator
+from tqdm.auto import tqdm
 
-POSTERIORS_TO_KEEP = list(chain.from_iterable(v for v in INTERESTING_PARAMETERS.values()))
+from .api import download_missing_events, get_analysed_event_names
+from .cache import DEFAULT_CACHE_DIR, NR_FILE_EXTENSION, CatalogCache
+from .logger import logger
+from .nrsur_result import NRsurResult
+from .utils import (
+    CATALOG_MAIN_COLOR,
+    INTERESTING_PARAMETERS,
+    LATEX_LABELS,
+    format_qts_to_latex,
+    get_event_name,
+)
+
+POSTERIORS_TO_KEEP = list(
+    chain.from_iterable(v for v in INTERESTING_PARAMETERS.values())
+)
 # POSTERIORS_TO_KEEP += ["log_likelihood", "log_prior"]
 MAX_SAMPLES = 10000
 CATALOG_FN = "downsampled_posteriors.h5"
 
 DEFAULT_CLEAN_CATALOG = True
+
 
 class Catalog:
     def __init__(self, posteriors: pd.DataFrame):
@@ -45,10 +50,10 @@ class Catalog:
 
     @classmethod
     def load(
-            cls,
-            cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
-            max_samples:Optional[int]=MAX_SAMPLES,
-            clean:Optional[bool]=DEFAULT_CLEAN_CATALOG
+        cls,
+        cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
+        max_samples: Optional[int] = MAX_SAMPLES,
+        clean: Optional[bool] = DEFAULT_CLEAN_CATALOG,
     ) -> "Catalog":
         """Load all the catalog posterior samples and stores a cache of the down-sampled posteriors.
 
@@ -70,7 +75,9 @@ class Catalog:
             catalog = cls(Catalog.from_hdf5(fname))
         else:
             if CACHE.is_incomplete:
-                logger.warning(f"Cache {cache_dir} is missing some events, downloading events...")
+                logger.warning(
+                    f"Cache {cache_dir} is missing some events, downloading events..."
+                )
                 download_missing_events(CACHE.dir)
             df = Catalog.__load_events(cache_dir, max_samples=max_samples)
             catalog = cls(df)
@@ -78,7 +85,7 @@ class Catalog:
         return catalog
 
     @staticmethod
-    def __load_events(events_dir: str, max_samples:int=MAX_SAMPLES) -> pd.DataFrame:
+    def __load_events(events_dir: str, max_samples: int = MAX_SAMPLES) -> pd.DataFrame:
         """Helped method to load the posteriors from the Cache dir."""
         event_paths = glob(f"{events_dir}/*{NR_FILE_EXTENSION}")
         dfs = []
@@ -102,12 +109,16 @@ class Catalog:
                     f"Event {event_name} has {len(r.posterior)}>{max_samples} samples, "
                     f"downsampling to {max_samples} samples"
                 )
-                posterior = posterior.sample(max_samples, weights=r.posterior.log_likelihood)
+                posterior = posterior.sample(
+                    max_samples, weights=r.posterior.log_likelihood
+                )
             posterior.loc[:, "event"] = event_name
             dfs.append(posterior)
         return pd.concat(dfs)
 
-    def to_dict_of_posteriors(self, parameters:Optional[List[str]]=None) -> Dict[str, pd.DataFrame]:
+    def to_dict_of_posteriors(
+        self, parameters: Optional[List[str]] = None
+    ) -> Dict[str, pd.DataFrame]:
         """Return a dictionary of event:posteriors.
 
         Parameters
@@ -124,11 +135,10 @@ class Catalog:
         if parameters is None:
             parameters = POSTERIORS_TO_KEEP
         return {
-            e: self._df[self._df['event'] == e][parameters]
-            for e in self.event_names
+            e: self._df[self._df["event"] == e][parameters] for e in self.event_names
         }
 
-    def save(self, path: str)->None:
+    def save(self, path: str) -> None:
         """Cache the loaded catalog to a hdf5 file.
 
         Parameters
@@ -152,14 +162,17 @@ class Catalog:
             posteriors = []
             for key in f:
                 df = pd.DataFrame(f[key][:])
-                df['event'] = key
+                df["event"] = key
                 posteriors.append(df)
             return pd.concat(posteriors)
 
-    def violin_plot(self, parameter: str)->plt.Figure:
+    def violin_plot(self, parameter: str) -> plt.Figure:
         """Generate a violin plot of a parameter."""
         # posterior subsets for each event
-        data = [post.values.ravel() for post in self.to_dict_of_posteriors([parameter]).values()]
+        data = [
+            post.values.ravel()
+            for post in self.to_dict_of_posteriors([parameter]).values()
+        ]
         means = [np.mean(d) for d in data]
 
         # sort by mean
@@ -213,7 +226,7 @@ class Catalog:
     def parameters(self) -> List[str]:
         """Return a list of parameters in the catalog"""
         p = list(self._df.columns)
-        p.remove('event')
+        p.remove("event")
         return p
 
     def get_posterior_quantiles(self, quantiles=[0.16, 0.5, 0.84]) -> pd.DataFrame:
@@ -256,15 +269,15 @@ class Catalog:
         return latex_summary
 
     def plot_2d_posterior(
-            self,
-            parm_x:str,
-            parm_y:str,
-            scatter_medians:Optional[bool]=True,
-            event_posteriors:Optional[bool]=False,
-            event_quantiles:Optional[bool]=True,
-            contour_all_posterior_samples:Optional[bool]=True,
-            colors:Optional[Union[str, List[str]]]=CATALOG_MAIN_COLOR
-    )->plt.Figure:
+        self,
+        parm_x: str,
+        parm_y: str,
+        scatter_medians: Optional[bool] = True,
+        event_posteriors: Optional[bool] = False,
+        event_quantiles: Optional[bool] = True,
+        contour_all_posterior_samples: Optional[bool] = True,
+        colors: Optional[Union[str, List[str]]] = CATALOG_MAIN_COLOR,
+    ) -> plt.Figure:
         """
         Plot a 2D posterior for all events in the catalog
 
@@ -293,7 +306,7 @@ class Catalog:
         """
         fig, ax = plt.subplots(figsize=(5, 5))
         if isinstance(colors, str):
-            colors=[colors] * self.n
+            colors = [colors] * self.n
 
         if event_posteriors or contour_all_posterior_samples:
             if event_posteriors:
@@ -304,8 +317,13 @@ class Catalog:
             for i, event in enumerate(self.event_names):
                 data = self.get_event_posterior(event)[[parm_x, parm_y]]
                 hist2d(
-                    ax=ax, x=data[parm_x].values, y=data[parm_y].values, color=colors[i],
-                    bins=50, zorder=-2, alpha=0.1,
+                    ax=ax,
+                    x=data[parm_x].values,
+                    y=data[parm_y].values,
+                    color=colors[i],
+                    bins=50,
+                    zorder=-2,
+                    alpha=0.1,
                     plot_datapoints=False,
                     plot_density=False,
                     plot_contours=True,
@@ -315,7 +333,6 @@ class Catalog:
                     smooth=1.1,
                     contourf_kwargs=dict(linewidths=linewidths),
                     contour_kwargs=dict(linewidths=linewidths),
-
                 )
 
         if scatter_medians:
@@ -328,23 +345,34 @@ class Catalog:
                 ax.scatter(x, y, color=colors[i], s=0.5)
                 if event_quantiles:
                     ax.errorbar(
-                        x, y,
-                        xerr=[[x - xlow], [xhigh - x]], yerr=[[y - ylow], [yhigh - y]],
-                        fmt='none', color=colors[i], alpha=0.2, capsize=0,
+                        x,
+                        y,
+                        xerr=[[x - xlow], [xhigh - x]],
+                        yerr=[[y - ylow], [yhigh - y]],
+                        fmt="none",
+                        color=colors[i],
+                        alpha=0.2,
+                        capsize=0,
                     )
 
         # add minor ticks
         ax.set_xlim(min(self._df[parm_x]), max(self._df[parm_x]))
         ax.set_ylim(min(self._df[parm_y]), max(self._df[parm_y]))
         ax.tick_params(
-            axis='both', which='both', direction='in',
-            top=True, right=True, labelsize=12, pad=5)
-        ax.tick_params(axis='x', pad=10)
+            axis="both",
+            which="both",
+            direction="in",
+            top=True,
+            right=True,
+            labelsize=12,
+            pad=5,
+        )
+        ax.tick_params(axis="x", pad=10)
         # add minor ticks
         ax.xaxis.set_minor_locator(AutoMinorLocator())
         ax.yaxis.set_minor_locator(AutoMinorLocator())
-        ax.tick_params(axis='both', which='major', length=8)
-        ax.tick_params(axis='both', which='minor', length=4)
+        ax.tick_params(axis="both", which="major", length=8)
+        ax.tick_params(axis="both", which="minor", length=4)
         ax.set_xlabel(LATEX_LABELS[parm_x])
         ax.set_ylabel(LATEX_LABELS[parm_y])
         plt.tight_layout()
@@ -373,7 +401,7 @@ class Catalog:
         -------
         pd.DataFrame: A dataframe of the event's posterior samples
         """
-        return self._df[self._df['event'] == event_name]
+        return self._df[self._df["event"] == event_name]
 
     @staticmethod
     def get_analysed_event_names() -> List[str]:
@@ -386,11 +414,11 @@ class Catalog:
         return get_analysed_event_names()
 
     @property
-    def all_analysed_events_loaded(self)->bool:
+    def all_analysed_events_loaded(self) -> bool:
         """True if all analysed events have been loaded
         (this will be False when the Catalog object is created
         before all event results have been downloaded).
         """
         analysed_events = set(self.get_analysed_event_names())
         loaded_events = set(self.event_names)
-        return len(analysed_events-loaded_events)==0
+        return len(analysed_events - loaded_events) == 0

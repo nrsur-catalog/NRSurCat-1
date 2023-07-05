@@ -1,12 +1,11 @@
 """Module to get zenodo URLs from NRSur Catlog zenodo page"""
+import functools
+import os
+import re
 from typing import Dict, List
 
-import os
 from ..logger import logger
 from ..utils import get_event_name
-import re
-import functools
-
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LVK_URL_FILE = os.path.join(HERE, "lvk_urls.txt")
@@ -86,7 +85,7 @@ def check_if_event_in_zenodo(event_name: str, lvk_posteriors=False) -> bool:
 
 
 @functools.lru_cache
-def get_analysed_event_names(lvk_posteriors=False)->List[str]:
+def get_analysed_event_names(lvk_posteriors=False) -> List[str]:
     """Return a list of analysed events.
 
     Parameters

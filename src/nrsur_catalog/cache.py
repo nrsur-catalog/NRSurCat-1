@@ -1,19 +1,20 @@
 import os
-from glob import glob
-from typing import List, Union
 import re
+from glob import glob
+from typing import List
 
+from .api.zenodo_interface import get_analysed_event_names
 from .logger import logger
 from .utils import get_event_name
-from .api.zenodo_interface import get_zenodo_urls, get_analysed_event_names
 
 CACHE_ENV_VAR = "NRSUR_CATALOG_CACHE_DIR"
 DEFAULT_CACHE_DIR = "./.nrsur_catalog_cache"
-NR_FILE_EXTENSION = "_NRSur7dq4_final.h5"
+NR_FILE_EXTENSION = "_NRSur7dq4.h5"
 LVK_FILE_EXTENSION = "_PEDataRelease_mixed_cosmo.h5"
 
 NR_LABEL = "Bilby:NRSur7dq4"
 LVK_LABEL = "C01:IMRPhenomXPHM"
+
 
 class CatalogCache:
     """CatalogCache helps
@@ -28,7 +29,7 @@ class CatalogCache:
         os.makedirs(self._cache, exist_ok=True)
 
     @property
-    def dir(self)-> str:
+    def dir(self) -> str:
         return os.path.abspath(self._cache)
 
     @property
@@ -94,28 +95,25 @@ class CatalogCache:
             )
 
     @property
-    def is_empty(self)->bool:
+    def is_empty(self) -> bool:
         return len(self.list) == 0
 
     @property
     def missing_events(self):
         zenodo_events = set(self.zenodo_events)
         local_events = set(self.event_names)
-        return zenodo_events-local_events
+        return zenodo_events - local_events
 
     @property
-    def is_incomplete(self)->bool:
+    def is_incomplete(self) -> bool:
         """If not all events analysed are present"""
-        return len(self.missing_events) !=0
-
+        return len(self.missing_events) != 0
 
     @property
-    def zenodo_events(self)->List[str]:
-        if not hasattr(self, '__zenodo_events'):
+    def zenodo_events(self) -> List[str]:
+        if not hasattr(self, "__zenodo_events"):
             self.__zenodo_events = get_analysed_event_names()
         return self.__zenodo_events
-
-
 
     def __repr__(self):
         return f"CatalogCache(nrfiles={len(self.list)}, lvkfiles={len(self.list_lvk)}, cache_dir={self._cache})"

@@ -27,11 +27,16 @@ pd.set_option("display.max_rows", None, "display.max_columns", None)
 # +
 import pip
 
-
 try:
     __import__("nrsur_catalog")
 except ImportError:
-    pip.main(['install', "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg", "-q"])   
+    pip.main(
+        [
+            "install",
+            "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg",
+            "-q",
+        ]
+    )
 
 # -
 
@@ -46,7 +51,7 @@ nrsur_result = NRsurResult.load("{{GW EVENT NAME}}", cache_dir=".nrsur_catalog_c
 # you can specify a `cache_dir`: folder where data will be downloaded
 # -
 
-# ## Summary 
+# ## Summary
 
 # + tags=["remove-output"]
 nrsur_result.summary()
@@ -56,7 +61,7 @@ nrsur_result.summary()
 # {{SUMMARY_TABLE}}
 #
 
-# Lets make some plots! 
+# Lets make some plots!
 
 # + tags=["hide-input", "remove-output"]
 # NRSurrogate corner plots
@@ -71,7 +76,9 @@ fig.savefig("{{GW EVENT NAME}}_sky_localisation.png")
 fig = nrsur_result.plot_corner(["final_mass", "final_spin", "final_kick"])
 fig.savefig("{{GW EVENT NAME}}_remnant_corner.png")
 # LVK-Comparison plots
-fig = nrsur_result.plot_lvk_comparison_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
+fig = nrsur_result.plot_lvk_comparison_corner(
+    ["mass_1", "mass_2", "chirp_mass", "mass_ratio"]
+)
 fig.savefig("{{GW EVENT NAME}}_compare_mass_corner.png")
 fig = nrsur_result.plot_lvk_comparison_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
 fig.savefig("{{GW EVENT NAME}}_compare_spin_corner.png")

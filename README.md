@@ -30,4 +30,3 @@ build_nrsur_website --event-dir tests/test_cache_dir --outdir out_test_website
 ghp-import -n -p -f out_test_website/_build/html
 rm -rf test_cache_dir
 ```
->>>>>>> r1remote/main

@@ -5,8 +5,8 @@ import pandas as pd
 from nrsur_catalog import Catalog
 from nrsur_catalog.utils import LATEX_LABELS
 from .video_links import get_video_html
+from .. import __website__
 
-WEBROOT = "https://cjhaster.com/NRSurrogateCatalog"
 LINK = "<a href='{l}'> {txt}</a>"
 
 ANIM_CELL = """
@@ -61,7 +61,7 @@ def __check_fn(fname):
 def __thubnail(fname, event_link):
     if not os.path.isfile(fname):
         return "NA"
-    thumbnail = f"{WEBROOT}/_images/{os.path.basename(fname)}"
+    thumbnail = f"{__website__}/_images/{os.path.basename(fname)}"
     thumbnail = f"<img src='{thumbnail}' width='100' height='50'>"
     thumbnail = LINK.format(l=event_link, txt=thumbnail)
     return thumbnail
@@ -70,7 +70,7 @@ def __thubnail(fname, event_link):
 def __load_processed_links_dataframe(catalog: Catalog, events_dir: str) -> pd.DataFrame:
     event_data = []
     for event in catalog.event_names:
-        event_link = f"{WEBROOT}/events/{event}.html"
+        event_link = f"{__website__}/events/{event}.html"
         event_url = LINK.format(l=event_link, txt=event)
         event_data.append(
             {

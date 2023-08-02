@@ -1,26 +1,31 @@
 """setup.py file for nrsur_catalog package."""
-
+import codecs
+import re
 import os
 import sys
 from setuptools import find_packages, setup
 
 NAME = "nrsur_catalog"
 HERE = os.path.dirname(os.path.realpath(__file__))
+META_PATH = os.path.join("src", NAME, "__init__.py")
 
 # require python 3.8 or higher
 if sys.version_info < (3, 8):
     raise RuntimeError("nrsur_catalog requires python 3.8 or higher")
 
-
-def get_version():
-    """Get the version number from the version.py file."""
-    with open(f"{HERE}/src/nrsur_catalog/__init__.py") as f:
-        for line in f:
-            if line.startswith("__version__"):
-                return line.split("=")[1].strip().strip('"')
+def read(*parts):
+    with codecs.open(os.path.join(HERE, *parts), "rb", "utf-8") as f:
+        return f.read()
 
 
-VERSION = get_version()
+def find_meta(meta, meta_file=read(META_PATH)):
+    meta_match = re.search(
+        r"^__{meta}__ = ['\"]([^'\"]*)['\"]".format(meta=meta), meta_file, re.M
+    )
+    if meta_match:
+        return meta_match.group(1)
+    raise RuntimeError("Unable to find __{meta}__ string.".format(meta=meta))
+
 
 INSTALL_REQUIRES = [
     "matplotlib",
@@ -50,11 +55,16 @@ EXTRA_REQUIRE = dict(
 
 setup(
     name=NAME,
-    version=VERSION,
-    description="NR surrogate catalog",
-    author="NR Surrogate Catalog Team",
-    author_email="tousif_email",
-    url="nrsur_catalog_url",
+    version=find_meta("version"),
+    author=find_meta("author"),
+    author_email=find_meta("email"),
+    maintainer=find_meta("author"),
+    maintainer_email=find_meta("email"),
+    url=find_meta("uri"),
+    license=find_meta("license"),
+    description=find_meta("description"),
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={NAME: ["*/**.txt"]},

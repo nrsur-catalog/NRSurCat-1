@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Citation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'citation';</script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Catalog plots" href="catalog_plots.html" />
+    <link rel="prev" title="NRSurrogate Catalog" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    NRSurrogate Catalog
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="catalog_plots.html">Catalog plots</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="events/gw_menu_page.html">NRSurrogate Events</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="events/GW150914_095045.html">GW150914_095045</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW170729_185629.html">GW170729_185629</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW170809_082821.html">GW170809_082821</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW170818_022509.html">GW170818_022509</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW170823_131358.html">GW170823_131358</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190413_052954.html">GW190413_052954</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190413_134308.html">GW190413_134308</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190421_213856.html">GW190421_213856</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190426_190642.html">GW190426_190642</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190503_185404.html">GW190503_185404</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190513_205428.html">GW190513_205428</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190514_065416.html">GW190514_065416</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190517_055101.html">GW190517_055101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190519_153544.html">GW190519_153544</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190521_030229.html">GW190521_030229</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190521_074359.html">GW190521_074359</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190527_092055.html">GW190527_092055</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190602_175927.html">GW190602_175927</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190620_030421.html">GW190620_030421</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190630_185205.html">GW190630_185205</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190701_203306.html">GW190701_203306</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190706_222641.html">GW190706_222641</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190727_060333.html">GW190727_060333</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190731_140936.html">GW190731_140936</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190803_022701.html">GW190803_022701</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190805_211137.html">GW190805_211137</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190828_063405.html">GW190828_063405</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190910_112807.html">GW190910_112807</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190915_235702.html">GW190915_235702</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190916_200658.html">GW190916_200658</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190926_050336.html">GW190926_050336</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW190929_012149.html">GW190929_012149</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW191109_010717.html">GW191109_010717</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW191222_033537.html">GW191222_033537</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW191230_180458.html">GW191230_180458</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200112_155838.html">GW200112_155838</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200128_022011.html">GW200128_022011</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200129_065458.html">GW200129_065458</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200208_130117.html">GW200208_130117</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200209_085452.html">GW200209_085452</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200216_220804.html">GW200216_220804</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200219_094415.html">GW200219_094415</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200220_061928.html">GW200220_061928</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200220_124850.html">GW200220_124850</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200224_222234.html">GW200224_222234</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200302_015811.html">GW200302_015811</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events/GW200311_115853.html">GW200311_115853</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cjhaster/NRSurrogateCatalog" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cjhaster/NRSurrogateCatalog/issues/new?title=Issue%20on%20page%20%2Fcitation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/citation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Citation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="citation">
+<h1>Citation<a class="headerlink" href="#citation" title="Permalink to this heading">#</a></h1>
+<p>If you make use of this <em>NRSurrogate Catalog</em>, please cite this work
+and its dependencies.</p>
+<p>Please add the following line within your methods, conclusion
+or acknowledgements
+sections:</p>
+<blockquote>
+<div><p>This research has made use of
+NRSurrogate Catalog v1.0~\cite{NRSurrogate_Catalog_v1},
+generated using the waveform NRSur7dq4~\cite{NRSur7dq4},
+and the \textsc{bilby} Bayesian inference
+libraries~\cite{bilby, parallel_bilby}.
+Bayesian parameter estimation was performed using
+\textsc{dynesty}~\cite{dynesty_paper, skilling2004, skilling2006},
+a nested sampler.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">NRSurrogate_Catalog</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Tousif</span> <span class="n">et</span> <span class="n">al</span><span class="p">}},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{{</span><span class="n">NRSurrogate</span> <span class="n">Catalog</span><span class="p">}},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">PhysRevD</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">General</span> <span class="n">Relativity</span> <span class="ow">and</span> <span class="n">Quantum</span> <span class="n">Cosmology</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="p">{</span><span class="n">July</span><span class="p">},</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">96</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+          <span class="n">eid</span> <span class="o">=</span> <span class="p">{</span><span class="mi">024058</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">024058</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1103</span><span class="o">/</span><span class="n">PhysRevD</span><span class="mf">.96.02405810.48550</span><span class="o">/</span><span class="n">arXiv</span><span class="mf">.1705.07089</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1705.07089</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">gr</span><span class="o">-</span><span class="n">qc</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2017</span><span class="n">PhRvD</span><span class="o">.</span><span class="mf">.96</span><span class="n">b4058B</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">NRSur7dq4</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Blackman</span><span class="p">},</span> <span class="n">Jonathan</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Field</span><span class="p">},</span> <span class="n">Scott</span> <span class="n">E</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Scheel</span><span class="p">},</span> <span class="n">Mark</span> <span class="n">A</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Galley</span><span class="p">},</span> <span class="n">Chad</span> <span class="n">R</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Ott</span><span class="p">},</span> <span class="n">Christian</span> <span class="n">D</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Boyle</span><span class="p">},</span> <span class="n">Michael</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Kidder</span><span class="p">},</span> <span class="n">Lawrence</span> <span class="n">E</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Pfeiffer</span><span class="p">},</span> <span class="n">Harald</span> <span class="n">P</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Szil</span><span class="p">{</span>\<span class="s1">&#39;a}gyi}, B{</span><span class="se">\&#39;</span><span class="s1">e}la},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Numerical</span> <span class="n">relativity</span> <span class="n">waveform</span> <span class="n">surrogate</span> <span class="n">model</span> <span class="k">for</span> <span class="n">generically</span> <span class="n">precessing</span> <span class="n">binary</span> <span class="n">black</span> <span class="n">hole</span> <span class="n">mergers</span><span class="p">}},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">PhysRevD</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">General</span> <span class="n">Relativity</span> <span class="ow">and</span> <span class="n">Quantum</span> <span class="n">Cosmology</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="p">{</span><span class="n">July</span><span class="p">},</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">96</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+          <span class="n">eid</span> <span class="o">=</span> <span class="p">{</span><span class="mi">024058</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">024058</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1103</span><span class="o">/</span><span class="n">PhysRevD</span><span class="mf">.96.02405810.48550</span><span class="o">/</span><span class="n">arXiv</span><span class="mf">.1705.07089</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1705.07089</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">gr</span><span class="o">-</span><span class="n">qc</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2017</span><span class="n">PhRvD</span><span class="o">.</span><span class="mf">.96</span><span class="n">b4058B</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">pbilby_paper</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Smith</span><span class="p">},</span> <span class="n">Rory</span> <span class="n">J</span><span class="o">.~</span><span class="n">E</span><span class="o">.</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Ashton</span><span class="p">},</span> <span class="n">Gregory</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Vajpeyi</span><span class="p">},</span> <span class="n">Avi</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Talbot</span><span class="p">},</span> <span class="n">Colm</span><span class="p">},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;{Massively parallel Bayesian inference for transient gravitational-wave astronomy}&quot;</span><span class="p">,</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span>\<span class="n">mnras</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">gravitational</span> <span class="n">waves</span><span class="p">,</span> <span class="n">methods</span><span class="p">:</span> <span class="n">data</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">General</span> <span class="n">Relativity</span> <span class="ow">and</span> <span class="n">Quantum</span> <span class="n">Cosmology</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">Instrumentation</span> <span class="ow">and</span> <span class="n">Methods</span> <span class="k">for</span> <span class="n">Astrophysics</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">aug</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">498</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4492</span><span class="o">-</span><span class="mi">4502</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1093</span><span class="o">/</span><span class="n">mnras</span><span class="o">/</span><span class="n">staa2483</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1909.11873</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">gr</span><span class="o">-</span><span class="n">qc</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2020</span><span class="n">MNRAS</span><span class="mf">.498.4492</span><span class="n">S</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">bilby_paper</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Ashton</span><span class="p">},</span> <span class="n">Gregory</span> <span class="ow">and</span> <span class="p">{</span><span class="n">H</span><span class="p">{</span>\<span class="s2">&quot;u}bner}, Moritz and </span><span class="si">{Lasky}</span><span class="s2">, Paul D. and </span><span class="si">{Talbot}</span><span class="s2">, Colm and </span><span class="si">{Ackley}</span><span class="s2">, Kendall and </span><span class="si">{Biscoveanu}</span><span class="s2">, Sylvia and </span><span class="si">{Chu}</span><span class="s2">, Qi and </span><span class="si">{Divakarla}</span><span class="s2">, Atul and </span><span class="si">{Easter}</span><span class="s2">, Paul J. and </span><span class="si">{Goncharov}</span><span class="s2">, Boris and {Hernandez Vivanco}, Francisco and </span><span class="si">{Harms}</span><span class="s2">, Jan and </span><span class="si">{Lower}</span><span class="s2">, Marcus E. and </span><span class="si">{Meadors}</span><span class="s2">, Grant D. and </span><span class="si">{Melchor}</span><span class="s2">, Denyz and </span><span class="si">{Payne}</span><span class="s2">, Ethan and </span><span class="si">{Pitkin}</span><span class="s2">, Matthew D. and </span><span class="si">{Powell}</span><span class="s2">, Jade and </span><span class="si">{Sarin}</span><span class="s2">, Nikhil and </span><span class="si">{Smith}</span><span class="s2">, Rory J.~E. and </span><span class="si">{Thrane}</span><span class="s2">, Eric},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;{BILBY: A User-friendly Bayesian Inference Library for Gravitational-wave Astronomy}&quot;</span><span class="p">,</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span>\<span class="n">apjs</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">gravitational</span> <span class="n">waves</span><span class="p">,</span> <span class="n">methods</span><span class="p">:</span> <span class="n">data</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">methods</span><span class="p">:</span> <span class="n">statistical</span><span class="p">,</span> <span class="n">stars</span><span class="p">:</span> <span class="n">black</span> <span class="n">holes</span><span class="p">,</span> <span class="n">stars</span><span class="p">:</span> <span class="n">neutron</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">Instrumentation</span> <span class="ow">and</span> <span class="n">Methods</span> <span class="k">for</span> <span class="n">Astrophysics</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">High</span> <span class="n">Energy</span> <span class="n">Astrophysical</span> <span class="n">Phenomena</span><span class="p">,</span> <span class="n">General</span> <span class="n">Relativity</span> <span class="ow">and</span> <span class="n">Quantum</span> <span class="n">Cosmology</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2019</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">apr</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">241</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+          <span class="n">eid</span> <span class="o">=</span> <span class="p">{</span><span class="mi">27</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">27</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.3847</span><span class="o">/</span><span class="mi">1538</span><span class="o">-</span><span class="mi">4365</span><span class="o">/</span><span class="n">ab06fc</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1811.02042</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">astro</span><span class="o">-</span><span class="n">ph</span><span class="o">.</span><span class="n">IM</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2019</span><span class="n">ApJS</span><span class="o">.</span><span class="mf">.241</span><span class="o">..</span><span class="mf">.27</span><span class="n">A</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">dynesty_paper</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Speagle</span><span class="p">},</span> <span class="n">Joshua</span> <span class="n">S</span><span class="o">.</span><span class="p">},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;{DYNESTY: a dynamic nested sampling package for estimating Bayesian posteriors and evidences}&quot;</span><span class="p">,</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span>\<span class="n">mnras</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">methods</span><span class="p">:</span> <span class="n">data</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">methods</span><span class="p">:</span> <span class="n">statistical</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">Instrumentation</span> <span class="ow">and</span> <span class="n">Methods</span> <span class="k">for</span> <span class="n">Astrophysics</span><span class="p">,</span> <span class="n">Statistics</span> <span class="o">-</span> <span class="n">Computation</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">apr</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">493</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3132</span><span class="o">-</span><span class="mi">3158</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1093</span><span class="o">/</span><span class="n">mnras</span><span class="o">/</span><span class="n">staa278</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1904.02180</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">astro</span><span class="o">-</span><span class="n">ph</span><span class="o">.</span><span class="n">IM</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2020</span><span class="n">MNRAS</span><span class="mf">.493.3132</span><span class="n">S</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@INPROCEEDINGS</span><span class="p">{</span><span class="n">skilling2004</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Skilling</span><span class="p">},</span> <span class="n">John</span><span class="p">},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;{Nested Sampling}&quot;</span><span class="p">,</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="mf">02.50</span><span class="o">.</span><span class="n">Tt</span><span class="p">,</span> <span class="n">Inference</span> <span class="n">methods</span><span class="p">},</span>
+    <span class="n">booktitle</span> <span class="o">=</span> <span class="p">{</span><span class="n">Bayesian</span> <span class="n">Inference</span> <span class="ow">and</span> <span class="n">Maximum</span> <span class="n">Entropy</span> <span class="n">Methods</span> <span class="ow">in</span> <span class="n">Science</span> <span class="ow">and</span> <span class="n">Engineering</span><span class="p">:</span> <span class="mi">24</span><span class="n">th</span> <span class="n">International</span> <span class="n">Workshop</span> <span class="n">on</span> <span class="n">Bayesian</span> <span class="n">Inference</span> <span class="ow">and</span> <span class="n">Maximum</span> <span class="n">Entropy</span> <span class="n">Methods</span> <span class="ow">in</span> <span class="n">Science</span> <span class="ow">and</span> <span class="n">Engineering</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2004</span><span class="p">,</span>
+       <span class="n">editor</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Fischer</span><span class="p">},</span> <span class="n">Rainer</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Preuss</span><span class="p">},</span> <span class="n">Roland</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Toussaint</span><span class="p">},</span> <span class="n">Udo</span> <span class="n">Von</span><span class="p">},</span>
+       <span class="n">series</span> <span class="o">=</span> <span class="p">{</span><span class="n">American</span> <span class="n">Institute</span> <span class="n">of</span> <span class="n">Physics</span> <span class="n">Conference</span> <span class="n">Series</span><span class="p">},</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">735</span><span class="p">},</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">nov</span><span class="p">,</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">395</span><span class="o">-</span><span class="mi">405</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1063</span><span class="o">/</span><span class="mf">1.1835238</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2004</span><span class="n">AIPC</span><span class="o">.</span><span class="mf">.735</span><span class="o">.</span><span class="mf">.395</span><span class="n">S</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">skilling2006</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Skilling</span><span class="p">},</span> <span class="n">John</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1214</span><span class="o">/</span><span class="mi">06</span><span class="o">-</span><span class="n">BA127</span><span class="p">},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">Bayesian</span> <span class="n">Analysis</span><span class="p">},</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">dec</span><span class="p">,</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">833</span><span class="o">-</span><span class="mi">859</span><span class="p">},</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="p">{</span><span class="n">International</span> <span class="n">Society</span> <span class="k">for</span> <span class="n">Bayesian</span> <span class="n">Analysis</span><span class="p">},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Nested</span> <span class="n">sampling</span> <span class="k">for</span> <span class="n">general</span> <span class="n">Bayesian</span> <span class="n">computation</span><span class="p">},</span>
+          <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://doi.org/10.1214/06-BA127&quot;</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2006</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="docutils container" id="id1">
+<div class="citation" id="id2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Tousif et al. NRSurrogate Catalog. <em>PhysRevD</em>, 96(2):024058, July 2017. <a class="reference external" href="https://arxiv.org/abs/1705.07089">arXiv:1705.07089</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevD.96.02405810.48550/arXiv.1705.07089">doi:10.1103/PhysRevD.96.02405810.48550/arXiv.1705.07089</a>.</p>
+</div>
+<div class="citation" id="id3" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Jonathan Blackman, Scott E. Field, Mark A. Scheel, Chad R. Galley, Christian D. Ott, Michael Boyle, Lawrence E. Kidder, Harald P. Pfeiffer, and Béla Szilágyi. Numerical relativity waveform surrogate model for generically precessing binary black hole mergers. <em>PhysRevD</em>, 96(2):024058, July 2017. <a class="reference external" href="https://arxiv.org/abs/1705.07089">arXiv:1705.07089</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevD.96.02405810.48550/arXiv.1705.07089">doi:10.1103/PhysRevD.96.02405810.48550/arXiv.1705.07089</a>.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>Gregory Ashton, Moritz Hübner, Paul D. Lasky, Colm Talbot, Kendall Ackley, Sylvia Biscoveanu, Qi Chu, Atul Divakarla, Paul J. Easter, Boris Goncharov, Francisco Hernandez Vivanco, Jan Harms, Marcus E. Lower, Grant D. Meadors, Denyz Melchor, Ethan Payne, Matthew D. Pitkin, Jade Powell, Nikhil Sarin, Rory J. E. Smith, and Eric Thrane. BILBY: A User-friendly Bayesian Inference Library for Gravitational-wave Astronomy. <em>\apjs </em>, 241(2):27, April 2019. <a class="reference external" href="https://arxiv.org/abs/1811.02042">arXiv:1811.02042</a>, <a class="reference external" href="https://doi.org/10.3847/1538-4365/ab06fc">doi:10.3847/1538-4365/ab06fc</a>.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<p>Joshua S. Speagle. DYNESTY: a dynamic nested sampling package for estimating Bayesian posteriors and evidences. <em>\mnras </em>, 493(3):3132–3158, April 2020. <a class="reference external" href="https://arxiv.org/abs/1904.02180">arXiv:1904.02180</a>, <a class="reference external" href="https://doi.org/10.1093/mnras/staa278">doi:10.1093/mnras/staa278</a>.</p>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NRSurrogate Catalog</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="catalog_plots.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Catalog plots</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The NrSur Catalog Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

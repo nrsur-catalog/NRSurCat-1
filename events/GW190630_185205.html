@@ -1,0 +1,1092 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>GW190630_185205</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'events/GW190630_185205';</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GW190701_203306" href="GW190701_203306.html" />
+    <link rel="prev" title="GW190620_030421" href="GW190620_030421.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    NRSurrogate Catalog
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../citation.html">Citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../catalog_plots.html">Catalog plots</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="gw_menu_page.html">NRSurrogate Events</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GW150914_095045.html">GW150914_095045</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW170729_185629.html">GW170729_185629</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW170809_082821.html">GW170809_082821</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW170818_022509.html">GW170818_022509</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW170823_131358.html">GW170823_131358</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190413_052954.html">GW190413_052954</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190413_134308.html">GW190413_134308</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190421_213856.html">GW190421_213856</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190426_190642.html">GW190426_190642</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190503_185404.html">GW190503_185404</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190513_205428.html">GW190513_205428</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190514_065416.html">GW190514_065416</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190517_055101.html">GW190517_055101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190519_153544.html">GW190519_153544</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190521_030229.html">GW190521_030229</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190521_074359.html">GW190521_074359</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190527_092055.html">GW190527_092055</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190602_175927.html">GW190602_175927</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190620_030421.html">GW190620_030421</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">GW190630_185205</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190701_203306.html">GW190701_203306</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190706_222641.html">GW190706_222641</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190727_060333.html">GW190727_060333</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190731_140936.html">GW190731_140936</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190803_022701.html">GW190803_022701</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190805_211137.html">GW190805_211137</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190828_063405.html">GW190828_063405</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190910_112807.html">GW190910_112807</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190915_235702.html">GW190915_235702</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190916_200658.html">GW190916_200658</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190926_050336.html">GW190926_050336</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW190929_012149.html">GW190929_012149</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW191109_010717.html">GW191109_010717</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW191222_033537.html">GW191222_033537</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW191230_180458.html">GW191230_180458</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200112_155838.html">GW200112_155838</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200128_022011.html">GW200128_022011</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200129_065458.html">GW200129_065458</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200208_130117.html">GW200208_130117</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200209_085452.html">GW200209_085452</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200216_220804.html">GW200216_220804</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200219_094415.html">GW200219_094415</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200220_061928.html">GW200220_061928</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200220_124850.html">GW200220_124850</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200224_222234.html">GW200224_222234</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200302_015811.html">GW200302_015811</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GW200311_115853.html">GW200311_115853</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/events/GW190630_185205.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cjhaster/NRSurrogateCatalog" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cjhaster/NRSurrogateCatalog/issues/new?title=Issue%20on%20page%20%2Fevents/GW190630_185205.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/events/GW190630_185205.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GW190630_185205</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corner-plots">Corner Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mass">Mass</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spin">Spin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-spin">Effective Spin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sky-localisation">Sky-localisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remnant">Remnant</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waveform-posterior-predictive-plot">Waveform posterior-predictive plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animations">Animations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-configs">Analysis configs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/events/GW190630_185205.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a></p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;nrsur_catalog&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;install&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="gw190630-185205">
+<h1>GW190630_185205<a class="headerlink" href="#gw190630-185205" title="Permalink to this heading">#</a></h1>
+<p>Below are some plots for GW190630_185205 from the NRSurrogate Catalog.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nrsur_catalog</span> <span class="kn">import</span> <span class="n">NRsurResult</span>
+
+<span class="n">nrsur_result</span> <span class="o">=</span> <span class="n">NRsurResult</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;GW190630_185205&quot;</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="s2">&quot;.nrsur_catalog_cache&quot;</span><span class="p">)</span>
+<span class="c1"># you can specify a `cache_dir`: folder where data will be downloaded</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nrsur_result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Posterior 90% CI</p></th>
+<th class="head text-left"><p>Prior</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(m_1\ [M_{\odot}]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({40.44}_{-4.20}^{+5.10}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(m_2\ [M_{\odot}]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({28.48}_{-3.83}^{+3.67}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathcal{M}\ [M_{\odot}]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({29.27}_{-0.96}^{+1.09}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{UniformInComponentsChirpMass} [12, 400]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(q\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.16}^{+0.18}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{UniformInComponentsMassRatio} [0.17, 1]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(a_1\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.28}_{-0.19}^{+0.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 0.99]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(a_2\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.44}_{-0.29}^{+0.32}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 0.99]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_1\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1.38}_{-0.58}^{+0.56}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Sine} [0, 3.14]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_2\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1.30}_{-0.56}^{+0.62}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Sine} [0, 3.14]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\chi_{\mathrm{eff}}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.07}_{-0.08}^{+0.09}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\chi_{\mathrm{p}}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.35}_{-0.17}^{+0.21}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({5.88}_{-2.98}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\delta\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.11}_{-0.39}^{+0.45}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(t_c\ [s]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1245955943.16}_{-0.00}^{+0.03}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [1245955943.08, 1245955943.28]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(d_L\ [Mpc]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({823.04}_{-227.03}^{+346.06}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{UniformSourceFrame} [100.0, 10000.0]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\phi\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({3.20}_{-2.33}^{+2.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 6.28]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\phi\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1.83}_{-0.38}^{+3.02}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 6.28]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1.63}_{-0.03}^{+0.04}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Sine} [0, 3.14]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\psi\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1.64}_{-0.49}^{+0.47}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 3.14]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\phi_{\mathrm{JL}}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({3.10}_{-2.15}^{+2.16}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 6.28]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\phi_{12}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({3.04}_{-1.97}^{+2.11}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Uniform} [0, 6.28]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_{\mathrm{JN}}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({1.50}_{-0.93}^{+0.99}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\text{Sine} [0, 3.14]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(m_f\ [M_{\odot}]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({65.84}_{-2.14}^{+2.45}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\chi_f\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.04}^{+0.03}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(v_{\rm kick}\ [{\rm km/s}]\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({398.89}_{-237.54}^{+497.64}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Lets make some plots!</p>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># NRSurrogate corner plots</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">param_sets</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">mass</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mass_1&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_2&quot;</span><span class="p">,</span> <span class="s2">&quot;chirp_mass&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_ratio&quot;</span><span class="p">],</span>
+    <span class="n">spin</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a_1&quot;</span><span class="p">,</span> <span class="s2">&quot;a_2&quot;</span><span class="p">,</span> <span class="s2">&quot;tilt_1&quot;</span><span class="p">,</span> <span class="s2">&quot;tilt_2&quot;</span><span class="p">],</span>
+    <span class="n">effective_spin</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mass_ratio&quot;</span><span class="p">,</span> <span class="s2">&quot;chi_eff&quot;</span><span class="p">,</span> <span class="s2">&quot;chi_p&quot;</span><span class="p">],</span>
+    <span class="n">sky_localisation</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;luminosity_distance&quot;</span><span class="p">,</span> <span class="s2">&quot;ra&quot;</span><span class="p">,</span> <span class="s2">&quot;dec&quot;</span><span class="p">],</span>
+    <span class="n">remnant</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;final_mass&quot;</span><span class="p">,</span> <span class="s2">&quot;final_spin&quot;</span><span class="p">,</span> <span class="s2">&quot;final_kick&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">param_sets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GW190630_185205_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_corner.png&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">nrsur_result</span><span class="o">.</span><span class="n">plot_corner</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;remnant&quot;</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="c1"># LVK-Comparison plots</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GW190630_185205_compare_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">_corner.png&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">nrsur_result</span><span class="o">.</span><span class="n">plot_lvk_comparison_corner</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="corner-plots">
+<h2>Corner Plots<a class="headerlink" href="#corner-plots" title="Permalink to this heading">#</a></h2>
+<section id="mass">
+<h3>Mass<a class="headerlink" href="#mass" title="Permalink to this heading">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key1" for="sd-tab-item-0">
+NRSurrogate</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_mass_corner.png&quot;" src="../_images/GW190630_185205_mass_corner.png" /></p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key2" for="sd-tab-item-1">
+LVK-Comparison</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_compare_mass_corner.png&quot;" src="../_images/GW190630_185205_compare_mass_corner.png" /></p>
+</div>
+</div>
+</section>
+<section id="spin">
+<h3>Spin<a class="headerlink" href="#spin" title="Permalink to this heading">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key1" for="sd-tab-item-2">
+NRSurrogate</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_spin_corner.png&quot;" src="../_images/GW190630_185205_spin_corner.png" /></p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key2" for="sd-tab-item-3">
+LVK-Comparison</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_compare_spin_corner.png&quot;" src="../_images/GW190630_185205_compare_spin_corner.png" /></p>
+</div>
+</div>
+</section>
+<section id="effective-spin">
+<h3>Effective Spin<a class="headerlink" href="#effective-spin" title="Permalink to this heading">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key1" for="sd-tab-item-4">
+NRSurrogate</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_effective_spin_corner.png&quot;" src="../_images/GW190630_185205_effective_spin_corner.png" /></p>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key2" for="sd-tab-item-5">
+LVK-Comparison</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_compare_effective_spin_corner.png&quot;" src="../_images/GW190630_185205_compare_effective_spin_corner.png" /></p>
+</div>
+</div>
+</section>
+<section id="sky-localisation">
+<h3>Sky-localisation<a class="headerlink" href="#sky-localisation" title="Permalink to this heading">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key1" for="sd-tab-item-6">
+NRSurrogate</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_sky_localisation_corner.png&quot;" src="../_images/GW190630_185205_sky_localisation_corner.png" /></p>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key2" for="sd-tab-item-7">
+LVK-Comparison</label><div class="sd-tab-content docutils">
+<p><img alt="&quot;GW190630_185205_compare_sky_localisation_corner.png&quot;" src="../_images/GW190630_185205_compare_sky_localisation_corner.png" /></p>
+</div>
+</div>
+</section>
+<section id="remnant">
+<h3>Remnant<a class="headerlink" href="#remnant" title="Permalink to this heading">#</a></h3>
+<p><img alt="&quot;GW190630_185205_remnant_corner.png&quot;" src="../_images/GW190630_185205_remnant_corner.png" /></p>
+</section>
+</section>
+<section id="waveform-posterior-predictive-plot">
+<h2>Waveform posterior-predictive plot<a class="headerlink" href="#waveform-posterior-predictive-plot" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input tag_remove-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GW190630_185205_waveform.png&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">nrsur_result</span><span class="o">.</span><span class="n">plot_signal</span><span class="p">(</span><span class="n">outdir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><img alt="waveform" src="../_images/GW190630_185205_waveform.png" /></p>
+</section>
+<section id="animations">
+<h2>Animations<a class="headerlink" href="#animations" title="Permalink to this heading">#</a></h2>
+<p>Here are some animations of the posterior.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Spin</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><iframe width="560" height="315" src="https://www.youtube.com/embed/msRN00Spjbs?loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p></td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Remnant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><iframe width="560" height="315" src="https://www.youtube.com/embed/mkxggi9SM8M?loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis-configs">
+<h2>Analysis configs<a class="headerlink" href="#analysis-configs" title="Permalink to this heading">#</a></h2>
+<p>Below are the configs used for the analysis of this job.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nrsur_result</span><span class="o">.</span><span class="n">print_configs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tmax:                               10000
+accounting:                         None
+accounting_user:                    None
+adapt:                              False
+allow_tape:                         True
+analysis_executable:                None
+analysis_executable_parser:         None
+autocorr_c:                         5.0
+autocorr_tol:                       50.0
+bilby_zero_likelihood_mode:         False
+burn_in_nact:                       50.0
+calibration_model:                  CubicSpline
+calibration_prior_boundary:         reflective
+catch_waveform_errors:              True
+channel_dict:                       {L1:DCS-CALIB_STRAIN_CLEAN_SUB60HZ_C01, V1:Hrec_hoft_16384Hz}
+check_point_deltaT:                 3600
+clean:                              False
+coherence_test:                     False
+conda_env:                          None
+condor_job_priority:                0
+conversion_function:                None
+create_summary:                     True
+data_dict:                          {L1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW190630_185205/L1_data.gwf, V1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW190630_185205/V1_data.gwf}
+data_dump_file:                     None
+data_format:                        None
+default_prior:                      BBHPriorDict
+deltaT:                             0.2
+desired_sites:                      None
+detectors:                          [&#39;L1&#39;, &#39;V1&#39;]
+distance_marginalization:           True
+distance_marginalization_lookup_table: None
+dlogz:                              0.1
+do_not_save_bounds_in_resume:       False
+duration:                           4.0
+dynesty_bound:                      multi
+dynesty_sample:                     rwalk
+email:                              None
+enforce_signal_duration:            False
+enlarge:                            1.5
+existing_dir:                       None
+extra_likelihood_kwargs:            None
+extra_lines:                        job-name=GW190630_185205 mail-user=sfield@umassd.edu mail-type=END
+facc:                               0.5
+fast_mpi:                           False
+final_result:                       True
+final_result_nsamples:              20000
+frac_threshold:                     0.01
+frequency_domain_source_model:      lal_binary_black_hole
+gaussian_noise:                     False
+generation_function:                None
+generation_seed:                    None
+gps_file:                           None
+gps_tuple:                          None
+idx:                                0
+ignore_gwpy_data_quality_check:     True
+ini:                                GW190630_185205_config.ini
+injection:                          False
+injection_dict:                     None
+injection_file:                     None
+injection_numbers:                  None
+injection_waveform_approximant:     None
+injection_waveform_arguments:       None
+jitter_time:                        True
+label:                              GW190630_185205_NRSur7dq4
+likelihood_type:                    GravitationalWaveTransient
+local:                              False
+local_generation:                   False
+local_plot:                         False
+log_directory:                      None
+max_iterations:                     100000
+max_its:                            10000000000
+max_run_time:                       10000000000.0
+maximum_frequency:                  896.000000
+maxmcmc:                            5000
+mem_per_cpu:                        None
+min_eff:                            10
+min_tau:                            30
+minimum_frequency:                  {L1:20.000000, V1:20.000000, waveform: 0}
+mode_array:                         None
+mpi_timing:                         False
+mpi_timing_interval:                0
+n_check_point:                      100
+n_effective:                        inf
+n_parallel:                         4
+n_simulation:                       0
+nact:                               50
+ncheck:                             500
+nestcheck:                          False
+nfrac:                              5
+nlive:                              2000
+no_plot:                            False
+nodes:                              1
+notification:                       Never
+nsamples:                           10000
+ntasks_per_node:                    128
+ntemps:                             20
+numerical_relativity_file:          None
+nwalkers:                           100
+online_pe:                          False
+osg:                                False
+outdir:                             NRSur7dq4_run
+overwrite_outdir:                   False
+periodic_restart_time:              28800
+phase_marginalization:              False
+plot_calibration:                   False
+plot_corner:                        False
+plot_data:                          True
+plot_format:                        png
+plot_injection:                     True
+plot_marginal:                      False
+plot_skymap:                        False
+plot_spectrogram:                   True
+plot_trace:                         True
+plot_waveform:                      False
+pn_amplitude_order:                 0
+pn_phase_order:                     -1
+pn_spin_order:                      -1
+pn_tidal_order:                     -1
+post_trigger_duration:              2.0
+postprocessing_arguments:           None
+postprocessing_executable:          None
+prior_dict:                         {mass-ratio: bilby.gw.prior.UniformInComponentsMassRatio(name=&#39;mass_ratio&#39;, minimum= 0.167 , maximum=1), chirp_mass = bilby.gw.prior.UniformInComponentsChirpMass(name=&#39;chirp_mass&#39;, minimum=12, maximum=400), total_mass = Constraint(name=&#39;total_mass&#39;, minimum=60, maximum=400), a_1 = Uniform(name=&#39;a_1&#39;, minimum=0, maximum=0.99), a_2 = Uniform(name=&#39;a_2&#39;, minimum=0, maximum=0.99), tilt_1 = Sine(name=&#39;tilt_1&#39;), tilt_2 = Sine(name=&#39;tilt_2&#39;), phi_12 = Uniform(name=&#39;phi_12&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;), phi_jl = Uniform(name=&#39;phi_jl&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;), dec =  Cosine(name=&#39;dec&#39;), ra =  Uniform(name=&#39;ra&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;), theta_jn =  Sine(name=&#39;theta_jn&#39;), luminosity_distance = bilby.gw.prior.UniformSourceFrame(name=&#39;luminosity_distance&#39;, minimum=100.0, maximum=10000.0), psi =  Uniform(name=&#39;psi&#39;, minimum=0, maximum=np.pi, boundary=&#39;periodic&#39;), phase =  Uniform(name=&#39;phase&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;)}
+prior_file:                         None
+psd_dict:                           {L1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW190630_185205/L1_PSD.dat, V1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW190630_185205/V1_PSD.dat}
+psd_fractional_overlap:             0.5
+psd_length:                         32
+psd_maximum_duration:               1024
+psd_method:                         median
+psd_start_time:                     None
+reference_frame:                    L1V1
+reference_frequency:                20.0
+request_cpus:                       1
+request_disk:                       1.0
+request_memory:                     4.0
+request_memory_generation:          None
+resampling_method:                  lal
+result_format:                      hdf5
+roq_folder:                         None
+roq_scale_factor:                   1
+roq_weights:                        None
+rotate_checkpoints:                 False
+safety:                             1.0
+sampler:                            dynesty
+sampler_kwargs:                     Default
+sampling_frequency:                 2048.0
+sampling_seed:                      None
+scheduler:                          condor
+scheduler_analysis_time:            7-00:00:00
+scheduler_args:                     None
+scheduler_env:                      None
+scheduler_module:                   None
+single_postprocessing_arguments:    None
+single_postprocessing_executable:   None
+slurm_extra_lines:                  partition=wholenode account=phy990002
+spline_calibration_amplitude_uncertainty_dict: None
+spline_calibration_envelope_dict:   {L1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW190630_185205/L1_CalEnv.dat, V1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW190630_185205/V1_CalEnv.dat}
+spline_calibration_nodes:           10
+spline_calibration_phase_uncertainty_dict: None
+submit:                             True
+summarypages_arguments:             {&#39;nsamples_for_skymap&#39;: 5000, &#39;multi_process&#39;:8}
+thin_by_nact:                       1.0
+time:                               42:00:00
+time_marginalization:               False
+time_reference:                     geocent
+timeslide_dict:                     None
+timeslide_file:                     None
+transfer_files:                     True
+trigger_time:                       1245955943.180210
+tukey_roll_off:                     0.4
+verbose:                            False
+vol_check:                          8
+vol_dec:                            0.5
+walks:                              100
+waveform_approximant:               NRSur7dq4
+waveform_arguments_dict:            None
+waveform_generator:                 bilby.gw.waveform_generator.WaveformGenerator
+webdir:                             summary
+weight_file:                        None
+zero_noise:                         False
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you used this data, please <a class="reference internal" href="../citation.html"><span class="doc std std-doc">cite this work</span></a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "nrsur"
+        },
+        kernelOptions: {
+            name: "nrsur",
+            path: "./events"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'nrsur'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="GW190620_030421.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GW190620_030421</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="GW190701_203306.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GW190701_203306</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corner-plots">Corner Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mass">Mass</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spin">Spin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-spin">Effective Spin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sky-localisation">Sky-localisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remnant">Remnant</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waveform-posterior-predictive-plot">Waveform posterior-predictive plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animations">Animations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-configs">Analysis configs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The NrSur Catalog Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -35,7 +35,7 @@ INSTALL_REQUIRES = [
 EXTRA_REQUIRE = dict(
     dev=[
         "jupyter-book>=0.13.2",
-        "zenodo_python @ git+https://github.com/avivajpeyi/zenodo-python.git@main#egg",
+        # "zenodo_python @ git+https://github.com/avivajpeyi/zenodo-python.git@main#egg",
         "ploomber-engine>=0.0.23",
         "tabulate",
         "jupytext",  # for converting py-ipynb
@@ -48,7 +48,7 @@ EXTRA_REQUIRE = dict(
         "plotly",
         "papermill",
         "nbconvert",
-        'itables @ git+https://github.com/mwouts/itables.git@main#egg=itables',
+        'itables',
         'pytest-mock',
     ]
 )

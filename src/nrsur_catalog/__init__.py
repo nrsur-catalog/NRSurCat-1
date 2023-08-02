@@ -7,7 +7,7 @@ from .catalog import Catalog
 from .nrsur_result import NRsurResult
 
 __version__ = "0.0.1"
-__website__ = "https://cjhaster.github.io/NRSurrogateCatalog/"
+__website__ = "https://sxs-collaboration.github.io/"
 
 HERE = os.path.dirname(__file__)
 

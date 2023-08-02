@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from .catalog import Catalog
 from .nrsur_result import NRsurResult
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __website__ = "https://sxs-collaboration.github.io/"
 __uri__ = "https://github.com/sxs-collaboration/nrsur_catalog"
 __author__ = "NRSurrogate Catalog Team"

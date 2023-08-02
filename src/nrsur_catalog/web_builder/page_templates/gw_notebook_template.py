@@ -30,13 +30,7 @@ import pip
 try:
     __import__("nrsur_catalog")
 except ImportError:
-    pip.main(
-        [
-            "install",
-            "nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg",
-            "-q",
-        ]
-    )
+    pip.main(["install", "nrsur_catalog", "-q", ])
 
 # -
 

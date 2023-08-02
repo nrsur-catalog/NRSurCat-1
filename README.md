@@ -1,5 +1,5 @@
 # [NRSurrogate catalog](https://cjhaster.github.io/NRSurrogateCatalog)
-    
+![PyPI](https://img.shields.io/pypi/v/nrsur_catalog)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8115310.svg)](https://doi.org/10.5281/zenodo.8115310)
 
 GW event posteriors obtained using numerical relativity surrogate models.

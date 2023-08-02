@@ -65,27 +65,30 @@ nrsur_result.summary()
 
 # + tags=["hide-input", "remove-output"]
 # NRSurrogate corner plots
-fig = nrsur_result.plot_corner(["mass_1", "mass_2", "chirp_mass", "mass_ratio"])
-fig.savefig("{{GW EVENT NAME}}_mass_corner.png")
-fig = nrsur_result.plot_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
-fig.savefig("{{GW EVENT NAME}}_spin_corner.png")
-fig = nrsur_result.plot_corner(["mass_ratio", "chi_eff", "chi_p"])
-fig.savefig("{{GW EVENT NAME}}_effective_spin.png")
-fig = nrsur_result.plot_corner(["luminosity_distance", "ra", "dec"])
-fig.savefig("{{GW EVENT NAME}}_sky_localisation.png")
-fig = nrsur_result.plot_corner(["final_mass", "final_spin", "final_kick"])
-fig.savefig("{{GW EVENT NAME}}_remnant_corner.png")
-# LVK-Comparison plots
-fig = nrsur_result.plot_lvk_comparison_corner(
-    ["mass_1", "mass_2", "chirp_mass", "mass_ratio"]
+
+import os
+
+param_sets = dict(
+    mass=["mass_1", "mass_2", "chirp_mass", "mass_ratio"],
+    spin=["a_1", "a_2", "tilt_1", "tilt_2"],
+    effective_spin=["mass_ratio", "chi_eff", "chi_p"],
+    sky_localisation=["luminosity_distance", "ra", "dec"],
+    remnant=["final_mass", "final_spin", "final_kick"],
 )
-fig.savefig("{{GW EVENT NAME}}_compare_mass_corner.png")
-fig = nrsur_result.plot_lvk_comparison_corner(["a_1", "a_2", "tilt_1", "tilt_2"])
-fig.savefig("{{GW EVENT NAME}}_compare_spin_corner.png")
-fig = nrsur_result.plot_lvk_comparison_corner(["mass_ratio", "chi_eff", "chi_p"])
-fig.savefig("{{GW EVENT NAME}}_compare_effective_spin.png")
-fig = nrsur_result.plot_lvk_comparison_corner(["luminosity_distance", "ra", "dec"])
-fig.savefig("{{GW EVENT NAME}}_compare_sky_localisation.png")
+for name, params in param_sets.items():
+    fname = f"{{GW EVENT NAME}}_{name}_corner.png"
+    if not os.path.isfile(fname):
+        fig = nrsur_result.plot_corner(params)
+        fig.savefig(fname)
+
+    if name == "remnant":
+        continue
+
+    # LVK-Comparison plots
+    fname = f"{{GW EVENT NAME}}_compare_{name}_corner.png"
+    if not os.path.isfile(fname):
+        fig = nrsur_result.plot_lvk_comparison_corner(params)
+        fig.savefig(fname)
 
 # -
 
@@ -140,13 +143,13 @@ fig.savefig("{{GW EVENT NAME}}_compare_sky_localisation.png")
 # :::{tab-item} NRSurrogate
 # :sync: key1
 #
-# !["{{GW EVENT NAME}}_effective_spin.png"]({{GW EVENT NAME}}_effective_spin.png)
+# !["{{GW EVENT NAME}}_effective_spin_corner.png"]({{GW EVENT NAME}}_effective_spin_corner.png)
 # :::
 #
 # :::{tab-item} LVK-Comparison
 # :sync: key2
 #
-# !["{{GW EVENT NAME}}_compare_effective_spin.png"]({{GW EVENT NAME}}_compare_effective_spin.png)
+# !["{{GW EVENT NAME}}_compare_effective_spin_corner.png"]({{GW EVENT NAME}}_compare_effective_spin_corner.png)
 # :::
 #
 # ::::
@@ -161,13 +164,13 @@ fig.savefig("{{GW EVENT NAME}}_compare_sky_localisation.png")
 # :::{tab-item} NRSurrogate
 # :sync: key1
 #
-# !["{{GW EVENT NAME}}_sky_localisation.png"]({{GW EVENT NAME}}_sky_localisation.png)
+# !["{{GW EVENT NAME}}_sky_localisation_corner.png"]({{GW EVENT NAME}}_sky_localisation_corner.png)
 # :::
 #
 # :::{tab-item} LVK-Comparison
 # :sync: key2
 #
-# !["{{GW EVENT NAME}}_compare_sky_localisation.png"]({{GW EVENT NAME}}_compare_sky_localisation.png)
+# !["{{GW EVENT NAME}}_compare_sky_localisation_corner.png"]({{GW EVENT NAME}}_compare_sky_localisation_corner.png)
 # :::
 #
 # ::::
@@ -182,10 +185,15 @@ fig.savefig("{{GW EVENT NAME}}_compare_sky_localisation.png")
 # ## Waveform posterior-predictive plot
 
 # + tags=["hide-input", "remove-output"]
-fig = nrsur_result.plot_signal(outdir=".")
+fname = f"{{GW EVENT NAME}}_waveform.png"
+if not os.path.isfile(fname):
+    fig = nrsur_result.plot_signal(outdir=".")
+
 # -
 
 # ![waveform]({{GW EVENT NAME}}_waveform.png)
+
+{{ANIMATION_CELL}}
 
 # ## Analysis configs
 # Below are the configs used for the analysis of this job.

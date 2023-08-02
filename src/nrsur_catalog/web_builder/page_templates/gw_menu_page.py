@@ -13,8 +13,8 @@
 #     name: python3
 # ---
 
-# # NRSur Events
-# Table of all the events analyses in the NRSur Catalog.
+# # NRSurrogate Events
+# Table of all the events analyses in the NRSurrogate Catalog.
 
 # + tags=["remove-cell"]
 from nrsur_catalog.web_builder.utils import get_catalog_summary

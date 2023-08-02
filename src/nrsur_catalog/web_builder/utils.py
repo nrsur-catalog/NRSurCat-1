@@ -1,13 +1,38 @@
-import glob
 import os
 
 import pandas as pd
 
 from nrsur_catalog import Catalog
-from nrsur_catalog.utils import LATEX_LABELS, get_event_name
+from nrsur_catalog.utils import LATEX_LABELS
+from .video_links import get_video_html
 
 WEBROOT = "https://cjhaster.com/NRSurrogateCatalog"
 LINK = "<a href='{l}'> {txt}</a>"
+
+ANIM_CELL = """
+# + [markdown] tags=["full-width"]
+# ## Animations  
+# Here are some animations of the posterior.
+# 
+# |Spin       | 
+# |-----------|
+# | {spin}    |   
+#
+# |Remnant       | 
+# |-----------|
+# | {remnant}    | 
+#
+# -
+"""
+
+
+def get_animation_cell(event_name: str) -> str:
+    """Returns the animation cell for the given event"""
+    remnant_html = get_video_html(event_name, "remnant")
+    spin_html = get_video_html(event_name, "spin")
+    if remnant_html is None or spin_html is None:
+        return ""
+    return ANIM_CELL.format(spin=spin_html, remnant=remnant_html)
 
 
 def get_catalog_summary(events_dir: str, cache_dir: str) -> pd.DataFrame:

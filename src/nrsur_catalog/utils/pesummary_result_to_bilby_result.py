@@ -65,22 +65,26 @@ def _parse_prior(p: Dict[str, List[str]]) -> BBHPriorDict:
     # convert 'UniformInComponentsChirpMass' to 'bilby.gw.prior.UniformInComponentsChirpMass'
     for k, v in pri.items():
         if "UniformInComponentsChirpMass" in v:
-            v = v.replace(
-                "UniformInComponentsChirpMass",
-                "bilby.gw.prior.UniformInComponentsChirpMass",
-            )
+            full = "bilby.gw.prior.UniformInComponentsChirpMass"
+            if full not in v:
+                v = v.replace("UniformInComponentsChirpMass", full)
             pri[k] = v
         elif "UniformSourceFrame" in v:
-            v1 = v.replace("UniformSourceFrame", "bilby.gw.prior.UniformSourceFrame")
+            full = "bilby.gw.prior.UniformSourceFrame"
+            v1 = v
+            if full not in v:
+                v1 = v.replace("UniformSourceFrame", full)
             regex = re.compile(r"cosmology=FlatLambdaCDM\((.*)\), name")
             v1 = regex.sub(r"name", v1)
             v1 = v1.replace("""Unit("Mpc")""", "'Mpc'")
             pri[k] = v1
         elif "UniformInComponentsMassRatio" in v:
-            v = v.replace(
-                "UniformInComponentsMassRatio",
-                "bilby.gw.prior.UniformInComponentsMassRatio",
-            )
+            full = "bilby.gw.prior.UniformInComponentsMassRatio"
+            if full not in v:
+                v = v.replace(
+                    "UniformInComponentsMassRatio",
+                    full,
+                )
             pri[k] = v
     pri = BBHPriorDict(pri)
     return pri

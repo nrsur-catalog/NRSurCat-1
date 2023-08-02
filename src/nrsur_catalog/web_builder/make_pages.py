@@ -5,13 +5,12 @@ import shutil
 
 import jupytext
 import nbformat
-from nbconvert.preprocessors import CellExecutionError, ExecutePreprocessor
 from ploomber_engine import execute_notebook
 
 from ..cache import DEFAULT_CACHE_DIR, CatalogCache
 from ..logger import logger
 from ..nrsur_result import NRsurResult
-from .utils import is_file
+from .utils import is_file, get_animation_cell
 
 HERE = os.path.dirname(__file__)
 GW_PAGE_TEMPLATE = os.path.join(HERE, "page_templates/gw_notebook_template.py")
@@ -59,9 +58,14 @@ def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
     logger.debug(f"Making {event_name} page")
     nrsurr_res = NRsurResult.load(event_name, cache_dir=cache.dir)
     summary_md = nrsurr_res.summary(markdown=True)
+    animation_md = get_animation_cell(event_name)
     _replace_strings_from_file(
         GW_PAGE_TEMPLATE,
-        {"{{GW EVENT NAME}}": event_name, "{{SUMMARY_TABLE}}": summary_md},
+        {
+            "{{GW EVENT NAME}}": event_name,
+            "{{SUMMARY_TABLE}}": summary_md,
+            "{{ANIMATION_CELL}}": animation_md
+        },
         md_fn,
     )
     ipynb_fn = convert_py_to_ipynb(md_fn)

@@ -13,7 +13,7 @@ from unittest.mock import patch, PropertyMock
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 
-
+CLEAN = True
 
 def test_web(mock_cache_dir):
     cache = CatalogCache(mock_cache_dir)
@@ -24,7 +24,7 @@ def test_web(mock_cache_dir):
         build_website(
             event_dir=mock_cache_dir,
             outdir=outdir,
-            clean=False,
+            clean=CLEAN,
         )
     assert os.path.exists(outdir)
     html_dir = os.path.join(outdir, "_build/html")
@@ -33,6 +33,7 @@ def test_web(mock_cache_dir):
     images = glob.glob(f"{html_dir}/_images/*waveform.png")
     assert len(event_nbs) == cache.num_events
     assert len(images) == cache.num_events
+    print(f"ACCESS WEB HERE:\n{html_dir}/index.html")
 
 
 def test_gw_page(mock_cache_dir, tmpdir):
@@ -40,7 +41,9 @@ def test_gw_page(mock_cache_dir, tmpdir):
     name = cache.event_names[0]
     event_ipynb_dir = tmpdir
     make_gw_page(name, event_ipynb_dir, cache=cache)
-    assert os.path.exists(f"{event_ipynb_dir}/{name}.ipynb")
+    fpath = f"{event_ipynb_dir}/{name}.ipynb"
+    assert os.path.exists(fpath)
+    print(f"ACCESS GWPAGE HERE:\n {fpath}")
 
 
 def test_menu_page(mock_cache_dir, tmpdir):

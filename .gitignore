@@ -23,7 +23,10 @@ __pycache__/
 *.py[cod]
 *cache_dir
 tmp_test
-
+token.json
+creds.json
+client_secrets.json
+client_secrets_v1.json
 # C extensions
 *.so
 

@@ -1,31 +1,118 @@
-VIDEO_IFRAME = """<iframe width="560" height="315" src="https://www.youtube.com/embed/{ID}?loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>"""
+VIDEO_IFRAME = """<iframe width="630" height="315" src="https://www.youtube.com/embed/{ID}?autoplay=1&mute=1&playlist={ID}&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>"""
 
-
-REMNANT_VIDEO = dict(
-    GW150914_095045="https://youtu.be/mkxggi9SM8M",
-    DEFAULT="https://youtu.be/mkxggi9SM8M", # None
-)
+DEFAULT = "1-8UGmF0Wwc"
 
 SPIN_VIDEO = dict(
-    GW150914_095045="https://youtu.be/msRN00Spjbs",
-    DEFAULT="https://youtu.be/msRN00Spjbs", # None
+    GW170809_082821_spins='1-8UGmF0Wwc',
+    GW200208_130117_spins='4KfJu5V1pbc',
+    GW190413_052954_spins='6KbC-diJG8s',
+    GW200112_155838_spins='7IzZOO2EmRg',
+    GW190929_012149_spins='B1KbPtSxBJY',
+    GW190727_060333_spins='Clw4i5HvnTg',
+    GW200220_061928_spins='E9ggELNCUfY',
+    GW200216_220804_spins='EjEFeqATjN0',
+    GW190803_022701_spins='H0IFv1_3dgQ',
+    GW190915_235702_spins='HUEFLfcREIM',
+    GW200209_085452_spins='K-_3tZzLeuQ',
+    GW190513_205428_spins='KoFhhtxjhSs',
+    GW190630_185205_spins='KzYquG7KHTs',
+    GW200219_094415_spins='L64HfxVP78k',
+    GW190521_074359_spins='OmJPBClHhAs',
+    GW190916_200658_spins='OnmWZm4JXZQ',
+    GW170818_022509_spins='PcyQDShgt70',
+    GW190805_211137_spins='RWYEYlPOl14',
+    GW190701_203306_spins='RfGek4fHGyE',
+    GW191109_010717_spins='Rw7g8P62pns',
+    GW190602_175927_spins='StxLI3RmJWg',
+    GW190828_063405_spins='T5rIWwO8AeA',
+    GW200311_115853_spins='WdV3P9W-77Y',
+    GW200302_015811_spins='XEyxjzm-bkE',
+    GW190503_185404_spins='Y4BB7mApQNA',
+    GW200129_065458_spins='YYkKdNI9K58',
+    GW200224_222234_spins='ZxHoL64dmoM',
+    GW150914_095045_spins='csS1khRAbZ0',
+    GW190706_222641_spins='d2IhKa7uWc0',
+    GW190521_030229_spins='g__34yJhHy8',
+    GW190910_112807_spins='i1KWF9Lq8Y4',
+    GW190527_092055_spins='inQOyNbM83I',
+    GW200220_124850_spins='jYYU4LvjRM4',
+    GW190731_140936_spins='jyrlH_Onzvo',
+    GW191222_033537_spins='kSO3mRQhPBY',
+    GW190514_065416_spins='m17HHOqI6Y4',
+    GW190926_050336_spins='nZnJYNDykGU',
+    GW170823_131358_spins='s8p_scQWNYk',
+    GW191230_180458_spins='voNbqDkNceU',
+    GW190517_055101_spins='zECKj-9ph94',
+    GW200128_022011_spins='zJzukPIhJog',
+    GW190620_030421_spins='zpvDh_-wbZI',
+    GW190519_153544_spins='zxLzMWkWsHo',
+    GW170729_185629_spins='F8GFaRfh10I',
+    GW190426_190642_spins='ecr94FtWxAA',
+    GW190413_134308_spins='jxtHAokMkK8',
+    GW190421_213856_spins='myQijC21raw',
+    DEFAULT='1-8UGmF0Wwc',
 )
 
-
-def __extract_id(l) -> str:
-    """extract the id after last / from a link"""
-    return l.split("/")[-1]
+REMNANT_VIDEO = dict(
+    GW200220_124850_remnant='040tJW611Fg',
+    GW190630_185205_remnant='22dP_a25CwE',
+    GW200220_061928_remnant='2x2PJx9m7lo',
+    GW200219_094415_remnant='7Io2GBX09DA',
+    GW200129_065458_remnant='7RHpiUgnxgc',
+    GW200311_115853_remnant='96aGp2ZSiAQ',
+    GW190620_030421_remnant='9WIAMI6s-Ck',
+    GW190727_060333_remnant='BlnrxOX-iNQ',
+    GW190701_203306_remnant='Bz8mo_2URm8',
+    GW170809_082821_remnant='EfP5TtYC76c',
+    GW200128_022011_remnant='FWMCXb37a8A',
+    GW190519_153544_remnant='FdGKwqNssTI',
+    GW191222_033537_remnant='HUboUkUO4Vo',
+    GW190521_030229_remnant='ISzaj0pwggo',
+    GW190916_200658_remnant='KArYIUMymdA',
+    GW190413_052954_remnant='MCNRu86Zpr0',
+    GW190926_050336_remnant='O29AaLTKlBs',
+    GW190517_055101_remnant='QcPktYJ8vKQ',
+    GW170823_131358_remnant='S30gUerJZFI',
+    GW190521_074359_remnant='UdTHbMs0m7E',
+    GW190514_065416_remnant='VZNGwBHa_uM',
+    GW190915_235702_remnant='XCBQOo0wJSs',
+    GW170818_022509_remnant='XR8XeUBDgwg',
+    GW191230_180458_remnant='Y5kKHtN0FLc',
+    GW200224_222234_remnant='_HULeQUbrp0',
+    GW200302_015811_remnant='axxh-CGWo64',
+    GW190910_112807_remnant='fhzsjCx2dms',
+    GW200112_155838_remnant='gMAq31ktAKY',
+    GW190805_211137_remnant='gZn4oRGkPp4',
+    GW190803_022701_remnant='kYLkocAP9eE',
+    GW190828_063405_remnant='lZdNIcQ5e_c',
+    GW190513_205428_remnant='myq6Qa5gBP8',
+    GW190706_222641_remnant='nzzvB9unTss',
+    GW190527_092055_remnant='pHhTpfXWKkw',
+    GW190929_012149_remnant='rFXgN4GOyDA',
+    GW190602_175927_remnant='rtoLQAUuiLo',
+    GW200208_130117_remnant='rxxsoZE9Hlk',
+    GW200209_085452_remnant='sPAaGUbsdBs',
+    GW191109_010717_remnant='swAUlI2k1Vk',
+    GW190731_140936_remnant='wwNWWo45evw',
+    GW200216_220804_remnant='yNdCj0wXCQ4',
+    GW190426_190642_remnant='10fJuc85Hmk',
+    GW190413_134308_remnant='OxVBgNtVdrw',
+    GW190503_185404_remnant='PbDR2TIhs78',
+    GW170729_185629_remnant='sR5hwRm7SJM',
+    GW150914_095045_remnant='umRHCn5s_J0',
+    GW190421_213856_remnant='y350hCvoxbs',
+    DEFAULT='1-8UGmF0Wwc',
+)
 
 
 def get_video_html(event: str, type: str) -> str:
     """Returns the link for the given event"""
     if type == "remnant":
-        link = REMNANT_VIDEO.get(event, REMNANT_VIDEO["DEFAULT"])
+        vid_id = REMNANT_VIDEO.get(event, REMNANT_VIDEO["DEFAULT"])
     elif type == "spin":
-        link = SPIN_VIDEO.get(event, SPIN_VIDEO["DEFAULT"])
+        vid_id = SPIN_VIDEO.get(event, SPIN_VIDEO["DEFAULT"])
     else:
         raise ValueError(f"Unknown type: {type}")
-    if link is None:
+    if vid_id is None:
         return ""
-    id = __extract_id(link)
-    return VIDEO_IFRAME.format(ID=id)
+    return VIDEO_IFRAME.format(ID=vid_id)

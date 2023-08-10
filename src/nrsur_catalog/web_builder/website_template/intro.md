@@ -1,5 +1,6 @@
 # NRSurrogate Catalog
 
+
 We present the posterior samples of the 47 GW events (from 2015-2020, LVK O1-O3) 
 with signal durations less than 64 seconds from the 
 NRSurrogate Catalog {cite}`NRSurrogate_Catalog`.

@@ -1,9 +1,17 @@
 format: jb-book
 root: intro
-chapters:
-- file: citation
-- file: catalog_plots.ipynb
-- file: events/gw_menu_page
-  sections:
-    - glob: events/GW*
-- file: api.rst
+parts:
+- caption:
+  chapters:
+  - file: citation
+  - file: catalog_plots.ipynb
+  - file: events/gw_menu_page
+    sections:
+      - glob: events/GW*
+  - file: api.rst
+- caption: Links
+  chapters:
+    - url: https://arxiv.org/abs/2208.02927
+      title: Paper
+    - url: https://zenodo.org/record/8115310
+      title: Zenodo

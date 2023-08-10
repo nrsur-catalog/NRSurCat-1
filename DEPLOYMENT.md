@@ -25,3 +25,8 @@ upload_to_zenodo test_cache_dir
 rm -rf test_cache_dir
 ```
 
+
+Update zenodo URL file:
+```bash
+zenodo_get --wget='src/nrsur_catalog/api/nrsur_urls.txt' -r 8115310
+````

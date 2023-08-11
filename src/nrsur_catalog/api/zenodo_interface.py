@@ -56,8 +56,9 @@ def get_zenodo_urls(lvk_posteriors=False) -> Dict[str, str]:
         raise RuntimeError(f"No URLs found in {url_file}")
 
     # extract the event name from the url
-    event_names = [get_event_name(url) for url in urls]
-    return dict(zip(event_names, urls))
+    event_urls = [u for u in urls if "GW" in u]
+    event_names = [get_event_name(url) for url in event_urls]
+    return dict(zip(event_names, event_urls))
 
 
 def check_if_event_in_zenodo(event_name: str, lvk_posteriors=False) -> bool:
@@ -94,4 +95,7 @@ def get_analysed_event_names(lvk_posteriors=False) -> List[str]:
             True if you want to return the names of the analysed LVK events.
             False if you want to return the names of the analysed NRSur cat events.
     """
-    return list(set(get_zenodo_urls(lvk_posteriors).keys()))
+    events = list(set(get_zenodo_urls(lvk_posteriors).keys()))
+    # remove None from the list
+    events = [event for event in events if event is not None]
+    return sorted(events)

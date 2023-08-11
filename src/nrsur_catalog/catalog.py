@@ -76,7 +76,7 @@ class Catalog:
         else:
             if CACHE.is_incomplete:
                 logger.warning(
-                    f"Cache {cache_dir} is missing some events, downloading events..."
+                    f"Cache {cache_dir} is missing some events [{CACHE.missing_events}], downloading events..."
                 )
                 download_missing_events(CACHE.dir)
             df = Catalog.__load_events(cache_dir, max_samples=max_samples)
@@ -244,7 +244,7 @@ class Catalog:
     @property
     def event_names(self) -> List[str]:
         """Return a list of loaded events in the catalog object"""
-        return list(self._df.event.unique())
+        return sorted(list(self._df.event.unique()))
 
     @property
     def n(self) -> int:

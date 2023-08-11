@@ -18,15 +18,17 @@ def caplog(caplog: LogCaptureFixture):
 
 def test_arg_parser():
     """Test the argparser"""
-    event_name, all, cache_dir = get_cli_args(args=["--event-name", "GW150914"])
+    event_name, all, cache_dir, clean = get_cli_args(args=["--event-name", "GW150914"])
     assert event_name == "GW150914"
     assert all is False
     assert cache_dir == "./.nrsur_catalog_cache"
+    assert clean is False
 
-    event_name, all, cache_dir = get_cli_args(args=["--all"])
+    event_name, all, cache_dir, clean = get_cli_args(args=["--all"])
     assert event_name == ""
     assert all is True
     assert cache_dir == "./.nrsur_catalog_cache"
+    assert clean is False
 
     # check that the following raises an error
     with pytest.raises(ValueError, match="Either --all or --event-name must be specified"):
@@ -65,6 +67,10 @@ def test_download_event(mock_download, tmp_path, caplog):
     # trying to redownload the event (should not download it again)
     main(args=["--event-name", event_name] + base_args)
     assert f"File for {event_name} already downloaded: {fname}" in caplog.text
+    # trying to redownload the event (with clean)
+    main(args=["--event-name", event_name, '--clean'] + base_args)
+    assert f"Downloading {event_name} from the NRSur Catalog -> {fname}" in caplog.text
+    assert "Download completed!" in caplog.text
 
 
 def test_download_all_missing_events(mock_download, tmp_path, caplog):

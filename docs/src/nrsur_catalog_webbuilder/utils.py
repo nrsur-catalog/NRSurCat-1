@@ -4,8 +4,9 @@ import pandas as pd
 
 from nrsur_catalog import Catalog
 from nrsur_catalog.utils import LATEX_LABELS
+from nrsur_catalog import __website__
+
 from .video_links import get_video_html
-from .. import __website__
 
 LINK = "<a href='{l}'> {txt}</a>"
 

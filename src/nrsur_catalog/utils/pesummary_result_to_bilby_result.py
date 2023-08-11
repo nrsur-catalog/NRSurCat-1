@@ -20,8 +20,11 @@ def pesummary_to_bilby_result(pesummary_result: str):
 
     returns a bilby result object
     """
-    with h5py.File(pesummary_result, "r") as f:
-        data = recursively_load_dict_contents_from_group(f, "/")
+    try:
+        with h5py.File(pesummary_result, "r") as f:
+            data = recursively_load_dict_contents_from_group(f, "/")
+    except OSError:
+        raise OSError(f"The cached {pesummary_result} is corrupt. Please re-download.")
 
     data = data["Bilby:NRSur7dq4"]
     priors = _parse_prior(data["priors"]["analytic"])

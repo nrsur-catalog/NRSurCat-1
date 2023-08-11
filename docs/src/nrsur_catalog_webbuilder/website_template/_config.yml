@@ -24,6 +24,9 @@ html:
   use_repository_button: true
   home_page_in_navbar: false
   show_prev_next: false
+  comments:
+    utterances:
+      repo: "avivajpeyi/nrsur_catalog"
 
 
 sphinx:
@@ -32,6 +35,7 @@ sphinx:
   - sphinxcontrib.bibtex
   - sphinx.ext.autodoc
   - sphinxcontrib.youtube
+  - sphinxarg.ext
   html_js_files:
   - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
 

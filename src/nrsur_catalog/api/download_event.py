@@ -16,30 +16,46 @@ from ..logger import logger
 from .zenodo_interface import check_if_event_in_zenodo, get_zenodo_urls, get_analysed_event_names
 
 
+PROGNAME = "get_nrsur_event"
+
+def create_parser():
+    parser = argparse.ArgumentParser(
+        prog="PROGNAME",
+        description="Download NRSur Catlog analysis results from Zenodo.",
+    )
+    parser.add_argument(
+        "--event-name",
+        type=str,
+        default="",
+        help="The name of the event to be downloaded (e.g. GW150914)",
+    )
+    parser.add_argument(
+        "--cache-dir",
+        type=str,
+        default=DEFAULT_CACHE_DIR,
+        help="The directory to save the NRSur Catlog event result files.",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        default=False,
+        help="If all catalog results should be downloaded. Cannot be used with --event-name.",
+    )
+    parser.add_argument(
+        "--clean",
+        action="store_true",
+        default=False,
+        help="If the result files need to be re-downloaded (if they already exist).",
+    )
+    return parser
+
 def get_cli_args(args=None) -> Tuple[str, bool, str]:
     """Get the NRSur Catlog event name from the CLI and return it"""
 
     if args is None:
         args = sys.argv[1:]  # Get all args except the script name
 
-    parser = argparse.ArgumentParser(prog="download_event")
-    parser.add_argument(
-        "--event-name",
-        type=str,
-        default="",
-        help="The name of the event to be downloaded (e.g. GW190521)",
-    )
-    parser.add_argument(
-        "--cache-dir",
-        type=str,
-        default=DEFAULT_CACHE_DIR,
-        help="The dir to cache the NRSur Catlog events",
-    )
-    parser.add_argument(
-        "--all",
-        action="store_true",
-        default=False,
-    )
+    parser = create_parser()
     args = parser.parse_args(args=args)
 
     if (
@@ -47,13 +63,14 @@ def get_cli_args(args=None) -> Tuple[str, bool, str]:
     ):
         raise ValueError("Either --all or --event-name must be specified.")
 
-    return args.event_name, args.all, args.cache_dir
+    return args.event_name, args.all, args.cache_dir, args.clean
 
 
 def download_event(
         event_name: str,
         cache_dir: Optional[str] = DEFAULT_CACHE_DIR,
         download_lvk: bool = False,
+        clean: bool = False,
 ) -> None:
     """Download the NRSur Catlog events from Zenodo given the event name"""
 
@@ -75,10 +92,11 @@ def download_event(
         )
         return
 
-    if event_name in CACHE.find(
+    if not clean and event_name in CACHE.find(
             event_name, lvk_posteriors=download_lvk
     ):  # Check if the event is already cached
         logger.warning(f"File for {event_name} already downloaded: {CACHE.find(event_name)}")
+
         return
 
     url_dict = get_zenodo_urls(lvk_posteriors=download_lvk)
@@ -98,19 +116,21 @@ def download_event(
     logger.info("Download completed!")
 
 
-def download_missing_events(cache_dir: str) -> None:
+def download_missing_events(cache_dir: str, clean=False) -> None:
     """Download all NRSur Catlog events from Zenodo that are not already present"""
     cache = CatalogCache(cache_dir)
     events_to_download = cache.missing_events
+    if clean:
+        events_to_download = get_analysed_event_names()
     logger.info(f"Downloading all {len(events_to_download)} events...")
     for event_name in events_to_download:
-        download_event(event_name, cache_dir=cache_dir)
+        download_event(event_name, cache_dir=cache_dir, clean=clean)
 
 
 def main(args=None):
     """Download the NRSur Catlog events from Zenodo given the event name [get_nrsur_event]"""
-    event_name, download_all, cache_dir = get_cli_args(args)
+    event_name, download_all, cache_dir, clean = get_cli_args(args)
     if download_all:
-        download_missing_events(cache_dir)
+        download_missing_events(cache_dir, clean)
     else:
-        download_event(event_name, cache_dir)
+        download_event(event_name, cache_dir, clean)

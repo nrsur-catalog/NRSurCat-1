@@ -12,9 +12,9 @@ from multiprocessing import cpu_count
 from tqdm.auto import tqdm
 from tqdm.contrib.concurrent import process_map
 
-from ..cache import DEFAULT_CACHE_DIR, CatalogCache
-from ..logger import logger
-from ..utils import get_event_name
+from nrsur_catalog.cache import DEFAULT_CACHE_DIR, CatalogCache
+from nrsur_catalog.logger import logger
+from nrsur_catalog.utils import get_event_name
 from .make_pages import make_catalog_page, make_events_menu_page, make_gw_page
 from .utils import is_file
 

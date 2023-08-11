@@ -6,7 +6,7 @@ import requests
 from bilby.core.prior import Prior
 from tqdm.auto import tqdm
 
-from ..logger import logger
+from nrsur_catalog.logger import logger
 from .constants import (
     CATALOG_MAIN_COLOR,
     INTERESTING_PARAMETERS,
@@ -68,18 +68,20 @@ def get_dir_tree(path):
 
 def download(url: str, fname: str) -> None:
     """Download a file from a URL and save it to a file"""
-    resp = requests.get(url, timeout=5)
-    if resp.status_code != 200:
-        raise ValueError(f"Failed to download {url}: {resp.json()}")
-    total = int(resp.headers.get("content-length", 0))
-    with open(fname, "wb") as file, tqdm(
-        desc=f"Downloading file",
-        total=total,
-        unit="iB",
-        unit_scale=True,
-        unit_divisor=1024,
+    logger.info(f"<<Downloading {url} to {fname}>>")
+    response = requests.get(url, stream=True)
+    total_size = int(response.headers.get('content-length', 0))
+
+    basefn = os.path.basename(fname)
+    with open(fname, 'wb') as file, tqdm(
+            desc=basefn,
+            total=total_size,
+            unit='B',
+            unit_scale=True,
+            unit_divisor=1024,
+            ncols=100,
     ) as bar:
-        for data in resp.iter_content(chunk_size=1024):
+        for data in response.iter_content(chunk_size=1024):
             size = file.write(data)
             bar.update(size)
 

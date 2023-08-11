@@ -1,4 +1,4 @@
-from nrsur_catalog.web_builder import build_website
+from nrsur_catalog_webbuilder import build_website
 from generate_mock_data import get_mock_cache_dir
 import os
 

@@ -7,9 +7,10 @@ import jupytext
 import nbformat
 from ploomber_engine import execute_notebook
 
-from ..cache import DEFAULT_CACHE_DIR, CatalogCache
-from ..logger import logger
-from ..nrsur_result import NRsurResult
+from nrsur_catalog.cache import DEFAULT_CACHE_DIR, CatalogCache
+from nrsur_catalog.logger import logger
+from nrsur_catalog.nrsur_result import NRsurResult
+
 from .utils import is_file, get_animation_cell
 
 HERE = os.path.dirname(__file__)

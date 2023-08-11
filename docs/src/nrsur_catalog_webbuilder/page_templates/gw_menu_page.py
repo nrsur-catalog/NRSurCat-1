@@ -17,7 +17,7 @@
 # Table of all the events analyses in the NRSurrogate Catalog.
 
 # + tags=["remove-cell"]
-from nrsur_catalog.web_builder.utils import get_catalog_summary
+from nrsur_catalog_webbuilder.utils import get_catalog_summary
 
 summary_df = get_catalog_summary("{{EVENTS_DIR}}", "{{CACHE_DIR}}")
 

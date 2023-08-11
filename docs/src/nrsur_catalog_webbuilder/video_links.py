@@ -108,9 +108,9 @@ REMNANT_VIDEO = dict(
 def get_video_html(event: str, type: str) -> str:
     """Returns the link for the given event"""
     if type == "remnant":
-        vid_id = REMNANT_VIDEO.get(event, REMNANT_VIDEO["DEFAULT"])
+        vid_id = REMNANT_VIDEO.get(f"{event}_remnant", REMNANT_VIDEO["DEFAULT"])
     elif type == "spin":
-        vid_id = SPIN_VIDEO.get(event, SPIN_VIDEO["DEFAULT"])
+        vid_id = SPIN_VIDEO.get(f"{event}_spins", SPIN_VIDEO["DEFAULT"])
     else:
         raise ValueError(f"Unknown type: {type}")
     if vid_id is None:

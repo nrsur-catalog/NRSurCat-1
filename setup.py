@@ -13,6 +13,7 @@ META_PATH = os.path.join("src", NAME, "__init__.py")
 if sys.version_info < (3, 8):
     raise RuntimeError("nrsur_catalog requires python 3.8 or higher")
 
+
 def read(*parts):
     with codecs.open(os.path.join(HERE, *parts), "rb", "utf-8") as f:
         return f.read()
@@ -67,7 +68,10 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    package_data={NAME: ["*/**.txt"]},
+    package_data={NAME: [
+        "*/**.txt",
+        "*/**.mplstyle",
+    ]},
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRA_REQUIRE,
@@ -75,8 +79,6 @@ setup(
     entry_points={
         "console_scripts": [
             f"get_nrsur_event={NAME}.api.download_event:main",
-            f"build_nrsur_website={NAME}.web_builder.build_website:main",
-            f"build_gwpage={NAME}.web_builder.build_website:gwpage_main",
         ]
     },
 )

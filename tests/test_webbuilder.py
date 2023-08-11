@@ -1,7 +1,7 @@
 import unittest
-from nrsur_catalog.web_builder import build_website
-from nrsur_catalog.web_builder.make_pages import make_gw_page, make_events_menu_page
-from nrsur_catalog.web_builder.utils import get_catalog_summary
+from nrsur_catalog_webbuilder import build_website
+from nrsur_catalog_webbuilder.make_pages import make_gw_page, make_events_menu_page
+from nrsur_catalog_webbuilder.utils import get_catalog_summary
 import nrsur_catalog
 
 nrsur_catalog.catalog.DEFAULT_CLEAN_CATALOG = False

@@ -55,6 +55,40 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "avivajpeyi/nrsur_catalog");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -153,14 +187,6 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    NRSurrogate Catalog
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../citation.html">Citation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../catalog_plots.html">Catalog plots</a></li>
@@ -216,6 +242,11 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://arxiv.org/abs/2208.02927">Paper</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://zenodo.org/record/8115310">Zenodo</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -269,7 +300,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/events/GW200311_115853.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/sxs-collaboration/nrsur_catalog/blob/gh-pages/_sources/events/GW200311_115853.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cjhaster/NRSurrogateCatalog" target="_blank"
+      <li><a href="https://github.com/sxs-collaboration/nrsur_catalog" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cjhaster/NRSurrogateCatalog/issues/new?title=Issue%20on%20page%20%2Fevents/GW200311_115853.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/sxs-collaboration/nrsur_catalog/issues/new?title=Issue%20on%20page%20%2Fevents/GW200311_115853.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,6 +482,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waveform-posterior-predictive-plot">Waveform posterior-predictive plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animations">Animations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-configs">Analysis configs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
 </ul>
             </nav>
         </div>
@@ -465,23 +497,23 @@ document.write(`
   <p><a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/events/GW200311_115853.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a></p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;nrsur_catalog&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
-        <span class="p">[</span>
-            <span class="s2">&quot;install&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
-        <span class="p">]</span>
-    <span class="p">)</span>
+    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;nrsur_catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;-q&quot;</span><span class="p">,</span> <span class="p">])</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="gw200311-115853">
 <h1>GW200311_115853<a class="headerlink" href="#gw200311-115853" title="Permalink to this heading">#</a></h1>
@@ -745,7 +777,7 @@ LVK-Comparison</label><div class="sd-tab-content docutils">
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><iframe width="560" height="315" src="https://www.youtube.com/embed/msRN00Spjbs?loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p></td>
+<tr class="row-even"><td><p><iframe width="630" height="315" src="https://www.youtube.com/embed/WdV3P9W-77Y?autoplay=1&mute=1&playlist=WdV3P9W-77Y&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p></td>
 </tr>
 </tbody>
 </table>
@@ -755,7 +787,7 @@ LVK-Comparison</label><div class="sd-tab-content docutils">
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><iframe width="560" height="315" src="https://www.youtube.com/embed/mkxggi9SM8M?loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p></td>
+<tr class="row-even"><td><p><iframe width="630" height="315" src="https://www.youtube.com/embed/96aGp2ZSiAQ?autoplay=1&mute=1&playlist=96aGp2ZSiAQ&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p></td>
 </tr>
 </tbody>
 </table>
@@ -955,6 +987,16 @@ zero_noise:                         False
 </div>
 <p>If you used this data, please <a class="reference internal" href="../citation.html"><span class="doc std std-doc">cite this work</span></a>.</p>
 </section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h2>
+<p>Leave a comment below or in this <a class="reference external" href="https://github.com/avivajpeyi/nrsur_catlog/issues/new?title=GW200311_115853">issue</a>.</p>
+<script src="https://utteranc.es/client.js"
+        repo="avivajpeyi/nrsur_catalog"
+        issue-term="GW200311_115853"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1036,6 +1078,7 @@ zero_noise:                         False
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waveform-posterior-predictive-plot">Waveform posterior-predictive plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animations">Animations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-configs">Analysis configs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
 </ul>
   </nav></div>
 
@@ -1050,7 +1093,7 @@ zero_noise:                         False
   <div class="footer-item">
     
 <p class="component-author">
-By The NrSur Catalog Team
+By The NRSurrogate Catalog Team
 </p>
 
   </div>

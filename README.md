@@ -1,4 +1,4 @@
-# [NRSurrogate catalog](https://cjhaster.github.io/NRSurrogateCatalog)
+# [NRSurrogate catalog](https://sxs-collaboration.github.io/nrsur_catalog)
 ![PyPI](https://img.shields.io/pypi/v/nrsur_catalog)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8115310.svg)](https://doi.org/10.5281/zenodo.8115310)
 

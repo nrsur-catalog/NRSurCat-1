@@ -69,8 +69,9 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={NAME: [
-        "*/**.txt",
-        "*/**.mplstyle",
+        "api/lvk_urls.txt",
+        "api/nrsur_urls.txt",
+        "style.mplstyle",
     ]},
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,

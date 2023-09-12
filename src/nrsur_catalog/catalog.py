@@ -31,7 +31,7 @@ POSTERIORS_TO_KEEP = list(
 MAX_SAMPLES = 10000
 CATALOG_FN = "downsampled_posteriors.h5"
 
-DEFAULT_CLEAN_CATALOG = True
+DEFAULT_CLEAN_CATALOG = False
 
 
 class Catalog:

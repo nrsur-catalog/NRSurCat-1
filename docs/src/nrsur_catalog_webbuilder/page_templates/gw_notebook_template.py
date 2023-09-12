@@ -199,14 +199,6 @@ nrsur_result.print_configs()
 # If you used this data, please [cite this work](../citation.md).
 #
 # ## Comments
-# Leave a comment below or in this [issue](https://github.com/avivajpeyi/nrsur_catlog/issues/new?title={{GW EVENT NAME}}).
-# ```{raw} html
-# <script src="https://utteranc.es/client.js"
-#         repo="avivajpeyi/nrsur_catalog"
-#         issue-term="{{GW EVENT NAME}}"
-#         theme="github-light"
-#         crossorigin="anonymous"
-#         async>
-# </script>
-# ```
+# Leave a comment in this [issue](https://github.com/avivajpeyi/nrsur_catalog/issues/new?title={{GW EVENT NAME}}).
+
 

@@ -90,8 +90,11 @@ def build_website(
     logger.info("Executing events menu notebook")
     make_events_menu_page(outdir, CACHE)
 
-    logger.info("Executing catalog notebook")
-    make_catalog_page(outdir, CACHE)
+    if not os.path.exists(f"{outdir}/catalog_plots.ipynb"):
+        logger.info("Executing catalog notebook")
+        make_catalog_page(outdir, CACHE)
+    else:
+        logger.info("Catalog notebook already exists, skipping")
 
     command = f"jupyter-book build {outdir}"
     os.system(command)

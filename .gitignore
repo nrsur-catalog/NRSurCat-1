@@ -10,6 +10,7 @@ outdir*
 out*
 *.png
 *.json
+*.gif
 .ipynb_checkpoints
 test_cache_dir
 test_events_dir

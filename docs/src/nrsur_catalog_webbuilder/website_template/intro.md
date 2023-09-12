@@ -1,13 +1,14 @@
 # NRSurrogate Catalog
 
-
-We present the posterior samples of the 47 GW events (from 2015-2020, LVK O1-O3) 
-with signal durations less than 64 seconds from the 
-NRSurrogate Catalog {cite}`NRSurrogate_Catalog`.
-The catalog fits use the [NRSur7dq4] {cite}`NRSur7dq4` surrogate model.
-For details on the analysis, please refer to the [catalog paper].
+We present posterior samples associated with the paper "Analysis of GWTC-3 with fully precessing numerical relativity surrogate models", Islam et al. (2023), [arxiv.XXXX.XXX](arxiv.XXXX.XXX){cite}`catalog paper`. 
+This includes 47 binary black hole gravitational wave events (from 2015-2020, LVK O1-O3) analyzed using the [NRSur7dq4] {cite}`NRSur7dq4` and [NRSur7dq4Remnant] {cite}`NRSur7dq4Remnant` models.
 
 ![](https://s11.gifyu.com/images/SQfBI.gif)
+
+
+
+The posterior samples are available on [Zenodo](https://zenodo.org/record/8115310) and can also be downloaded using the python-API, [nrsur_catalog](https://pypi.org/project/nrsur-catalog/).
+
 
 **Main Dependencies**
 

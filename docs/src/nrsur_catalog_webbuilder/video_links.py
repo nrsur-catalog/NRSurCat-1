@@ -1,4 +1,4 @@
-VIDEO_IFRAME = """<iframe width="630" height="315" src="https://www.youtube.com/embed/{ID}?autoplay=1&mute=1&playlist={ID}&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>"""
+VIDEO_IFRAME = """<iframe width="630" height="315" src="https://www.youtube.com/embed/{ID}?autoplay=1&mute=1&playlist={ID}&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>"""
 
 DEFAULT = "1-8UGmF0Wwc"
 

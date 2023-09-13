@@ -1,8 +1,6 @@
-# [NRSurrogate catalog](https://sxs-collaboration.github.io/nrsur_catalog)
-![PyPI](https://img.shields.io/pypi/v/nrsur_catalog)
+# [NRSurCat-1](https://nrsur-catalog.github.io/NRSurCat-1)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8115310.svg)](https://doi.org/10.5281/zenodo.8115310)
+**TODO: add arxiv button**
 
-GW event posteriors obtained using numerical relativity surrogate models.
-
-This package contains the code to use the NRSurrogate Catalog API to 
-download and plot the posteriors for GW events. 
+This contains the source code to generate the NRSurCat-1 website.
+The website is hosted from this repository's `gh-pages` branch.

@@ -3,6 +3,7 @@
 
 
 ```bash
+cd do
 pip install -e .[dev]
 ```
 

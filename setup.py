@@ -7,7 +7,7 @@ NAME = "nrsur_catalog_webbuilder"
 HERE = os.path.dirname(os.path.realpath(__file__))
 
 INSTALL_REQUIRES = [
-    "nrsur_catalog"
+    "nrsur_catalog",
     "jupyter-book>=0.13.2",
     "ploomber-engine>=0.0.23",
     "tabulate",

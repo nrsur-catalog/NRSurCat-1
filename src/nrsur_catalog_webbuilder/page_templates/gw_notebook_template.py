@@ -199,6 +199,6 @@ nrsur_result.print_configs()
 # If you used this data, please [cite this work](../citation.md).
 #
 # ## Comments
-# Leave a comment in this [issue](https://github.com/avivajpeyi/nrsur_catalog/issues/new?title={{GW EVENT NAME}}).
+# Leave a comment in this [issue](https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title={{GW EVENT NAME}}).
 
 

@@ -1,7 +1,7 @@
 # Title left blank on purpose so that the logo is used instead
 title: ''
 author: The NRSurrogate Catalog Team
-logo: logo.png
+logo: https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_1_logo.png
 
 execute:
   execute_notebooks: 'off'
@@ -14,12 +14,12 @@ bibtex_bibfiles:
   - references.bib
 
 repository:
-  url: https://github.com/sxs-collaboration/nrsur_catalog
+  url: https://github.com/nrsur-catalog/NRSurCat-1
   branch: gh-pages
   path_to_book: _sources
 
 html:
-  favicon: favicon.png
+  favicon: https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_favicon.png
   use_issues_button: true
   use_repository_button: true
   home_page_in_navbar: false

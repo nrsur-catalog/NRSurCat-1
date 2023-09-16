@@ -16,9 +16,9 @@ POSTERIORS = [
     "chirp_mass",
     "mass_ratio",
     "chi_eff",
+    "chi_p",
     "final_mass",
     "final_spin",
-    "final_kick",
 ]
 
 from .utils import is_file, get_animation_cell

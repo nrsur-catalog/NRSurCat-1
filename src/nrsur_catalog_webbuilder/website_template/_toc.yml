@@ -3,11 +3,10 @@ root: intro
 parts:
 - caption:
   chapters:
-  - file: citation
-  - file: catalog_plots.ipynb
   - file: events/gw_menu_page
     sections:
       - glob: events/GW*
+  - file: catalog_plots.ipynb
   - file: api.rst
 - caption: Links
   chapters:

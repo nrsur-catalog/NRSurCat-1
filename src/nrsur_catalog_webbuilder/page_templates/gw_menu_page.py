@@ -15,6 +15,7 @@
 
 # + [markdown] tags=["full-width"]
 # # NRSurrogate Events
+#
 # Table of the NRSurrogate Catalog events with some posterior median and 90% credible interval values.
 # Click on the event name to see more info.
 #
@@ -49,10 +50,10 @@
 # | H1_time                    | $t_H \ [{\rm s}]$         |
 # | iota                       | $\iota \ [{\rm rad}]$    ||
 # | luminosity_distance        | $d_{\rm L} \ [{\rm Mpc}]$ |
-# | mass_1                     | $m_1 \ [M_{\odot}]$       |
-# | mass_1_source              | $m_1^{\rm Source} \ [M_{\odot}]$ |
-# | mass_2                     | $m_2 \ [M_{\odot}]$       |
-# | mass_2_source              | $m_2^{\rm Source} \ [M_{\odot}]$ |
+# | mass_1                     | $m_1^{\rm det} \ [M_{\odot}]$       |
+# | mass_1_source              | $m_1^{\rm src} \ [M_{\odot}]$ |
+# | mass_2                     | $m_2^{\rm det} \ [M_{\odot}]$       |
+# | mass_2_source              | $m_2^{\rm src} \ [M_{\odot}]$ |
 # | mass_ratio                 | $q$                      |
 # | phase                      | $\phi \ [{\rm rad}]$     |
 # | phi_1                      | $\phi_1$                 |
@@ -82,18 +83,18 @@
 #
 
 # + tags=["remove-cell"]
-from nrsur_catalog_webbuilder.utils import get_catalog_summary
+# from nrsur_catalog_webbuilder.utils import get_catalog_summary
 
-POSTERIORS = [
-    "chirp_mass",
-    "mass_ratio",
-    "chi_eff",
-    "final_mass",
-    "final_spin",
-    "final_kick",
-]
+# POSTERIORS = [
+#     "chirp_mass",
+#     "mass_ratio",
+#     "chi_eff",
+#     "final_mass",
+#     "final_spin",
+#     "final_kick",
+# ]
 
-summary_df = get_catalog_summary("{{EVENTS_DIR}}", "{{CACHE_DIR}}", columns=POSTERIORS)
+# summary_df = get_catalog_summary("{{EVENTS_DIR}}", "{{CACHE_DIR}}", columns=POSTERIORS)
 
 # import itables.options as opt
 

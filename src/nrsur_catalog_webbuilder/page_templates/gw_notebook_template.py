@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.14.4
+#       jupytext_version: 1.14.1
 #   kernelspec:
 #     display_name: nrsur
 #     language: python
@@ -25,13 +25,7 @@ import pandas as pd
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 # + tags=["hide-cell"]
-import pip
-
-try:
-    __import__("nrsur_catalog")
-except ImportError:
-    pip.main(["install", "nrsur_catalog", "-q", ])
-
+# ! pip install nrsur_catalog
 # -
 
 # # {{GW EVENT NAME}}
@@ -54,6 +48,8 @@ nrsur_result.summary()
 #
 # {{SUMMARY_TABLE}}
 #
+#
+# _Note: For most events the kick inference is dominated by the prior itself, see Figs. 10 and 11 of Tousif et al, 2023._
 
 # Lets make some plots!
 
@@ -87,6 +83,9 @@ for name, params in param_sets.items():
 # -
 
 # ## Corner Plots
+#
+#
+# Corner plots of the NRSurCat-1 posteriors, with median and 1-$\sigma$ uncertainties on the titles of the columns, and $1,2,3-\sigma$ contours shaded. The LVK posteriors are plotted using the IMRPhenomXPHM samples obtained from the the [GWTC-2.1](https://zenodo.org/record/6513631) and [GWTC-3](https://zenodo.org/record/5546663) zenodo releases. 
 #
 # ### Mass
 #
@@ -177,6 +176,8 @@ for name, params in param_sets.items():
 #
 
 # ## Waveform posterior-predictive plot
+#
+# This is a plot of waveforms generated using 1000 random posterior samples from the event's posterior.
 
 # + tags=["hide-input", "remove-output"]
 fname = f"{{GW EVENT NAME}}_waveform.png"

@@ -39,7 +39,8 @@ def main(mp4_regex, outdir):
                     new_size = get_filesize_in_mb(gif_file)
                     print(f"({orig_size:.2f} MB -> {new_size:.2f} MB)")
                     break
-                except:
+                except Exception as e:
+                    print("Error:", e)
                     if os.path.exists(gif_file):
                         os.remove(gif_file)
                     attempt += 1

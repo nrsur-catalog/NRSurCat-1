@@ -101,7 +101,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="GW200311_115853" href="events/GW200311_115853.html" />
+    <link rel="prev" title="Catalog plots" href="catalog_plots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,8 +185,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="citation.html">Citation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="catalog_plots.html">Catalog plots</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="events/gw_menu_page.html">NRSurrogate Events</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="events/GW150914_095045.html">GW150914_095045</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW170729_185629.html">GW170729_185629</a></li>
@@ -237,6 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="events/GW200311_115853.html">GW200311_115853</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="catalog_plots.html">Catalog plots</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">API documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
@@ -436,12 +435,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog">Catalog</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrsurrogate-result">NRSurrogate Result</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-to-download-results">CLI to download results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-arguments">Named Arguments</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog">Catalog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrsurrogate-result">NRSurrogate Result</a></li>
 </ul>
             </nav>
         </div>
@@ -456,6 +455,35 @@ document.write(`
   <span class="target" id="module-nrsur_catalog"></span><section id="api-documentation">
 <span id="api"></span><h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">#</a></h1>
 <p>Here we provide a brief overview of the API. For more details, see the docstrings of the individual classes and functions.</p>
+<section id="cli-to-download-results">
+<h2>CLI to download results<a class="headerlink" href="#cli-to-download-results" title="Permalink to this heading">#</a></h2>
+<p><p>Download NRSur Catlog analysis results from Zenodo.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">get_nrsur_event</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">event</span><span class="o">-</span><span class="n">name</span> <span class="n">EVENT_NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="nb">dir</span> <span class="n">CACHE_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">all</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">clean</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="named-arguments">
+<h3>Named Arguments<a class="headerlink" href="#named-arguments" title="Permalink to this heading">#</a></h3>
+<dl class="option-list">
+<dt><kbd>--event-name</kbd></dt>
+<dd><p>The name of the event to be downloaded (e.g. GW150914)</p>
+<p>Default: “”</p>
+</dd>
+<dt><kbd>--cache-dir</kbd></dt>
+<dd><p>The directory to save the NRSur Catlog event result files.</p>
+<p>Default: “./.nrsur_catalog_cache”</p>
+</dd>
+<dt><kbd>--all</kbd></dt>
+<dd><p>If all catalog results should be downloaded. Cannot be used with –event-name.</p>
+<p>Default: False</p>
+</dd>
+<dt><kbd>--clean</kbd></dt>
+<dd><p>If the result files need to be re-downloaded (if they already exist).</p>
+<p>Default: False</p>
+</dd>
+</dl>
+</section>
+</section>
 <section id="catalog">
 <h2>Catalog<a class="headerlink" href="#catalog" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
@@ -540,8 +568,16 @@ If a string, the same color will be used for each event.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nrsur_catalog.catalog.Catalog.violin_plot">
-<span class="sig-name descname"><span class="pre">violin_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="headerlink" href="#nrsur_catalog.catalog.Catalog.violin_plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">violin_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_name'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="headerlink" href="#nrsur_catalog.catalog.Catalog.violin_plot" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate a violin plot of a parameter.</p>
+<dl class="simple">
+<dt>parameter: str</dt><dd><p>The parameter to plot.</p>
+</dd>
+<dt>sort_by: str</dt><dd><p>Either ‘median’ or ‘event_name’.
+If ‘median’, the events will be sorted by the median value of the parameter.
+If ‘event_name’, the events will be sorted chronologically by their name.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -636,35 +672,6 @@ adding truths=False.</p>
 </dd></dl>
 
 </section>
-<section id="cli-to-download-results">
-<h2>CLI to download results<a class="headerlink" href="#cli-to-download-results" title="Permalink to this heading">#</a></h2>
-<p><p>Download NRSur Catlog analysis results from Zenodo.</p>
-</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">get_nrsur_event</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">event</span><span class="o">-</span><span class="n">name</span> <span class="n">EVENT_NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="nb">dir</span> <span class="n">CACHE_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">all</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">clean</span><span class="p">]</span>
-</pre></div>
-</div>
-<section id="named-arguments">
-<h3>Named Arguments<a class="headerlink" href="#named-arguments" title="Permalink to this heading">#</a></h3>
-<dl class="option-list">
-<dt><kbd>--event-name</kbd></dt>
-<dd><p>The name of the event to be downloaded (e.g. GW150914)</p>
-<p>Default: “”</p>
-</dd>
-<dt><kbd>--cache-dir</kbd></dt>
-<dd><p>The directory to save the NRSur Catlog event result files.</p>
-<p>Default: “./.nrsur_catalog_cache”</p>
-</dd>
-<dt><kbd>--all</kbd></dt>
-<dd><p>If all catalog results should be downloaded. Cannot be used with –event-name.</p>
-<p>Default: False</p>
-</dd>
-<dt><kbd>--clean</kbd></dt>
-<dd><p>If the result files need to be re-downloaded (if they already exist).</p>
-<p>Default: False</p>
-</dd>
-</dl>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -699,12 +706,12 @@ adding truths=False.</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="events/GW200311_115853.html"
+       href="catalog_plots.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">GW200311_115853</p>
+        <p class="prev-next-title">Catalog plots</p>
       </div>
     </a>
 </div></div>
@@ -725,12 +732,12 @@ adding truths=False.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog">Catalog</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrsurrogate-result">NRSurrogate Result</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-to-download-results">CLI to download results</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-arguments">Named Arguments</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalog">Catalog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrsurrogate-result">NRSurrogate Result</a></li>
 </ul>
   </nav></div>
 

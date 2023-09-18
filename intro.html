@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>NRSurrogate Catalog</title>
+    <title>NRSurCat-1</title>
   
   
   
@@ -101,7 +101,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Citation" href="citation.html" />
+    <link rel="next" title="NRSurrogate Events" href="events/gw_menu_page.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,8 +185,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="citation.html">Citation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="catalog_plots.html">Catalog plots</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="events/gw_menu_page.html">NRSurrogate Events</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="events/GW150914_095045.html">GW150914_095045</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW170729_185629.html">GW170729_185629</a></li>
@@ -232,12 +230,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="events/GW200219_094415.html">GW200219_094415</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW200220_061928.html">GW200220_061928</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW200220_124850.html">GW200220_124850</a></li>
-<li class="toctree-l2"><a class="reference internal" href="events/GW200224_222234.html"><span style="color:red">An Exception has occured at cell 5</span></a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="events/GW200224_222234.html">GW200224_222234</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW200302_015811.html">GW200302_015811</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW200311_115853.html">GW200311_115853</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="catalog_plots.html">Catalog plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
@@ -427,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>NRSurrogate Catalog</h1>
+    <h1>NRSurCat-1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -437,6 +435,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability">Data availability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-attribution">License &amp; attribution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#website-acknowledgements">Website acknowledgements</a></li>
 </ul>
@@ -450,22 +450,89 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="nrsurrogate-catalog">
-<h1>NRSurrogate Catalog<a class="headerlink" href="#nrsurrogate-catalog" title="Permalink to this heading">#</a></h1>
-<p>We present posterior samples associated with the paper “Analysis of GWTC-3 with fully precessing numerical relativity surrogate models”, Islam et al. (2023), <span class="xref myst">arxiv.XXXX.XXX</span><span id="id1">[]</span>.
-This includes 47 binary black hole gravitational wave events (from 2015-2020, LVK O1-O3) analyzed using the <a class="reference external" href="https://arxiv.org/abs/2301.07215">NRSur7dq4</a> <span id="id2">[<a class="reference internal" href="citation.html#id3" title="Jonathan Blackman, Scott E. Field, Mark A. Scheel, Chad R. Galley, Christian D. Ott, Michael Boyle, Lawrence E. Kidder, Harald P. Pfeiffer, and Béla Szilágyi. Numerical relativity waveform surrogate model for generically precessing binary black hole mergers. PhysRevD, 96(2):024058, July 2017. arXiv:1705.07089, doi:10.1103/PhysRevD.96.02405810.48550/arXiv.1705.07089.">1</a>]</span> and [NRSur7dq4Remnant] <span id="id3">[]</span> models.</p>
+  <section id="nrsurcat-1">
+<h1>NRSurCat-1<a class="headerlink" href="#nrsurcat-1" title="Permalink to this heading">#</a></h1>
+<p>We present, <strong>NRSurCat-1</strong>, the catalog of posterior samples associated with the paper “Analysis of GWTC-3 with fully precessing numerical relativity surrogate models”, Islam et al. (2023), <a class="reference external" href="https://arxiv.org/abs/arxiv.XXXX.XXX">arxiv.XXXX.XXX</a>.
+This includes 47 binary black hole gravitational wave events (from 2015-2020, LVK O1-O3) analyzed using the <a class="reference external" href="https://arxiv.org/abs/1905.09300">NRSur7dq4</a> and <a class="reference external" href="https://arxiv.org/abs/1905.09300">NRSur7dq4Remnant</a> models.</p>
 <p><img alt="" src="https://s11.gifyu.com/images/SQfBI.gif" /></p>
-<p>The posterior samples are available on <a class="reference external" href="https://zenodo.org/record/8115310">Zenodo</a> and can also be downloaded using the python-API, <a class="reference external" href="https://pypi.org/project/nrsur-catalog/">nrsur_catalog</a>.</p>
-<p><strong>Main Dependencies</strong></p>
-<p>All fits were performed with ❤️ using:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://arxiv.org/abs/2301.07215">NRSur7dq4</a> <span id="id4">[<a class="reference internal" href="citation.html#id3" title="Jonathan Blackman, Scott E. Field, Mark A. Scheel, Chad R. Galley, Christian D. Ott, Michael Boyle, Lawrence E. Kidder, Harald P. Pfeiffer, and Béla Szilágyi. Numerical relativity waveform surrogate model for generically precessing binary black hole mergers. PhysRevD, 96(2):024058, July 2017. arXiv:1705.07089, doi:10.1103/PhysRevD.96.02405810.48550/arXiv.1705.07089.">1</a>]</span></p></li>
-<li><p><a class="reference external" href="https://lscsoft.docs.ligo.org/bilby/index.html">bilby</a> <span id="id5">[<a class="reference internal" href="citation.html#id5" title="Gregory Ashton, Moritz Hübner, Paul D. Lasky, Colm Talbot, Kendall Ackley, Sylvia Biscoveanu, Qi Chu, Atul Divakarla, Paul J. Easter, Boris Goncharov, Francisco Hernandez Vivanco, Jan Harms, Marcus E. Lower, Grant D. Meadors, Denyz Melchor, Ethan Payne, Matthew D. Pitkin, Jade Powell, Nikhil Sarin, Rory J. E. Smith, and Eric Thrane. BILBY: A User-friendly Bayesian Inference Library for Gravitational-wave Astronomy. \apjs , 241(2):27, April 2019. arXiv:1811.02042, doi:10.3847/1538-4365/ab06fc.">2</a>]</span></p></li>
-<li><p><a class="reference external" href="https://dynesty.readthedocs.io/">dynesty</a> <span id="id6">[<a class="reference internal" href="citation.html#id6" title="Joshua S. Speagle. DYNESTY: a dynamic nested sampling package for estimating Bayesian posteriors and evidences. \mnras , 493(3):3132-3158, April 2020. arXiv:1904.02180, doi:10.1093/mnras/staa278.">3</a>]</span></p></li>
-</ul>
+<p>This website contain plots of <code class="docutils literal notranslate"><span class="pre">NRSurCat-1</span></code> posteriors and example code for downloading and interacting with the results.</p>
+<dl class="simple myst">
+<dt><a class="reference internal" href="events/gw_menu_page.html"><span class="doc std std-doc">NRSurrogate Events</span></a></dt><dd><p>Contains a list of all analysed events with links to their pages (containing <a class="reference external" href="https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#corner-plots">corner plots</a> and <a class="reference external" href="https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#animations">animations</a> for the events).</p>
+</dd>
+<dt><a class="reference internal" href="catalog_plots.html"><span class="doc std std-doc">Catalog plots</span></a></dt><dd><p>Demonstrates how to load the entire catalog and make plots.</p>
+</dd>
+<dt><a class="reference internal" href="api.html"><span class="doc std std-doc">API documentation</span></a></dt><dd><p>Describes the python and command-line interface to the catalog package.</p>
+</dd>
+</dl>
+<section id="data-availability">
+<h2>Data availability<a class="headerlink" href="#data-availability" title="Permalink to this heading">#</a></h2>
+<p>The posterior samples are available on <a class="reference external" href="https://zenodo.org/record/8115310">Zenodo</a> and can also be downloaded
+using the python-API, <a class="reference external" href="https://pypi.org/project/nrsur-catalog/">nrsur_catalog</a>:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key1" for="sd-tab-item-0">
+Using CLI </label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>nrsur_catalog
+get_nrsur_event<span class="w"> </span>--event-name<span class="w"> </span>GW150914_095045<span class="w"> </span>
+get_nrsur_event<span class="w"> </span>--all
+</pre></div>
+</div>
+<p>See more on the <a class="reference internal" href="api.html"><span class="doc std std-doc">catalog API page</span></a>.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="key2" for="sd-tab-item-1">
+Using py</label><div class="sd-tab-content docutils">
+<p>Load samples from one event with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nrsur_catalog</span> <span class="kn">import</span> <span class="n">NRsurResult</span>
+
+<span class="n">nrsur_result</span> <span class="o">=</span> <span class="n">NRsurResult</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;GW150914_095045&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>For example, refer to the <a class="reference internal" href="events/GW150914_095045.html"><span class="doc std std-doc">page for GW150914_095045</span></a>.</p>
+<p>Load samples from all events with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nrsur_catalog</span> <span class="kn">import</span> <span class="n">Catalog</span>
+
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">Catalog</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>See more on the <a class="reference internal" href="catalog_plots.html"><span class="doc std std-doc">catalog plots page</span></a>.</p>
+</div>
+</div>
 <hr class="docutils" />
+</section>
+<section id="citation">
+<span id="citation-section"></span><h2>Citation<a class="headerlink" href="#citation" title="Permalink to this heading">#</a></h2>
+<p>If you make use of this <em>NRSurrogate Catalog</em>, please cite this work
+and its dependencies.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@ARTICLE</span><span class="p">{</span><span class="n">NRSurrogate_Catalog</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Tousif</span> <span class="n">et</span> <span class="n">al</span><span class="p">}},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="p">{{</span><span class="n">NRSurrogate</span> <span class="n">Catalog</span><span class="p">}},</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span><span class="n">PhysRevD</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">General</span> <span class="n">Relativity</span> <span class="ow">and</span> <span class="n">Quantum</span> <span class="n">Cosmology</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="p">{</span><span class="n">July</span><span class="p">},</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">96</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+          <span class="n">eid</span> <span class="o">=</span> <span class="p">{</span><span class="mi">024058</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">024058</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1103</span><span class="o">/</span><span class="n">PhysRevD</span><span class="mf">.96.02405810.48550</span><span class="o">/</span><span class="n">arXiv</span><span class="mf">.1705.07089</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1705.07089</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">gr</span><span class="o">-</span><span class="n">qc</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 <section id="license-attribution">
 <h2>License &amp; attribution<a class="headerlink" href="#license-attribution" title="Permalink to this heading">#</a></h2>
+<p>All analyses were performed with ❤️ using:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1905.09300">NRSur7dq4</a></p></li>
+<li><p><a class="reference external" href="https://git.ligo.org/lscsoft/parallel_bilby">parallel_bilby</a></p></li>
+<li><p><a class="reference external" href="https://dynesty.readthedocs.io/">dynesty</a></p></li>
+</ul>
 <p>Copyright 2023 NRSur Catalog team.</p>
 <p>The source code is made available under the terms of the MIT license.</p>
 </section>
@@ -511,11 +578,11 @@ This includes 47 binary black hole gravitational wave events (from 2015-2020, LV
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="citation.html"
+       href="events/gw_menu_page.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Citation</p>
+        <p class="prev-next-title">NRSurrogate Events</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -537,6 +604,8 @@ This includes 47 binary black hole gravitational wave events (from 2015-2020, LV
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability">Data availability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-attribution">License &amp; attribution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#website-acknowledgements">Website acknowledgements</a></li>
 </ul>

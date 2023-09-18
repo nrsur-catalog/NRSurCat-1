@@ -103,8 +103,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="NRSurrogate Events" href="events/gw_menu_page.html" />
-    <link rel="prev" title="Citation" href="citation.html" />
+    <link rel="next" title="API documentation" href="api.html" />
+    <link rel="prev" title="GW200311_115853" href="events/GW200311_115853.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,8 +188,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="citation.html">Citation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Catalog plots</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="events/gw_menu_page.html">NRSurrogate Events</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="events/GW150914_095045.html">GW150914_095045</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events/GW170729_185629.html">GW170729_185629</a></li>
@@ -240,6 +238,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="events/GW200311_115853.html">GW200311_115853</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Catalog plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
@@ -495,18 +494,66 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;nrsur_catalog&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
-        <span class="p">[</span>
-            <span class="s2">&quot;install&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;nrsur_catalog @ git+https://github.com/cjhaster/NRSurrogateCatalog@main#egg&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
-        <span class="p">]</span>
-    <span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! pip install nrsur_catalog
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nrsur_catalog in /Users/avaj0001/Documents/projects/NRSUR_PRJ/nrsur_catalog/src (0.0.3)
+Requirement already satisfied: matplotlib in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from nrsur_catalog) (3.7.2)
+Requirement already satisfied: loguru in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from nrsur_catalog) (0.7.0)
+Requirement already satisfied: bilby[gw] in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from nrsur_catalog) (1.4.1)
+Requirement already satisfied: bilby.cython&gt;=0.3.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (0.4.0)
+Requirement already satisfied: dynesty&gt;=2 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (2.1.0)
+Requirement already satisfied: emcee in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/emcee-3.1.1-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (3.1.1)
+Requirement already satisfied: corner in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/corner-2.2.1-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (2.2.1)
+Requirement already satisfied: numpy in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (1.23.5)
+Requirement already satisfied: scipy&gt;=1.5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (1.9.3)
+Requirement already satisfied: pandas in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (1.5.1)
+Requirement already satisfied: dill in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/dill-0.3.4-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (0.3.4)
+Requirement already satisfied: tqdm in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (4.66.1)
+Requirement already satisfied: h5py in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/h5py-3.6.0-py3.9-macosx-10.15-x86_64.egg (from bilby[gw]-&gt;nrsur_catalog) (3.6.0)
+Requirement already satisfied: attrs in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/attrs-21.2.0-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (21.2.0)
+Requirement already satisfied: astropy&gt;=5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (5.1)
+Requirement already satisfied: lalsuite in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (7.6)
+Requirement already satisfied: gwpy in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (2.1.3)
+Requirement already satisfied: tables in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/tables-3.6.1-py3.9-macosx-10.15-x86_64.egg (from bilby[gw]-&gt;nrsur_catalog) (3.6.1)
+Requirement already satisfied: pyfftw in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (0.13.1)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from matplotlib-&gt;nrsur_catalog) (1.1.0)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/cycler-0.11.0-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/fonttools-4.28.3-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (4.28.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/kiwisolver-1.3.2-py3.9-macosx-10.15-x86_64.egg (from matplotlib-&gt;nrsur_catalog) (1.3.2)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from matplotlib-&gt;nrsur_catalog) (23.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/Pillow-8.4.0-py3.9-macosx-10.15-x86_64.egg (from matplotlib-&gt;nrsur_catalog) (8.4.0)
+Requirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/pyparsing-3.0.6-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (3.0.6)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/python_dateutil-2.8.2-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (2.8.2)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from matplotlib-&gt;nrsur_catalog) (6.0.1)
+Requirement already satisfied: pyerfa&gt;=2.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/pyerfa-2.0.0.1-py3.9-macosx-10.15-x86_64.egg (from astropy&gt;=5-&gt;bilby[gw]-&gt;nrsur_catalog) (2.0.0.1)
+Requirement already satisfied: PyYAML&gt;=3.13 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/PyYAML-6.0-py3.9-macosx-10.15-x86_64.egg (from astropy&gt;=5-&gt;bilby[gw]-&gt;nrsur_catalog) (6.0)
+Requirement already satisfied: zipp&gt;=3.1.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib-&gt;nrsur_catalog) (3.9.0)
+Requirement already satisfied: six&gt;=1.5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/six-1.16.0-py3.9.egg (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;nrsur_catalog) (1.16.0)
+Requirement already satisfied: dqsegdb2 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.1.1)
+Requirement already satisfied: gwdatafind in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.1.1)
+Requirement already satisfied: gwosc&gt;=0.5.3 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (0.6.1)
+Requirement already satisfied: ligo-segments&gt;=1.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.4.0)
+Requirement already satisfied: ligotimegps&gt;=1.2.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.0.1)
+Requirement already satisfied: lscsoft-glue in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from lalsuite-&gt;bilby[gw]-&gt;nrsur_catalog) (3.0.1)
+Requirement already satisfied: pytz&gt;=2020.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/pytz-2021.3-py3.9.egg (from pandas-&gt;bilby[gw]-&gt;nrsur_catalog) (2021.3)
+Requirement already satisfied: numexpr&gt;=2.6.2 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/numexpr-2.8.0-py3.9-macosx-10.15-x86_64.egg (from tables-&gt;bilby[gw]-&gt;nrsur_catalog) (2.8.0)
+Requirement already satisfied: requests&gt;=1.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.27.1)
+Requirement already satisfied: igwn-auth-utils[requests] in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (0.2.2)
+Requirement already satisfied: pyOpenSSL in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from lscsoft-glue-&gt;lalsuite-&gt;bilby[gw]-&gt;nrsur_catalog) (22.0.0)
+Requirement already satisfied: pyRXP in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from lscsoft-glue-&gt;lalsuite-&gt;bilby[gw]-&gt;nrsur_catalog) (3.0.1)
+Requirement already satisfied: cryptography&gt;=2.3 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (36.0.2)
+Requirement already satisfied: scitokens&gt;=1.7.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.7.0)
+Requirement already satisfied: safe-netrc&gt;=1.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.0.0)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.26.9)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2022.5.18.1)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.0.12)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (3.3)
+Requirement already satisfied: cffi&gt;=1.12 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from cryptography&gt;=2.3-&gt;igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.15.0)
+Requirement already satisfied: PyJWT&gt;=1.6.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from scitokens&gt;=1.7.0-&gt;igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.4.0)
+Requirement already satisfied: pycparser in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.3-&gt;igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.21)
 </pre></div>
 </div>
 </div>
@@ -525,8 +572,8 @@ document.write(`
 <h2>Violin Plots<a class="headerlink" href="#violin-plots" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;mass_1&quot;</span><span class="p">)</span>
-<span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;mass_2&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;mass_1_source&quot;</span><span class="p">)</span>
+<span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;mass_2_source&quot;</span><span class="p">)</span>
 <span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;final_mass&quot;</span><span class="p">)</span>
 <span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;mass_ratio&quot;</span><span class="p">)</span>
 <span class="n">catalog</span><span class="o">.</span><span class="n">violin_plot</span><span class="p">(</span><span class="s2">&quot;chi_eff&quot;</span><span class="p">)</span>
@@ -538,10 +585,10 @@ document.write(`
 </div>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1"><span class="math notranslate nohighlight">\(m_1\)</span></label><div class="tab-content docutils">
-<p><img alt="mass_1_violin.png" src="_images/mass_1_violin.png" /></p>
+<p><img alt="mass_1_source_violin.png" src="_images/mass_1_source_violin.png" /></p>
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2"><span class="math notranslate nohighlight">\(m_2\)</span></label><div class="tab-content docutils">
-<p><img alt="mass_2_violin.png" src="_images/mass_2_violin.png" /></p>
+<p><img alt="mass_2_source_violin.png" src="_images/mass_2_source_violin.png" /></p>
 </div>
 <input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3"><span class="math notranslate nohighlight">\(m_f\)</span></label><div class="tab-content docutils">
 <p><img alt="final_mass_violin.png" src="_images/final_mass_violin.png" /></p>
@@ -564,7 +611,7 @@ document.write(`
 <h2>2D Scatter Plots<a class="headerlink" href="#d-scatter-plots" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">plot_2d_posterior</span><span class="p">(</span><span class="s2">&quot;mass_1&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_2&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">plot_2d_posterior</span><span class="p">(</span><span class="s2">&quot;mass_1_source&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_2_source&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;catalog_mass_1_mass_2.png&quot;</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">plot_2d_posterior</span><span class="p">(</span>
     <span class="s2">&quot;chi_eff&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_ratio&quot;</span><span class="p">,</span> <span class="n">event_posteriors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">event_quantiles</span><span class="o">=</span><span class="kc">False</span>
@@ -624,20 +671,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="citation.html"
+       href="events/GW200311_115853.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Citation</p>
+        <p class="prev-next-title">GW200311_115853</p>
       </div>
     </a>
     <a class="right-next"
-       href="events/gw_menu_page.html"
+       href="api.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">NRSurrogate Events</p>
+        <p class="prev-next-title">API documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

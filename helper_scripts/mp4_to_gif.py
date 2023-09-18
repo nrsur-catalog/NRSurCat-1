@@ -21,9 +21,10 @@ def main(mp4_regex, outdir):
     os.makedirs(outdir, exist_ok=True)
 
     files = glob.glob(mp4_regex)
+    src_dir = os.path.dirname(files[0])
     gifs = [os.path.join(outdir, os.path.basename(mp4_file).replace(".mp4", ".gif")) for mp4_file in files]
     gifs = [f for f in gifs if not os.path.exists(f)]
-    mp4s = [f.replace(".gif", ".mp4") for f in gifs]
+    mp4s = [os.path.join(src_dir, os.path.basename(f).replace(".gif", ".mp4")) for f in gifs]
 
     pbar = trange(len(mp4s))
     for i in pbar:

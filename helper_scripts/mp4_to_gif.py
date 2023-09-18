@@ -1,23 +1,15 @@
 from tqdm.auto import tqdm
-import imageio
 import os
 import glob
 
-try:
-    from pygifsicle import optimize
-except ImportError:
-    print("pygifsicle not installed, skipping gif optimization")
-    optimize = lambda x: None
+from moviepy.editor import VideoFileClip
 
 
-def mp4_to_gif(mp4_file, gif_file):
-    reader = imageio.get_reader(mp4_file)
-    fps = reader.get_meta_data().get("fps", 15)
-    writer = imageio.get_writer(gif_file, fps=fps)
-    for i, frame in enumerate(reader):
-        writer.append_data(frame)
-    writer.close()
-    optimize(gif_file)
+def mp4_to_gif(mp4_file, gif_file, fps=5):
+    clip = VideoFileClip(mp4_file)
+    clip = clip.resize(0.4)
+    clip = clip.speedx(1.5)
+    clip.write_gif(gif_file, fps=fps)
 
 
 def get_filesize_in_mb(fn):

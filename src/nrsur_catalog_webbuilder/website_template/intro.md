@@ -1,16 +1,15 @@
-<!-- #region -->
-# NRSurrogate Catalog
+# NRSurCat-1
 
-We present posterior samples associated with the paper "Analysis of GWTC-3 with fully precessing numerical relativity surrogate models", Islam et al. (2023), [arxiv.XXXX.XXX](arxiv.XXXX.XXX). 
+We present, **NRSurCat-1**, the catalog of posterior samples associated with the paper "Analysis of GWTC-3 with fully precessing numerical relativity surrogate models", Islam et al. (2023), [arxiv.XXXX.XXX](https://arxiv.org/abs/arxiv.XXXX.XXX). 
 This includes 47 binary black hole gravitational wave events (from 2015-2020, LVK O1-O3) analyzed using the [NRSur7dq4](https://arxiv.org/abs/1905.09300) and [NRSur7dq4Remnant](https://arxiv.org/abs/1905.09300) models.
 
 ![](https://s11.gifyu.com/images/SQfBI.gif)
 
 
 
-This website contain plots of the posteriors and example code for downloading and interacting with the results. 
+This website contain plots of `NRSurCat-1` posteriors and example code for downloading and interacting with the results. 
 
-[](.events/gw_menu_page.ipynb) 
+[](events/gw_menu_page.ipynb) 
 : Contains a list of all analysed events with links to their pages (containing [corner plots](https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#corner-plots) and [animations](https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#animations) for the events).
 
 [](catalog_plots.ipynb)
@@ -42,29 +41,30 @@ See more on the [catalog API page](api.rst).
 :::{tab-item} Using py
 :sync: key2
 
-To load samples from one event
+Load samples from one event with
 ```python
 from nrsur_catalog import NRsurResult
 
 nrsur_result = NRsurResult.load("GW150914_095045")
 
 ```
-See more on interacting with the loaded results on the individual event pages (eg. [page for GW150914_095045](events/GW150914_095045.ipynb).
+For example, refer to the [page for GW150914_095045](events/GW150914_095045.ipynb).
 
-And for all events
+Load samples from all events with
 ```python
 from nrsur_catalog import Catalog
 
 catalog = Catalog.load()
 
 ```
-See more on the [catalog plots page]()
+See more on the [catalog plots page](catalog_plots.ipynb).
 :::
 
 ::::
 
 
 ---
+(citation_section)=
 ## Citation
 
 If you make use of this *NRSurrogate Catalog*, please cite this work 
@@ -90,7 +90,6 @@ The source code is made available under the terms of the MIT license.
 
 ## Website acknowledgements
 This website was generated using [`Jupyter book`](https://jupyterbook.org/) and code from [Dan Foreman-Mackey](https://dfm.io/)'s [TESS Atlas](https://github.com/dfm/tess-atlas) project.
-<!-- #endregion -->
 
 [catalog paper]: https://arxiv.org/abs/2301.07215
 [NRSur7dq4]: https://arxiv.org/abs/2301.07215

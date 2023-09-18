@@ -59,7 +59,7 @@ nrsur_result.summary()
 import os
 
 param_sets = dict(
-    mass=["mass_1", "mass_2", "chirp_mass", "mass_ratio"],
+    mass=["mass_1_source", "mass_2_source", "chirp_mass", "mass_ratio"],
     spin=["a_1", "a_2", "tilt_1", "tilt_2"],
     effective_spin=["mass_ratio", "chi_eff", "chi_p"],
     sky_localisation=["luminosity_distance", "ra", "dec"],
@@ -197,7 +197,7 @@ if not os.path.isfile(fname):
 nrsur_result.print_configs()
 # -
 
-# If you used this data, please [cite this work](../citation.md).
+# If you used this data, please [cite this work](citation_section).
 #
 # ## Comments
 # Leave a comment in this [issue](https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title={{GW EVENT NAME}}).

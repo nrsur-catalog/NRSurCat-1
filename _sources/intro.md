@@ -5,16 +5,21 @@ This includes 47 binary black hole gravitational wave events (from 2015-2020, LV
 
 ![](https://s11.gifyu.com/images/SQfBI.gif)
 
-This website contain plots of `NRSurCat-1` posteriors and example code for downloading and interacting with the results. 
+This website contain plots of `NRSurCat-1` posteriors and example code for downloading and interacting with the results. The pages in this website are:
 
-[](events/gw_menu_page.ipynb) 
-: Contains a list of all analysed events with links to their pages (containing [corner plots](https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#corner-plots) and [animations](https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#animations) for the events).
+[](events/gw_menu_page.md) 
+: Contains a list of all analysed events with links to their pages, containing [corner plots](https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#corner-plots) and [animations](https://nrsur-catalog.github.io/NRSurCat-1/events/GW150914_095045.html#animations) for the events, such as:
+
+|| |
+|:-------------------------:|:-------------------------:|
+| <video width="300" height="auto" controls muted loop autoplay><source src="https://nrsur-catalog.github.io/NRSurCat-1-animations-remnant/GW150914_095045_remnant.mp4" type="video/mp4"></video>|<video width="300" height="auto" controls muted loop autoplay><source src="https://nrsur-catalog.github.io/NRSurCat-1-animations-spins/GW150914_095045_spins.mp4" type="video/mp4"></video>|
 
 [](catalog_plots.ipynb)
 : Demonstrates how to load the entire catalog and make plots.
 
 [](api.rst)
 : Describes the python and command-line interface to the catalog package.
+
 
 
 ## Data availability

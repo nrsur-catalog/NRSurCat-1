@@ -11,7 +11,6 @@ def mp4_to_gif(mp4_file, gif_file, fps=5):
     clip = clip.speedx(1.5)
     clip.write_gif(gif_file, fps=fps)
 
-mp4_to_gif("/home/vijay.varma/For_Avi/movies/GW190727_060333_remnant.mp4", 'test.gif')
 
 def get_filesize_in_mb(fn):
     return os.stat(fn).st_size / 1024 / 1024

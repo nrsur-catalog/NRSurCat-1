@@ -49,7 +49,7 @@ nrsur_result.summary()
 # {{SUMMARY_TABLE}}
 #
 #
-# _Note: For most events the kick inference is dominated by the prior itself, see Figs. 10 and 11 of Tousif et al, 2023._
+# _Note: For most events the kick inference is dominated by the prior itself, see Figs. 10 and 11 of [Islam et al, 2023](PAPER)._
 
 # Lets make some plots!
 
@@ -59,7 +59,7 @@ nrsur_result.summary()
 import os
 
 param_sets = dict(
-    mass=["mass_1_source", "mass_2_source", "chirp_mass", "mass_ratio"],
+    mass=["mass_1_source", "mass_2_source", "mass_ratio"],
     spin=["a_1", "a_2", "tilt_1", "tilt_2"],
     effective_spin=["mass_ratio", "chi_eff", "chi_p"],
     sky_localisation=["luminosity_distance", "ra", "dec"],
@@ -85,7 +85,7 @@ for name, params in param_sets.items():
 # ## Corner Plots
 #
 #
-# Corner plots of the NRSurCat-1 posteriors, with median and 1-$\sigma$ uncertainties on the titles of the columns, and $1,2,3-\sigma$ contours shaded. The LVK posteriors are plotted using the IMRPhenomXPHM samples obtained from the the [GWTC-2.1](https://zenodo.org/record/6513631) and [GWTC-3](https://zenodo.org/record/5546663) zenodo releases. 
+# Corner plots of the NRSurCat-1 posteriors. The plots along the diagonal display the 1D marginalized posteriors, with the median values and the central $1\sigma$ credible regions indicated as text. The contour plots display the joint 2D posteriors at the $1,2,3\sigma$ regions. The LVK posteriors are plotted using the IMRPhenomXPHM samples obtained from the the [GWTC-2.1](https://zenodo.org/record/6513631) and [GWTC-3](https://zenodo.org/record/5546663) zenodo releases. 
 #
 # ### Mass
 #
@@ -105,6 +105,8 @@ for name, params in param_sets.items():
 # :::
 #
 # ::::
+#
+# Posterior corner plots for the component masses, and mass-ratio ($m_1^{\rm src}, m_2^{\rm src}, q$). Component masses are shown in the source frame.
 #
 #
 #
@@ -127,6 +129,8 @@ for name, params in param_sets.items():
 #
 # ::::
 #
+# Posterior corner plots for the component spin magnitudes ($\chi_1, \chi_2$) and tilt angles ($\theta_1, \theta_2$).
+#
 #
 # ### Effective Spin
 #
@@ -147,6 +151,7 @@ for name, params in param_sets.items():
 #
 # ::::
 #
+# Posterior corner plots for the mass-ratio $q$, effective spin $\chi_{\rm eff}$ and the transverse spin precession parameters $\chi_p$.
 #
 #
 # ### Sky-localisation
@@ -168,25 +173,31 @@ for name, params in param_sets.items():
 #
 # ::::
 #
+# Posterior corner plots for the luminosity distance, ra and dec ($d_L, \alpha, \delta$).
+#
 #
 #
 # ### Remnant
 #
 # !["{{GW EVENT NAME}}_remnant_corner.png"]({{GW EVENT NAME}}_remnant_corner.png)
 #
+#
+# Posterior corner plots for the remnant mass, remnant spin magnitude and kick ($M_f^{\rm src}, \chi_f, v_f$).
 
+# + [markdown] tags=["remove-cell"]
 # ## Waveform posterior-predictive plot
 #
 # This is a plot of waveforms generated using 1000 random posterior samples from the event's posterior.
 
-# + tags=["hide-input", "remove-output"]
+# + tags=["hide-input", "remove-output", "remove-cell"]
 fname = f"{{GW EVENT NAME}}_waveform.png"
 if not os.path.isfile(fname):
     fig = nrsur_result.plot_signal(outdir=".")
 
-# -
 
+# + [markdown] tags=["remove-cell"]
 # ![waveform]({{GW EVENT NAME}}_waveform.png)
+# -
 
 {{ANIMATION_CELL}}
 
@@ -201,5 +212,3 @@ nrsur_result.print_configs()
 #
 # ## Comments
 # Leave a comment in this [issue](https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title={{GW EVENT NAME}}).
-
-

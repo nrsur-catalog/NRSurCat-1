@@ -39,34 +39,34 @@ catalog = Catalog.load(cache_dir=".nrsur_catalog_cache")
 # + tags=["remove-output"]
 catalog.violin_plot("mass_1_source")
 catalog.violin_plot("mass_2_source")
-catalog.violin_plot("final_mass")
 catalog.violin_plot("mass_ratio")
 catalog.violin_plot("chi_eff")
+catalog.violin_plot("final_mass")
 catalog.violin_plot("final_spin")
 catalog.violin_plot("final_kick")
 
 # -
 
 #
-# ````{tab} $m_1$
+# ````{tab} $m_1^{\rm src}$
 # ![mass_1_source_violin.png](mass_1_source_violin.png)
 # ````
-# ````{tab} $m_2$
+# ````{tab} $m_2^{\rm src}$
 # ![mass_2_source_violin.png](mass_2_source_violin.png)
-# ````
-# ````{tab} $m_f$
-# ![final_mass_violin.png](final_mass_violin.png)
 # ````
 # ````{tab} $q$
 # ![mass_ratio_violin.png](mass_ratio_violin.png)
 # ````
-# ````{tab} $\chi_{\text{EFF}}$
+# ````{tab} $\chi_{\rm eff}$
 # ![chi_eff_violin.png](chi_eff_violin.png)
 # ````
-# ````{tab} $\chi_{\text{f}}$
+# ````{tab} $M_f$
+# ![final_mass_violin.png](final_mass_violin.png)
+# ````
+# ````{tab} $\chi_f$
 # ![final_spin_violin.png](final_spin_violin.png)
 # ````
-# ````{tab} $v_{\text{kick}}$
+# ````{tab} $v_f$
 # ![final_kick_violin.png](final_kick_violin.png)
 # ````
 #
@@ -88,13 +88,13 @@ fig.savefig("catalog_chi_p_final_kick.png")
 # -
 
 #
-# ````{tab} $m_1$ vs $m_2$
+# ````{tab} $m_1^{\rm src}$ vs $m_2^{\rm src}$
 # ![catalog_mass_1_mass_2.png](catalog_mass_1_mass_2.png)
 # ````
-# ````{tab} $\chi_{\text{EFF}}$ vs $q$
+# ````{tab} $\chi_{\rm eff}$ vs $q$
 # ![catalog_chi_eff_mass_ratio.png](catalog_chi_eff_mass_ratio.png)
 # ````
-# ````{tab} $\chi_{\text{P}}$ vs $v_{\text{kick}}$
+# ````{tab} $\chi_{\rm P}$ vs $v_{f}$
 # ![catalog_chi_p_final_kick.png](catalog_chi_p_final_kick.png)
 # ````
 #

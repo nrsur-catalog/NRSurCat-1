@@ -20,7 +20,7 @@ ANIM_CELL = """
 # |-----------|
 # | {spin}    |  
 # 
-# Posterior samples for the dimensionless spin vectors (chi1, chi2) 
+# Posterior samples for the dimensionless spin vectors ($\chi_1, \chi_2$) 
 # of the component black holes. Each purple marker indicates a posterior sample; 
 # an arrow drawn from the origin to the marker would show the spin vector. 
 # The outer radii of the spheres correspond to the maximum spin magnitude of 1. 
@@ -33,14 +33,14 @@ ANIM_CELL = """
 # |-----------|
 # | {remnant}    | 
 #
-# Posterior samples for the dimensionless spin vector (chif) and the recoil kick velocity 
-# (vf, units of km/s). Each purple marker indicates a posterior sample; 
+# Posterior samples for the dimensionless spin vector $\chi_f$ and the recoil kick velocity 
+# $v_f$, (units of km/s). Each purple marker indicates a posterior sample; 
 # an arrow drawn from the origin to the marker would show the spin or kick vector. 
 # For the spin, the outer radii of the spheres correspond to the maximum spin magnitude of 1. 
 # For the kick, the outer radius of the sphere corresponds to a kick magnitude of 2500 km/s.
 # The remnant spin and kick are shown in the "wave frame" defined at a 
-# reference time of -100 M_det before the peak waveform amplitude,
-# where M_det is the detector frame total mass.
+# reference time of -100 $M^{\\rm det}\ [M_{\odot}]$ before the peak waveform amplitude,
+# where $M^{\\rm det}$ is the detector frame total mass.
 #
 # -
 """
@@ -52,7 +52,10 @@ def get_animation_cell(event_name: str) -> str:
     spin_html = get_video_html(event_name, "spin")
     if remnant_html is None or spin_html is None:
         return ""
-    return ANIM_CELL.format(spin=spin_html, remnant=remnant_html)
+    anim_cell = ANIM_CELL
+    anim_cell = anim_cell.replace("{spin}", spin_html)
+    anim_cell = anim_cell.replace("{remnant}", remnant_html)
+    return anim_cell
 
 
 def get_catalog_summary(events_dir: str, cache_dir: str, columns=None) -> pd.DataFrame:

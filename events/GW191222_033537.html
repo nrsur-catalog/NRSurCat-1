@@ -91,6 +91,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CKD8RBPZ5H"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CKD8RBPZ5H');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -506,12 +513,70 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nrsur_catalog in /Users/avaj0001/Documents/projects/NRSUR_PRJ/nrsur_catalog/src (0.0.3)
+Requirement already satisfied: matplotlib in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from nrsur_catalog) (3.7.2)
+Requirement already satisfied: loguru in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from nrsur_catalog) (0.7.0)
+Requirement already satisfied: bilby[gw] in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from nrsur_catalog) (1.4.1)
+Requirement already satisfied: bilby.cython&gt;=0.3.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (0.4.0)
+Requirement already satisfied: dynesty&gt;=2 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (2.1.0)
+Requirement already satisfied: emcee in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/emcee-3.1.1-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (3.1.1)
+Requirement already satisfied: corner in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/corner-2.2.1-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (2.2.1)
+Requirement already satisfied: numpy in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (1.23.5)
+Requirement already satisfied: scipy&gt;=1.5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (1.9.3)
+Requirement already satisfied: pandas in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (1.5.1)
+Requirement already satisfied: dill in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/dill-0.3.4-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (0.3.4)
+Requirement already satisfied: tqdm in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (4.66.1)
+Requirement already satisfied: h5py in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/h5py-3.6.0-py3.9-macosx-10.15-x86_64.egg (from bilby[gw]-&gt;nrsur_catalog) (3.6.0)
+Requirement already satisfied: attrs in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/attrs-21.2.0-py3.9.egg (from bilby[gw]-&gt;nrsur_catalog) (21.2.0)
+Requirement already satisfied: astropy&gt;=5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (5.1)
+Requirement already satisfied: lalsuite in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (7.6)
+Requirement already satisfied: gwpy in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (2.1.3)
+Requirement already satisfied: tables in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/tables-3.6.1-py3.9-macosx-10.15-x86_64.egg (from bilby[gw]-&gt;nrsur_catalog) (3.6.1)
+Requirement already satisfied: pyfftw in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from bilby[gw]-&gt;nrsur_catalog) (0.13.1)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from matplotlib-&gt;nrsur_catalog) (1.1.0)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/cycler-0.11.0-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/fonttools-4.28.3-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (4.28.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/kiwisolver-1.3.2-py3.9-macosx-10.15-x86_64.egg (from matplotlib-&gt;nrsur_catalog) (1.3.2)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from matplotlib-&gt;nrsur_catalog) (23.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/Pillow-8.4.0-py3.9-macosx-10.15-x86_64.egg (from matplotlib-&gt;nrsur_catalog) (8.4.0)
+Requirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/pyparsing-3.0.6-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (3.0.6)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/python_dateutil-2.8.2-py3.9.egg (from matplotlib-&gt;nrsur_catalog) (2.8.2)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from matplotlib-&gt;nrsur_catalog) (6.0.1)
+Requirement already satisfied: pyerfa&gt;=2.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/pyerfa-2.0.0.1-py3.9-macosx-10.15-x86_64.egg (from astropy&gt;=5-&gt;bilby[gw]-&gt;nrsur_catalog) (2.0.0.1)
+Requirement already satisfied: PyYAML&gt;=3.13 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/PyYAML-6.0-py3.9-macosx-10.15-x86_64.egg (from astropy&gt;=5-&gt;bilby[gw]-&gt;nrsur_catalog) (6.0)
+Requirement already satisfied: zipp&gt;=3.1.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib-&gt;nrsur_catalog) (3.9.0)
+Requirement already satisfied: six&gt;=1.5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/six-1.16.0-py3.9.egg (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;nrsur_catalog) (1.16.0)
+Requirement already satisfied: dqsegdb2 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.1.1)
+Requirement already satisfied: gwdatafind in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.1.1)
+Requirement already satisfied: gwosc&gt;=0.5.3 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (0.6.1)
+Requirement already satisfied: ligo-segments&gt;=1.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.4.0)
+Requirement already satisfied: ligotimegps&gt;=1.2.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.0.1)
+Requirement already satisfied: lscsoft-glue in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from lalsuite-&gt;bilby[gw]-&gt;nrsur_catalog) (3.0.1)
+Requirement already satisfied: pytz&gt;=2020.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/pytz-2021.3-py3.9.egg (from pandas-&gt;bilby[gw]-&gt;nrsur_catalog) (2021.3)
+Requirement already satisfied: numexpr&gt;=2.6.2 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages/numexpr-2.8.0-py3.9-macosx-10.15-x86_64.egg (from tables-&gt;bilby[gw]-&gt;nrsur_catalog) (2.8.0)
+Requirement already satisfied: requests&gt;=1.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.27.1)
+Requirement already satisfied: igwn-auth-utils[requests] in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (0.2.2)
+Requirement already satisfied: pyOpenSSL in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from lscsoft-glue-&gt;lalsuite-&gt;bilby[gw]-&gt;nrsur_catalog) (22.0.0)
+Requirement already satisfied: pyRXP in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from lscsoft-glue-&gt;lalsuite-&gt;bilby[gw]-&gt;nrsur_catalog) (3.0.1)
+Requirement already satisfied: cryptography&gt;=2.3 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (36.0.2)
+Requirement already satisfied: scitokens&gt;=1.7.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.7.0)
+Requirement already satisfied: safe-netrc&gt;=1.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.0.0)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.26.9)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2022.5.18.1)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.0.12)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from requests&gt;=1.0.0-&gt;gwosc&gt;=0.5.3-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (3.3)
+Requirement already satisfied: cffi&gt;=1.12 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from cryptography&gt;=2.3-&gt;igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (1.15.0)
+Requirement already satisfied: PyJWT&gt;=1.6.1 in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from scitokens&gt;=1.7.0-&gt;igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.4.0)
+Requirement already satisfied: pycparser in /Users/avaj0001/Documents/projects/deep_gw_pe_followup/venv/lib/python3.9/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.3-&gt;igwn-auth-utils[requests]-&gt;dqsegdb2-&gt;gwpy-&gt;bilby[gw]-&gt;nrsur_catalog) (2.21)
+</pre></div>
+</div>
+</div>
 </details>
 </div>
 <section id="gw191222-033537">
 <h1>GW191222_033537<a class="headerlink" href="#gw191222-033537" title="Permalink to this heading">#</a></h1>
-<p>Below are some plots for GW191222_033537 from the NRSurrogate Catalog.
-Note: these have been made with <code class="docutils literal notranslate"><span class="pre">nrsur_catalog</span></code> version 0.0.4.</p>
+<p>Below are some plots for GW191222_033537 from the NRSurrogate Catalog.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nrsur_catalog</span> <span class="kn">import</span> <span class="n">NRsurResult</span>
@@ -803,11 +868,195 @@ where <span class="math notranslate nohighlight">\(M^{\rm det}\)</span> is the d
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tmax:                               10000
+accounting:                         None
+accounting_user:                    None
+adapt:                              False
+allow_tape:                         True
+analysis_executable:                None
+analysis_executable_parser:         None
+autocorr_c:                         5.0
+autocorr_tol:                       50.0
+bilby_zero_likelihood_mode:         False
+burn_in_nact:                       50.0
+calibration_model:                  CubicSpline
+calibration_prior_boundary:         reflective
+catch_waveform_errors:              True
+channel_dict:                       {H1:DCS-CALIB_STRAIN_CLEAN_SUB60HZ_C01, L1:DCS-CALIB_STRAIN_CLEAN_SUB60HZ_C01}
+check_point_deltaT:                 3600
+clean:                              False
+coherence_test:                     False
+conda_env:                          None
+condor_job_priority:                0
+conversion_function:                None
+create_summary:                     True
+data_dict:                          {H1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW191222_033537/H1_data.gwf, L1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW191222_033537/L1_data.gwf}
+data_dump_file:                     None
+data_format:                        None
+default_prior:                      BBHPriorDict
+deltaT:                             0.2
+desired_sites:                      None
+detectors:                          [&#39;H1&#39;, &#39;L1&#39;]
+distance_marginalization:           True
+distance_marginalization_lookup_table: None
+dlogz:                              0.1
+do_not_save_bounds_in_resume:       False
+duration:                           8.0
+dynesty_bound:                      multi
+dynesty_sample:                     rwalk
+email:                              None
+enforce_signal_duration:            False
+enlarge:                            1.5
+existing_dir:                       None
+extra_likelihood_kwargs:            None
+extra_lines:                        job-name=GW191222_033537 mail-user=tislam@umassd.edu mail-type=END
+facc:                               0.5
+fast_mpi:                           False
+final_result:                       True
+final_result_nsamples:              20000
+frac_threshold:                     0.01
+frequency_domain_source_model:      lal_binary_black_hole
+gaussian_noise:                     False
+generation_function:                None
+generation_seed:                    None
+gps_file:                           None
+gps_tuple:                          None
+idx:                                0
+ignore_gwpy_data_quality_check:     True
+ini:                                GW191222_033537_config.ini
+injection:                          False
+injection_dict:                     None
+injection_file:                     None
+injection_numbers:                  None
+injection_waveform_approximant:     None
+injection_waveform_arguments:       None
+jitter_time:                        True
+label:                              GW191222_033537_NRSur7dq4
+likelihood_type:                    GravitationalWaveTransient
+local:                              False
+local_generation:                   False
+local_plot:                         False
+log_directory:                      None
+max_iterations:                     100000
+max_its:                            10000000000
+max_run_time:                       10000000000.0
+maximum_frequency:                  448.000000
+maxmcmc:                            5000
+mem_per_cpu:                        None
+min_eff:                            10
+min_tau:                            30
+minimum_frequency:                  {H1:20.000000, L1:20.000000, waveform: 0}
+mode_array:                         None
+mpi_timing:                         False
+mpi_timing_interval:                0
+n_check_point:                      100
+n_effective:                        inf
+n_parallel:                         4
+n_simulation:                       0
+nact:                               50
+ncheck:                             500
+nestcheck:                          False
+nfrac:                              5
+nlive:                              2000
+no_plot:                            False
+nodes:                              1
+notification:                       Never
+nsamples:                           10000
+ntasks_per_node:                    128
+ntemps:                             20
+numerical_relativity_file:          None
+nwalkers:                           100
+online_pe:                          False
+osg:                                False
+outdir:                             NRSur7dq4_run
+overwrite_outdir:                   False
+periodic_restart_time:              28800
+phase_marginalization:              False
+plot_calibration:                   False
+plot_corner:                        False
+plot_data:                          True
+plot_format:                        png
+plot_injection:                     True
+plot_marginal:                      False
+plot_skymap:                        False
+plot_spectrogram:                   True
+plot_trace:                         True
+plot_waveform:                      False
+pn_amplitude_order:                 0
+pn_phase_order:                     -1
+pn_spin_order:                      -1
+pn_tidal_order:                     -1
+post_trigger_duration:              2.0
+postprocessing_arguments:           None
+postprocessing_executable:          None
+prior_dict:                         {mass-ratio: bilby.gw.prior.UniformInComponentsMassRatio(name=&#39;mass_ratio&#39;, minimum= 0.167 , maximum=1), chirp_mass = bilby.gw.prior.UniformInComponentsChirpMass(name=&#39;chirp_mass&#39;, minimum=12, maximum=400), total_mass = Constraint(name=&#39;total_mass&#39;, minimum=60, maximum=400), a_1 = Uniform(name=&#39;a_1&#39;, minimum=0, maximum=0.99), a_2 = Uniform(name=&#39;a_2&#39;, minimum=0, maximum=0.99), tilt_1 = Sine(name=&#39;tilt_1&#39;), tilt_2 = Sine(name=&#39;tilt_2&#39;), phi_12 = Uniform(name=&#39;phi_12&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;), phi_jl = Uniform(name=&#39;phi_jl&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;), dec =  Cosine(name=&#39;dec&#39;), ra =  Uniform(name=&#39;ra&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;), theta_jn =  Sine(name=&#39;theta_jn&#39;), luminosity_distance = bilby.gw.prior.UniformSourceFrame(name=&#39;luminosity_distance&#39;, minimum=100.0, maximum=10000.0), psi =  Uniform(name=&#39;psi&#39;, minimum=0, maximum=np.pi, boundary=&#39;periodic&#39;), phase =  Uniform(name=&#39;phase&#39;, minimum=0, maximum=2 * np.pi, boundary=&#39;periodic&#39;)}
+prior_file:                         None
+psd_dict:                           {H1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW191222_033537/H1_PSD.dat, L1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW191222_033537/L1_PSD.dat}
+psd_fractional_overlap:             0.5
+psd_length:                         32
+psd_maximum_duration:               1024
+psd_method:                         median
+psd_start_time:                     None
+reference_frame:                    H1L1
+reference_frequency:                20.0
+request_cpus:                       1
+request_disk:                       1.0
+request_memory:                     4.0
+request_memory_generation:          None
+resampling_method:                  lal
+result_format:                      hdf5
+roq_folder:                         None
+roq_scale_factor:                   1
+roq_weights:                        None
+rotate_checkpoints:                 False
+safety:                             1.0
+sampler:                            dynesty
+sampler_kwargs:                     Default
+sampling_frequency:                 1024.0
+sampling_seed:                      None
+scheduler:                          condor
+scheduler_analysis_time:            7-00:00:00
+scheduler_args:                     None
+scheduler_env:                      None
+scheduler_module:                   None
+single_postprocessing_arguments:    None
+single_postprocessing_executable:   None
+slurm_extra_lines:                  partition=wholenode account=phy990002
+spline_calibration_amplitude_uncertainty_dict: None
+spline_calibration_envelope_dict:   {H1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW191222_033537/H1_CalEnv.dat, L1:/anvil/projects/x-phy990007n/vvarma/Work/Projects/Current/NRSurCatalog/runs/GWTC/Data/GW191222_033537/L1_CalEnv.dat}
+spline_calibration_nodes:           10
+spline_calibration_phase_uncertainty_dict: None
+submit:                             True
+summarypages_arguments:             {&#39;nsamples_for_skymap&#39;: 5000, &#39;multi_process&#39;:8}
+thin_by_nact:                       1.0
+time:                               42:00:00
+time_marginalization:               False
+time_reference:                     geocent
+timeslide_dict:                     None
+timeslide_file:                     None
+transfer_files:                     True
+trigger_time:                       1261020955.123615
+tukey_roll_off:                     0.4
+verbose:                            False
+vol_check:                          8
+vol_dec:                            0.5
+walks:                              100
+waveform_approximant:               NRSur7dq4
+waveform_arguments_dict:            None
+waveform_generator:                 bilby.gw.waveform_generator.WaveformGenerator
+webdir:                             summary
+weight_file:                        None
+zero_noise:                         False
+</pre></div>
 </div>
-<p>If you used this data, please <a class="reference internal" href="../intro.html#citation-section"><span class="std std-ref">cite this work</span></a>.</p>
+</div>
+</div>
 </section>
 <section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h2>
+<p>This has been made with <code class="docutils literal notranslate"><span class="pre">nrsur_catalog</span></code> version 0.0.5.
+If you used this data, please <a class="reference internal" href="../intro.html#citation-section"><span class="std std-ref">cite this work</span></a>.</p>
 <p>Leave a comment in this <a class="reference external" href="https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title=GW191222_033537">issue</a>.</p>
 </section>
 </section>

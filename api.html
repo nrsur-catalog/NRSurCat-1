@@ -91,6 +91,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CKD8RBPZ5H"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CKD8RBPZ5H');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -454,7 +461,15 @@ document.write(`
                   
   <span class="target" id="module-nrsur_catalog"></span><section id="api-documentation">
 <span id="api"></span><h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">#</a></h1>
-<p>Here we provide a brief overview of the <cite>nrsur_catalog</cite> python package API. For more details, see the docstrings of the individual classes and functions <a class="reference external" href="https://github.com/nrsur-catalog/nrsur_catalog">in the source code</a>.</p>
+<p>Here we provide a brief overview of the <cite>nrsur_catalog</cite> python package API. Install the package with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nrsur_catalog
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This website has been generated with nrsur_catalog version 0.0.4.</p>
+</div>
+<p>For more details, see the docstrings of the individual classes and functions <a class="reference external" href="https://github.com/nrsur-catalog/nrsur_catalog">in the source code</a>.</p>
 <section id="cli-to-download-results">
 <h2>CLI to download results<a class="headerlink" href="#cli-to-download-results" title="Permalink to this heading">#</a></h2>
 <p><p>Download NRSur Catlog analysis results from Zenodo.</p>

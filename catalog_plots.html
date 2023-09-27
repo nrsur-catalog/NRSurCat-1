@@ -91,6 +91,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CKD8RBPZ5H"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CKD8RBPZ5H');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -471,6 +478,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plots">Violin Plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-scatter-plots">2D Scatter Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
 </ul>
             </nav>
         </div>
@@ -486,8 +494,7 @@ document.write(`
 <section id="catalog-plots">
 <h1>Catalog plots<a class="headerlink" href="#catalog-plots" title="Permalink to this heading">#</a></h1>
 <p>Here we have some catalog plots showing the ensemble results of the catalog.
-(Note: it may take a few minutes to download the data the first time you run this notebook.)
-These plots have been made with <code class="docutils literal notranslate"><span class="pre">nrsur_catalog</span></code> version 0.0.4.</p>
+(it may take a few minutes to download the data the first time you run this notebook.)</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -638,6 +645,12 @@ Requirement already satisfied: pycparser in /Users/avaj0001/Documents/projects/d
 </div>
 </div>
 </section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">#</a></h2>
+<p>This has been made with <code class="docutils literal notranslate"><span class="pre">nrsur_catalog</span></code> version 0.0.4.
+If you used this data, please <a class="reference internal" href="intro.html#citation-section"><span class="std std-ref">cite this work</span></a>.</p>
+<p>Leave a comment in this <a class="reference external" href="https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title=catalog%20plots">issue</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -709,6 +722,7 @@ Requirement already satisfied: pycparser in /Users/avaj0001/Documents/projects/d
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plots">Violin Plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-scatter-plots">2D Scatter Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
 </ul>
   </nav></div>
 

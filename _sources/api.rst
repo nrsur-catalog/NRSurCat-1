@@ -5,7 +5,19 @@
 API documentation
 =================
 
-Here we provide a brief overview of the `nrsur_catalog` python package API. For more details, see the docstrings of the individual classes and functions `in the source code <https://github.com/nrsur-catalog/nrsur_catalog>`_.
+Here we provide a brief overview of the `nrsur_catalog` python package API. Install the package with:
+
+.. code-block:: bash
+
+    pip install nrsur_catalog
+
+
+.. note::
+
+    This website has been generated with nrsur_catalog version 0.0.4.
+
+
+For more details, see the docstrings of the individual classes and functions `in the source code <https://github.com/nrsur-catalog/nrsur_catalog>`_.
 
 
 CLI to download results

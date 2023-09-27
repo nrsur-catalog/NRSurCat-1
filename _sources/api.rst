@@ -14,7 +14,7 @@ Here we provide a brief overview of the `nrsur_catalog` python package API. Inst
 
 .. note::
 
-    This website has been generated with nrsur_catalog version 0.0.4.
+    This website has been generated with nrsur_catalog version 0.0.5.
 
 
 For more details, see the docstrings of the individual classes and functions `in the source code <https://github.com/nrsur-catalog/nrsur_catalog>`_.

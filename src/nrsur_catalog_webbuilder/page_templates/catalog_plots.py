@@ -19,10 +19,12 @@
 # %matplotlib inline
 # -
 
+#
 # # Catalog plots
 #
 # Here we have some catalog plots showing the ensemble results of the catalog.
-# (Note: it may take a few minutes to download the data the first time you run this notebook.)
+# (it may take a few minutes to download the data the first time you run this notebook.)
+#
 
 # + tags=["hide-cell"]
 # ! pip install nrsur_catalog
@@ -98,3 +100,10 @@ fig.savefig("catalog_chi_p_final_kick.png")
 # ![catalog_chi_p_final_kick.png](catalog_chi_p_final_kick.png)
 # ````
 #
+
+# ## Comments
+#
+# This has been made with `nrsur_catalog` version {{NRSUR_CATALOG_VERSION}}.
+# If you used this data, please [cite this work](citation_section).
+#
+# Leave a comment in this [issue](https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title=catalog%20plots).

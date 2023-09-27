@@ -15,7 +15,8 @@ from tqdm.contrib.concurrent import process_map
 from nrsur_catalog.cache import DEFAULT_CACHE_DIR, CatalogCache
 from nrsur_catalog.logger import logger
 from nrsur_catalog.utils import get_event_name
-from .make_pages import make_catalog_page, make_events_menu_page, make_gw_page
+from nrsur_catalog import __version__
+from .make_pages import make_catalog_page, make_events_menu_page, make_gw_page, _replace_strings_from_file
 from .utils import is_file
 
 HERE = os.path.dirname(__file__)
@@ -56,6 +57,13 @@ def build_website(
 
     logger.info(f"Building website with {num_events} events: {event_names}")
     shutil.copytree(WEB_TEMPLATE, outdir, dirs_exist_ok=True)
+
+    _replace_strings_from_file(
+        os.path.join(outdir, "api.rst"),
+        {"{{VERSION}}": __version__},
+        os.path.join(outdir, "api.rst"),
+    )
+
     event_ipynb_dir = os.path.join(outdir, "events")
     regex = os.path.join(os.path.abspath(event_ipynb_dir), "GW*.ipynb")
 

@@ -10,7 +10,7 @@ parts:
   - file: api.rst
 - caption: Links
   chapters:
-    - url: https://arxiv.org/abs/2208.02927
+    - url: https://arxiv.org/abs/2309.14473
       title: Paper
     - url: https://zenodo.org/record/8115310
       title: Zenodo

@@ -24,6 +24,7 @@ html:
   use_repository_button: true
   home_page_in_navbar: false
   show_prev_next: false
+  google_analytics_id: G-CKD8RBPZ5H
   comments:
     utterances:
       repo: "avivajpeyi/nrsur_catalog"

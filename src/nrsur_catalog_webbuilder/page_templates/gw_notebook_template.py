@@ -49,7 +49,7 @@ nrsur_result.summary()
 # {{SUMMARY_TABLE}}
 #
 #
-# _Note: For most events the kick inference is dominated by the prior itself, see Figs. 10 and 11 of [Islam et al, 2023](PAPER)._
+# _Note: For most events the kick inference is dominated by the prior itself, see Figs. 10 and 11 of [Islam et al, 2023](https://arxiv.org/abs/2309.14473)._
 
 # Lets make some plots!
 
@@ -203,12 +203,16 @@ if not os.path.isfile(fname):
 
 # ## Analysis configs
 # Below are the configs used for the analysis of this job.
+#
 
 # + tags=["output_scroll"]
 nrsur_result.print_configs()
+
 # -
 
+# ## Comments
+#
+# This has been made with `nrsur_catalog` version {{NRSUR_CATALOG_VERSION}}.
 # If you used this data, please [cite this work](citation_section).
 #
-# ## Comments
 # Leave a comment in this [issue](https://github.com/nrsur-catalog/NRSurCat-1/issues/new?title={{GW EVENT NAME}}).

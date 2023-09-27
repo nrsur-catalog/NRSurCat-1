@@ -12,6 +12,7 @@ from nrsur_catalog.logger import logger
 from nrsur_catalog.nrsur_result import NRsurResult
 from nrsur_catalog_webbuilder.utils import get_catalog_summary
 from nrsur_catalog.utils.constants import LATEX_LABELS
+from nrsur_catalog import __version__
 import pandas as pd
 
 POSTERIORS = [
@@ -83,6 +84,7 @@ def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
         GW_PAGE_TEMPLATE,
         {
             "{{GW EVENT NAME}}": event_name,
+            "{{NRSUR_CATALOG_VERSION}}": __version__,
             "{{SUMMARY_TABLE}}": summary_md,
             "{{ANIMATION_CELL}}": animation_md
         },
@@ -103,18 +105,19 @@ def make_gw_page(event_name: str, outdir: str, cache: CatalogCache):
         f"{outdir}/{event_name}_sky_localisation_corner.png",
         f"{outdir}/{event_name}_waveform.png",
     ]
+    any_plots_missing = any([not is_file(plot) for plot in plots])
 
     # if any of the plots are missing, execute the notebook
-    if any([not is_file(plot) for plot in plots]):
-        execute_notebook(
-            ipynb_fn,
-            ipynb_fn,
-            cwd=outdir,
-            save_profiling_data=True,
-            profile_memory=True,
-            progress_bar=False,
-            verbose=False,
-        )
+    # if any_plots_missing:
+    execute_notebook(
+        ipynb_fn,
+        ipynb_fn,
+        cwd=outdir,
+        save_profiling_data=True,
+        profile_memory=True,
+        progress_bar=False,
+        verbose=False,
+    )
 
 
 def _replace_strings_from_file(fname: str, replacements: dict, outfname: str) -> None:
@@ -131,6 +134,13 @@ def make_catalog_page(outdir: str, cache: CatalogCache):
     """Writes the catalog notebook and executes it"""
     py_fname = f"{outdir}/catalog_plots.py"
     shutil.copyfile(CATALOG_TEMPLATE, py_fname)
+    _replace_strings_from_file(
+        py_fname,
+        {
+            "{{NRSUR_CATALOG_VERSION}}": __version__,
+        },
+        py_fname,
+    )
     ipynb_fn = convert_py_to_ipynb(py_fname)
 
     tmp_cache = f"{outdir}/{DEFAULT_CACHE_DIR}"

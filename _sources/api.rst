@@ -5,7 +5,7 @@
 API documentation
 =================
 
-Here we provide a brief overview of the API. For more details, see the docstrings of the individual classes and functions.
+Here we provide a brief overview of the `nrsur_catalog` python package API. For more details, see the docstrings of the individual classes and functions `in the source code <https://github.com/nrsur-catalog/nrsur_catalog>`_.
 
 
 CLI to download results

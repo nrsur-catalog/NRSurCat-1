@@ -13,7 +13,7 @@
 #     name: nrsur
 # ---
 
-# <a href="https://colab.research.google.com/github/cjhaster/NRSurrogateCatalog/blob/gh-pages/_sources/events/{{GW EVENT NAME}}.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+# <a href="https://colab.research.google.com/github/nrsur-catalog/NRSurCat-1/blob/gh-pages/_sources/events/{{GW EVENT NAME}}.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 # + tags=["remove-input"]
 # %load_ext autoreload

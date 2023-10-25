@@ -2,6 +2,7 @@
 title: ''
 author: The NRSurrogate Catalog Team
 logo: https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_1_logo.png
+copyright: "2023"
 
 execute:
   execute_notebooks: 'off'

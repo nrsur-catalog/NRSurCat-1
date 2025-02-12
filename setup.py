@@ -18,6 +18,7 @@ INSTALL_REQUIRES = [
     "GitPython",
     "sphinx-inline-tabs",
     "sphinxcontrib-bibtex",
+    "sphinxcontrib-youtube",
     "sphinx-argparse",
     "plotly",
     "papermill",

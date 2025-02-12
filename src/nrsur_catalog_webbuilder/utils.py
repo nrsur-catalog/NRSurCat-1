@@ -124,7 +124,7 @@ def __load_processed_links_dataframe(catalog: Catalog, events_dir: str) -> pd.Da
     return pd.DataFrame(event_data)
 
 
-def __load_posterior_summary(catalog, columns=None):
+def __load_posterior_summary(catalog: Catalog, columns=None):
     posterior_summary = catalog.get_latex_summary()
     posterior_summary["event_id"] = posterior_summary.index
     posterior_summary.index = range(len(posterior_summary))
@@ -132,7 +132,14 @@ def __load_posterior_summary(catalog, columns=None):
         columns = posterior_summary.columns.values
     else:
         columns = ["event_id"] + columns
-    posterior_summary = posterior_summary[columns]
+
+    try:
+        posterior_summary = posterior_summary[columns]
+    except KeyError:
+        raise KeyError(
+            f"Columns {columns} not found in the posterior summary. "
+            f"Available columns are {posterior_summary.columns.values}"
+        )
     posterior_summary = posterior_summary.rename(
         columns={p: LATEX_LABELS.get(p, p) for p in columns}
     )

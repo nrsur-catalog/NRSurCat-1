@@ -1,9 +1,18 @@
 # NRSurCat-1
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8115310.svg)](https://doi.org/10.5281/zenodo.8115310)
+[![arXiv](https://img.shields.io/badge/arXiv-2309.14473-b31b1b.svg)](https://arxiv.org/abs/2309.14473)
+[![PyPI version](https://badge.fury.io/py/nrsur-catalog.svg)](https://badge.fury.io/py/nrsur-catalog)
+
+
 We present, **NRSurCat-1**, the catalog of posterior samples associated with the paper "Analysis of GWTC-3 with fully precessing numerical relativity surrogate models", [Islam et al, 2023](https://arxiv.org/abs/2309.14473). 
 This includes 47 binary black hole gravitational wave events (from 2015-2020, LVK O1-O3) analyzed using the [NRSur7dq4](https://arxiv.org/abs/1905.09300) and [NRSur7dq4Remnant](https://arxiv.org/abs/1905.09300) models.
 
-![](https://s11.gifyu.com/images/SQfBI.gif)
+ <video width="650" controls muted loop autoplay><source src="https://nrsur-catalog.github.io/animations/NRSurCatalog%20Demo.mp4" type="video/mp4">
+ </video>
+
+
+
 
 This website contain plots of `NRSurCat-1` posteriors and example code for downloading and interacting with the results. The pages in this website are:
 

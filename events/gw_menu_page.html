@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>NRSurrogate Events</title>
   
@@ -15,46 +14,48 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -90,7 +91,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CKD8RBPZ5H"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -98,22 +99,27 @@ commentsRunWhenDOMLoaded(addUtterances);
                 gtag('js', new Date());
                 gtag('config', 'G-CKD8RBPZ5H');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CKD8RBPZ5H');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'events/gw_menu_page';</script>
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_favicon.png"/>
+    <link rel="icon" href="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GW150914_095045" href="GW150914_095045.html" />
     <link rel="prev" title="NRSurCat-1" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -121,23 +127,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -145,7 +144,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -153,16 +151,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -175,9 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -187,15 +198,22 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_1_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_1_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_1_logo.png" class="logo__image only-light" alt=" - Home"/>
+    <img src="https://raw.githubusercontent.com/nrsur-catalog/logo/main/nrsurcat_1_logo.png" class="logo__image only-dark pst-js-only" alt=" - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">NRSurrogate Events</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">NRSurrogate Events</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="GW150914_095045.html">GW150914_095045</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GW170729_185629.html">GW170729_185629</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GW170809_082821.html">GW170809_082821</a></li>
@@ -244,7 +262,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="GW200302_015811.html">GW200302_015811</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GW200311_115853.html">GW200311_115853</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../catalog_plots.html">Catalog plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API documentation</a></li>
 </ul>
@@ -260,14 +278,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -276,14 +299,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -405,23 +428,17 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
 
 </div></div>
       
@@ -445,456 +462,457 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="nrsurrogate-events">
-<h1>NRSurrogate Events<a class="headerlink" href="#nrsurrogate-events" title="Permalink to this heading">#</a></h1>
+<h1>NRSurrogate Events<a class="headerlink" href="#nrsurrogate-events" title="Link to this heading">#</a></h1>
 <p>Table of the NRSurrogate Catalog events with some posterior median and 90% credible interval values.
 Click on the event name to see more info.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Event</p></th>
-<th class="text-left head"><p>Waveform</p></th>
-<th class="text-left head"><p><span class="math notranslate nohighlight">\(\mathcal{M}_{c}^{\rm src}\ [M_{\odot}]\)</span></p></th>
-<th class="text-left head"><p><span class="math notranslate nohighlight">\(q\)</span></p></th>
-<th class="text-left head"><p><span class="math notranslate nohighlight">\(\chi_{\mathrm{eff}}\)</span></p></th>
-<th class="text-left head"><p><span class="math notranslate nohighlight">\(\chi_{\mathrm{p}}\)</span></p></th>
-<th class="text-left head"><p><span class="math notranslate nohighlight">\(M_f^{\rm src}\ [M_{\odot}]\)</span></p></th>
-<th class="text-left head"><p><span class="math notranslate nohighlight">\(\chi_f\)</span></p></th>
+<tr class="row-odd"><th class="head text-left"><p>Event</p></th>
+<th class="head text-left"><p>Waveform</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\mathcal{M}_{c}^{\rm src}\ [M_{\odot}]\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(q\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\chi_{\mathrm{eff}}\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\chi_{\mathrm{p}}\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(M_f^{\rm src}\ [M_{\odot}]\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\chi_f\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW150914_095045.html"><span class="doc std std-doc">GW150914_095045</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW150914_095045.html"><span class="doc std std-doc"><img alt="GW150914_095045_thumbnail.png" src="../_images/GW150914_095045_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.80}_{-0.81}^{+0.82}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.86}_{-0.13}^{+0.10}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW150914_095045.html"><span class="std std-doc">GW150914_095045</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW150914_095045.html"><span class="std std-doc"><img alt="GW150914_095045_thumbnail.png" src="../_images/GW150914_095045_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.79}_{-0.79}^{+0.83}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.86}_{-0.13}^{+0.09}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.05}_{-0.07}^{+0.06}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.32}_{-0.17}^{+0.25}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({67.25}_{-1.61}^{+1.55}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.32}_{-0.17}^{+0.24}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({67.22}_{-1.56}^{+1.55}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.02}^{+0.02}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW170729_185629.html"><span class="doc std std-doc">GW170729_185629</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW170729_185629.html"><span class="doc std std-doc"><img alt="GW170729_185629_thumbnail.png" src="../_images/GW170729_185629_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({34.89}_{-3.54}^{+3.95}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.54}_{-0.14}^{+0.19}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.27}_{-0.18}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.42}_{-0.22}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({115.97}_{-10.65}^{+8.81}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW170729_185629.html"><span class="std std-doc">GW170729_185629</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW170729_185629.html"><span class="std std-doc"><img alt="GW170729_185629_thumbnail.png" src="../_images/GW170729_185629_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({34.88}_{-3.52}^{+3.88}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.55}_{-0.14}^{+0.19}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.27}_{-0.17}^{+0.15}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.43}_{-0.22}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({116.10}_{-10.46}^{+8.62}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.11}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW170809_082821.html"><span class="doc std std-doc">GW170809_082821</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW170809_082821.html"><span class="doc std std-doc"><img alt="GW170809_082821_thumbnail.png" src="../_images/GW170809_082821_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({24.68}_{-0.93}^{+1.16}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW170809_082821.html"><span class="std std-doc">GW170809_082821</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW170809_082821.html"><span class="std std-doc"><img alt="GW170809_082821_thumbnail.png" src="../_images/GW170809_082821_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({24.69}_{-0.95}^{+1.14}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.18}^{+0.18}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.07}_{-0.09}^{+0.10}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.38}_{-0.21}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({67.11}_{-2.37}^{+2.84}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.38}_{-0.21}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({67.07}_{-2.40}^{+2.85}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.04}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW170818_022509.html"><span class="doc std std-doc">GW170818_022509</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW170818_022509.html"><span class="doc std std-doc"><img alt="GW170818_022509_thumbnail.png" src="../_images/GW170818_022509_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({26.46}_{-1.14}^{+1.35}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.81}_{-0.15}^{+0.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.07}_{-0.13}^{+0.11}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.55}_{-0.25}^{+0.24}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({71.94}_{-2.88}^{+2.95}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW170818_022509.html"><span class="std std-doc">GW170818_022509</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW170818_022509.html"><span class="std std-doc"><img alt="GW170818_022509_thumbnail.png" src="../_images/GW170818_022509_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({26.45}_{-1.12}^{+1.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.81}_{-0.16}^{+0.13}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.08}_{-0.12}^{+0.11}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.54}_{-0.25}^{+0.24}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({71.87}_{-2.84}^{+2.92}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.04}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW170823_131358.html"><span class="doc std std-doc">GW170823_131358</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW170823_131358.html"><span class="doc std std-doc"><img alt="GW170823_131358_thumbnail.png" src="../_images/GW170823_131358_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({28.55}_{-2.02}^{+2.50}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.77}_{-0.19}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.05}_{-0.12}^{+0.12}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.45}_{-0.23}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({86.76}_{-5.28}^{+5.69}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW170823_131358.html"><span class="std std-doc">GW170823_131358</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW170823_131358.html"><span class="std std-doc"><img alt="GW170823_131358_thumbnail.png" src="../_images/GW170823_131358_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({28.53}_{-2.08}^{+2.45}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.77}_{-0.20}^{+0.15}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.05}_{-0.13}^{+0.12}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.44}_{-0.23}^{+0.28}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({86.76}_{-5.49}^{+5.48}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.05}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190413_052954.html"><span class="doc std std-doc">GW190413_052954</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190413_052954.html"><span class="doc std std-doc"><img alt="GW190413_052954_thumbnail.png" src="../_images/GW190413_052954_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({24.48}_{-2.10}^{+2.52}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190413_052954.html"><span class="std std-doc">GW190413_052954</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190413_052954.html"><span class="std std-doc"><img alt="GW190413_052954_thumbnail.png" src="../_images/GW190413_052954_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({24.42}_{-2.08}^{+2.61}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.75}_{-0.19}^{+0.17}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.03}_{-0.18}^{+0.15}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.04}_{-0.17}^{+0.15}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.41}_{-0.22}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({86.70}_{-7.14}^{+7.76}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({86.61}_{-7.26}^{+7.85}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.06}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190413_134308.html"><span class="doc std std-doc">GW190413_134308</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190413_134308.html"><span class="doc std std-doc"><img alt="GW190413_134308_thumbnail.png" src="../_images/GW190413_134308_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({33.54}_{-3.38}^{+4.82}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.21}^{+0.19}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.01}_{-0.16}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.27}^{+0.25}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({133.02}_{-10.26}^{+10.60}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190413_134308.html"><span class="std std-doc">GW190413_134308</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190413_134308.html"><span class="std std-doc"><img alt="GW190413_134308_thumbnail.png" src="../_images/GW190413_134308_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({33.46}_{-3.38}^{+4.66}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.21}^{+0.20}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.00}_{-0.17}^{+0.15}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.29}^{+0.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({132.99}_{-10.49}^{+10.61}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.69}_{-0.06}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190421_213856.html"><span class="doc std std-doc">GW190421_213856</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190421_213856.html"><span class="doc std std-doc"><img alt="GW190421_213856_thumbnail.png" src="../_images/GW190421_213856_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({31.51}_{-2.82}^{+3.41}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.19}^{+0.14}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190421_213856.html"><span class="std std-doc">GW190421_213856</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190421_213856.html"><span class="std std-doc"><img alt="GW190421_213856_thumbnail.png" src="../_images/GW190421_213856_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({31.58}_{-2.86}^{+3.40}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.20}^{+0.14}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.08}_{-0.15}^{+0.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.48}_{-0.24}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({102.86}_{-6.28}^{+6.79}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.47}_{-0.24}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({102.82}_{-6.21}^{+6.68}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.66}_{-0.06}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190426_190642.html"><span class="doc std std-doc">GW190426_190642</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190426_190642.html"><span class="doc std std-doc"><img alt="GW190426_190642_thumbnail.png" src="../_images/GW190426_190642_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({77.01}_{-10.64}^{+11.26}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190426_190642.html"><span class="std std-doc">GW190426_190642</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190426_190642.html"><span class="std std-doc"><img alt="GW190426_190642_thumbnail.png" src="../_images/GW190426_190642_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({77.24}_{-10.61}^{+11.03}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.72}_{-0.30}^{+0.19}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.21}_{-0.23}^{+0.25}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.48}_{-0.24}^{+0.25}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({294.36}_{-20.43}^{+27.50}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.22}_{-0.23}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.48}_{-0.23}^{+0.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({295.03}_{-20.84}^{+28.69}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.75}_{-0.08}^{+0.09}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190503_185404.html"><span class="doc std std-doc">GW190503_185404</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190503_185404.html"><span class="doc std std-doc"><img alt="GW190503_185404_thumbnail.png" src="../_images/GW190503_185404_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({28.64}_{-2.72}^{+2.64}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190503_185404.html"><span class="std std-doc">GW190503_185404</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190503_185404.html"><span class="std std-doc"><img alt="GW190503_185404_thumbnail.png" src="../_images/GW190503_185404_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({28.60}_{-2.84}^{+2.62}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.68}_{-0.21}^{+0.21}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.07}_{-0.18}^{+0.13}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.08}_{-0.18}^{+0.14}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.44}_{-0.24}^{+0.29}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({84.68}_{-7.44}^{+6.73}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({84.55}_{-7.75}^{+6.81}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.08}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190513_205428.html"><span class="doc std std-doc">GW190513_205428</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190513_205428.html"><span class="doc std std-doc"><img alt="GW190513_205428_thumbnail.png" src="../_images/GW190513_205428_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({21.49}_{-1.38}^{+2.12}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.52}_{-0.15}^{+0.27}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190513_205428.html"><span class="std std-doc">GW190513_205428</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190513_205428.html"><span class="std std-doc"><img alt="GW190513_205428_thumbnail.png" src="../_images/GW190513_205428_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({21.43}_{-1.33}^{+2.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.51}_{-0.15}^{+0.28}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.11}_{-0.11}^{+0.16}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.30}_{-0.16}^{+0.25}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({70.66}_{-4.52}^{+6.36}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.69}_{-0.08}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.30}_{-0.15}^{+0.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({70.58}_{-4.46}^{+6.14}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.68}_{-0.08}^{+0.08}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190514_065416.html"><span class="doc std std-doc">GW190514_065416</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190514_065416.html"><span class="doc std std-doc"><img alt="GW190514_065416_thumbnail.png" src="../_images/GW190514_065416_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({28.66}_{-3.47}^{+4.45}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.20}^{+0.18}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.11}_{-0.19}^{+0.16}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.44}_{-0.23}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({108.55}_{-8.33}^{+8.48}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190514_065416.html"><span class="std std-doc">GW190514_065416</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190514_065416.html"><span class="std std-doc"><img alt="GW190514_065416_thumbnail.png" src="../_images/GW190514_065416_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({28.61}_{-3.39}^{+4.47}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.21}^{+0.18}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.11}_{-0.20}^{+0.16}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.45}_{-0.23}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({108.45}_{-8.37}^{+8.62}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.08}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190517_055101.html"><span class="doc std std-doc">GW190517_055101</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190517_055101.html"><span class="doc std std-doc"><img alt="GW190517_055101_thumbnail.png" src="../_images/GW190517_055101_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({25.89}_{-2.40}^{+2.43}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.22}^{+0.21}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190517_055101.html"><span class="std std-doc">GW190517_055101</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190517_055101.html"><span class="std std-doc"><img alt="GW190517_055101_thumbnail.png" src="../_images/GW190517_055101_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({25.92}_{-2.45}^{+2.39}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.21}^{+0.21}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.48}_{-0.14}^{+0.11}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.20}^{+0.19}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({79.24}_{-3.91}^{+5.50}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.56}_{-0.19}^{+0.19}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({79.18}_{-3.97}^{+5.35}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.85}_{-0.04}^{+0.03}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190519_153544.html"><span class="doc std std-doc">GW190519_153544</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190519_153544.html"><span class="doc std std-doc"><img alt="GW190519_153544_thumbnail.png" src="../_images/GW190519_153544_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({45.07}_{-5.25}^{+4.23}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190519_153544.html"><span class="std std-doc">GW190519_153544</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190519_153544.html"><span class="std std-doc"><img alt="GW190519_153544_thumbnail.png" src="../_images/GW190519_153544_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({45.13}_{-5.28}^{+4.20}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.14}^{+0.15}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.31}_{-0.14}^{+0.12}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.48}_{-0.19}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({144.93}_{-7.94}^{+7.63}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.48}_{-0.20}^{+0.22}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({144.91}_{-7.88}^{+7.50}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.06}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190521_030229.html"><span class="doc std std-doc">GW190521_030229</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190521_030229.html"><span class="doc std std-doc"><img alt="GW190521_030229_thumbnail.png" src="../_images/GW190521_030229_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({65.56}_{-6.58}^{+11.23}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190521_030229.html"><span class="std std-doc">GW190521_030229</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190521_030229.html"><span class="std std-doc"><img alt="GW190521_030229_thumbnail.png" src="../_images/GW190521_030229_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({65.44}_{-6.53}^{+11.28}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.21}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.00}_{-0.18}^{+0.20}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.26}^{+0.19}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({253.79}_{-11.93}^{+15.24}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.00}_{-0.18}^{+0.20}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.25}^{+0.19}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({253.94}_{-11.74}^{+15.12}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.06}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190521_074359.html"><span class="doc std std-doc">GW190521_074359</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190521_074359.html"><span class="doc std std-doc"><img alt="GW190521_074359_thumbnail.png" src="../_images/GW190521_074359_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({32.17}_{-1.41}^{+1.81}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190521_074359.html"><span class="std std-doc">GW190521_074359</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190521_074359.html"><span class="std std-doc"><img alt="GW190521_074359_thumbnail.png" src="../_images/GW190521_074359_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({32.14}_{-1.37}^{+1.81}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.11}^{+0.14}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.10}_{-0.08}^{+0.08}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.40}_{-0.19}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({88.49}_{-2.86}^{+3.00}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.41}_{-0.20}^{+0.23}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({88.57}_{-2.83}^{+2.93}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.71}_{-0.04}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190527_092055.html"><span class="doc std std-doc">GW190527_092055</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190527_092055.html"><span class="doc std std-doc"><img alt="GW190527_092055_thumbnail.png" src="../_images/GW190527_092055_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({24.21}_{-2.81}^{+3.80}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.62}_{-0.23}^{+0.24}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.10}_{-0.16}^{+0.18}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190527_092055.html"><span class="std std-doc">GW190527_092055</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190527_092055.html"><span class="std std-doc"><img alt="GW190527_092055_thumbnail.png" src="../_images/GW190527_092055_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({24.19}_{-2.80}^{+3.93}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.62}_{-0.23}^{+0.23}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.11}_{-0.16}^{+0.17}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.45}_{-0.25}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({80.42}_{-5.95}^{+9.59}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.71}_{-0.10}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({80.35}_{-5.84}^{+9.31}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.71}_{-0.09}^{+0.07}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190602_175927.html"><span class="doc std std-doc">GW190602_175927</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190602_175927.html"><span class="doc std std-doc"><img alt="GW190602_175927_thumbnail.png" src="../_images/GW190602_175927_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({48.57}_{-5.74}^{+5.82}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.68}_{-0.23}^{+0.20}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.12}_{-0.14}^{+0.15}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190602_175927.html"><span class="std std-doc">GW190602_175927</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190602_175927.html"><span class="std std-doc"><img alt="GW190602_175927_thumbnail.png" src="../_images/GW190602_175927_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({48.68}_{-5.78}^{+5.87}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.69}_{-0.24}^{+0.20}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.12}_{-0.15}^{+0.15}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.44}_{-0.23}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({167.08}_{-12.50}^{+13.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.71}_{-0.08}^{+0.06}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({167.26}_{-12.61}^{+12.81}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.72}_{-0.08}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190620_030421.html"><span class="doc std std-doc">GW190620_030421</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190620_030421.html"><span class="doc std std-doc"><img alt="GW190620_030421_thumbnail.png" src="../_images/GW190620_030421_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({37.38}_{-3.86}^{+4.88}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.62}_{-0.19}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.33}_{-0.15}^{+0.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.46}_{-0.21}^{+0.24}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({129.62}_{-9.36}^{+9.10}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190620_030421.html"><span class="std std-doc">GW190620_030421</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190620_030421.html"><span class="std std-doc"><img alt="GW190620_030421_thumbnail.png" src="../_images/GW190620_030421_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({37.35}_{-3.82}^{+4.83}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.61}_{-0.18}^{+0.23}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.33}_{-0.15}^{+0.14}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.46}_{-0.21}^{+0.23}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({129.76}_{-9.37}^{+8.97}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.07}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190630_185205.html"><span class="doc std std-doc">GW190630_185205</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190630_185205.html"><span class="doc std std-doc"><img alt="GW190630_185205_thumbnail.png" src="../_images/GW190630_185205_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({25.08}_{-1.48}^{+1.38}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.16}^{+0.19}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190630_185205.html"><span class="std std-doc">GW190630_185205</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190630_185205.html"><span class="std std-doc"><img alt="GW190630_185205_thumbnail.png" src="../_images/GW190630_185205_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({25.09}_{-1.50}^{+1.34}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.71}_{-0.16}^{+0.18}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.07}_{-0.08}^{+0.09}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.35}_{-0.17}^{+0.21}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({65.86}_{-2.17}^{+2.46}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.04}^{+0.04}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({65.83}_{-2.12}^{+2.39}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.04}^{+0.03}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190701_203306.html"><span class="doc std std-doc">GW190701_203306</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190701_203306.html"><span class="doc std std-doc"><img alt="GW190701_203306_thumbnail.png" src="../_images/GW190701_203306_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({39.81}_{-2.95}^{+3.02}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.76}_{-0.20}^{+0.16}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190701_203306.html"><span class="std std-doc">GW190701_203306</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190701_203306.html"><span class="std std-doc"><img alt="GW190701_203306_thumbnail.png" src="../_images/GW190701_203306_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({39.89}_{-2.92}^{+3.09}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.76}_{-0.19}^{+0.16}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.10}_{-0.17}^{+0.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.41}_{-0.22}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({123.26}_{-8.22}^{+8.42}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.42}_{-0.22}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({123.53}_{-8.07}^{+8.74}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.07}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190706_222641.html"><span class="doc std std-doc">GW190706_222641</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190706_222641.html"><span class="doc std std-doc"><img alt="GW190706_222641_thumbnail.png" src="../_images/GW190706_222641_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({45.80}_{-5.70}^{+7.54}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.58}_{-0.17}^{+0.20}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190706_222641.html"><span class="std std-doc">GW190706_222641</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190706_222641.html"><span class="std std-doc"><img alt="GW190706_222641_thumbnail.png" src="../_images/GW190706_222641_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({45.83}_{-5.70}^{+7.40}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.58}_{-0.18}^{+0.20}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.29}_{-0.19}^{+0.17}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.42}_{-0.20}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({170.19}_{-12.31}^{+10.86}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.41}_{-0.20}^{+0.24}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({169.83}_{-12.48}^{+10.89}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.10}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190727_060333.html"><span class="doc std std-doc">GW190727_060333</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190727_060333.html"><span class="doc std std-doc"><img alt="GW190727_060333_thumbnail.png" src="../_images/GW190727_060333_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({28.99}_{-2.03}^{+2.43}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.19}^{+0.15}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190727_060333.html"><span class="std std-doc">GW190727_060333</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190727_060333.html"><span class="std std-doc"><img alt="GW190727_060333_thumbnail.png" src="../_images/GW190727_060333_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({29.00}_{-2.05}^{+2.49}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.19}^{+0.14}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.07}_{-0.13}^{+0.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.46}_{-0.24}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({97.92}_{-5.08}^{+5.48}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.45}_{-0.24}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({97.86}_{-4.87}^{+5.52}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.71}_{-0.05}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190731_140936.html"><span class="doc std std-doc">GW190731_140936</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190731_140936.html"><span class="doc std std-doc"><img alt="GW190731_140936_thumbnail.png" src="../_images/GW190731_140936_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({29.49}_{-3.33}^{+3.97}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190731_140936.html"><span class="std std-doc">GW190731_140936</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190731_140936.html"><span class="std std-doc"><img alt="GW190731_140936_thumbnail.png" src="../_images/GW190731_140936_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({29.43}_{-3.27}^{+4.16}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.20}^{+0.20}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.06}_{-0.13}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.39}_{-0.20}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({103.83}_{-7.65}^{+7.83}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.69}_{-0.06}^{+0.06}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.39}_{-0.21}^{+0.28}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({103.91}_{-7.77}^{+7.61}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.07}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190803_022701.html"><span class="doc std std-doc">GW190803_022701</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190803_022701.html"><span class="doc std std-doc"><img alt="GW190803_022701_thumbnail.png" src="../_images/GW190803_022701_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.56}_{-2.37}^{+2.94}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190803_022701.html"><span class="std std-doc">GW190803_022701</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190803_022701.html"><span class="std std-doc"><img alt="GW190803_022701_thumbnail.png" src="../_images/GW190803_022701_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.46}_{-2.31}^{+3.02}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.76}_{-0.19}^{+0.16}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.02}_{-0.15}^{+0.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.43}_{-0.23}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({95.51}_{-5.94}^{+6.67}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.43}_{-0.23}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({95.48}_{-6.08}^{+6.65}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.68}_{-0.06}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190805_211137.html"><span class="doc std std-doc">GW190805_211137</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190805_211137.html"><span class="doc std std-doc"><img alt="GW190805_211137_thumbnail.png" src="../_images/GW190805_211137_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({30.56}_{-3.46}^{+4.96}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190805_211137.html"><span class="std std-doc">GW190805_211137</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190805_211137.html"><span class="std std-doc"><img alt="GW190805_211137_thumbnail.png" src="../_images/GW190805_211137_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({30.56}_{-3.53}^{+4.95}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.22}^{+0.22}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.35}_{-0.20}^{+0.17}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.36}_{-0.20}^{+0.17}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.53}_{-0.23}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({135.70}_{-9.33}^{+9.76}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({135.72}_{-9.38}^{+9.45}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.81}_{-0.07}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190828_063405.html"><span class="doc std std-doc">GW190828_063405</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190828_063405.html"><span class="doc std std-doc"><img alt="GW190828_063405_thumbnail.png" src="../_images/GW190828_063405_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({24.82}_{-1.41}^{+2.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.82}_{-0.15}^{+0.12}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190828_063405.html"><span class="std std-doc">GW190828_063405</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190828_063405.html"><span class="std std-doc"><img alt="GW190828_063405_thumbnail.png" src="../_images/GW190828_063405_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({24.82}_{-1.39}^{+2.12}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.81}_{-0.14}^{+0.13}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.16}_{-0.10}^{+0.10}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.42}_{-0.21}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({74.58}_{-3.09}^{+3.43}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.42}_{-0.22}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({74.57}_{-3.09}^{+3.45}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.74}_{-0.04}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190910_112807.html"><span class="doc std std-doc">GW190910_112807</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190910_112807.html"><span class="doc std std-doc"><img alt="GW190910_112807_thumbnail.png" src="../_images/GW190910_112807_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({33.67}_{-2.68}^{+2.51}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190910_112807.html"><span class="std std-doc">GW190910_112807</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190910_112807.html"><span class="std std-doc"><img alt="GW190910_112807_thumbnail.png" src="../_images/GW190910_112807_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({33.59}_{-2.66}^{+2.49}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.14}^{+0.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.01}_{-0.10}^{+0.10}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.01}_{-0.11}^{+0.10}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.40}_{-0.22}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({96.16}_{-4.25}^{+4.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({95.99}_{-4.14}^{+4.37}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.69}_{-0.04}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190915_235702.html"><span class="doc std std-doc">GW190915_235702</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190915_235702.html"><span class="doc std std-doc"><img alt="GW190915_235702_thumbnail.png" src="../_images/GW190915_235702_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({23.82}_{-1.37}^{+1.67}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190915_235702.html"><span class="std std-doc">GW190915_235702</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190915_235702.html"><span class="std std-doc"><img alt="GW190915_235702_thumbnail.png" src="../_images/GW190915_235702_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({23.89}_{-1.44}^{+1.66}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.18}^{+0.17}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.06}_{-0.13}^{+0.12}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.26}^{+0.24}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({71.91}_{-3.31}^{+3.38}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.68}_{-0.05}^{+0.05}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({71.89}_{-3.32}^{+3.38}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.05}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190916_200658.html"><span class="doc std std-doc">GW190916_200658</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190916_200658.html"><span class="doc std std-doc"><img alt="GW190916_200658_thumbnail.png" src="../_images/GW190916_200658_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.16}_{-3.52}^{+4.42}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.23}^{+0.28}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190916_200658.html"><span class="std std-doc">GW190916_200658</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190916_200658.html"><span class="std std-doc"><img alt="GW190916_200658_thumbnail.png" src="../_images/GW190916_200658_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.17}_{-3.52}^{+4.45}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.24}^{+0.28}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.19}_{-0.18}^{+0.20}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.38}_{-0.20}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({112.64}_{-12.79}^{+19.55}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.38}_{-0.21}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({112.96}_{-12.92}^{+19.32}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.12}^{+0.08}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190926_050336.html"><span class="doc std std-doc">GW190926_050336</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190926_050336.html"><span class="doc std std-doc"><img alt="GW190926_050336_thumbnail.png" src="../_images/GW190926_050336_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({24.28}_{-3.05}^{+3.92}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW190926_050336.html"><span class="std std-doc">GW190926_050336</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190926_050336.html"><span class="std std-doc"><img alt="GW190926_050336_thumbnail.png" src="../_images/GW190926_050336_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({24.22}_{-3.08}^{+3.92}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.50}_{-0.17}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.02}_{-0.16}^{+0.15}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.02}_{-0.16}^{+0.14}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.38}_{-0.22}^{+0.32}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({90.45}_{-7.28}^{+13.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.10}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({90.46}_{-7.42}^{+12.69}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.11}^{+0.08}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190929_012149.html"><span class="doc std std-doc">GW190929_012149</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW190929_012149.html"><span class="doc std std-doc"><img alt="GW190929_012149_thumbnail.png" src="../_images/GW190929_012149_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({34.57}_{-4.27}^{+4.80}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.36}_{-0.11}^{+0.16}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.03}_{-0.15}^{+0.12}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.35}_{-0.20}^{+0.30}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({137.05}_{-11.29}^{+11.98}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW190929_012149.html"><span class="std std-doc">GW190929_012149</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW190929_012149.html"><span class="std std-doc"><img alt="GW190929_012149_thumbnail.png" src="../_images/GW190929_012149_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({34.55}_{-4.33}^{+4.96}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.36}_{-0.11}^{+0.17}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.03}_{-0.15}^{+0.13}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.36}_{-0.20}^{+0.30}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({137.14}_{-11.46}^{+11.74}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.59}_{-0.11}^{+0.09}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW191109_010717.html"><span class="doc std std-doc">GW191109_010717</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW191109_010717.html"><span class="doc std std-doc"><img alt="GW191109_010717_thumbnail.png" src="../_images/GW191109_010717_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({48.51}_{-3.65}^{+2.86}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.11}^{+0.12}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW191109_010717.html"><span class="std std-doc">GW191109_010717</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW191109_010717.html"><span class="std std-doc"><img alt="GW191109_010717_thumbnail.png" src="../_images/GW191109_010717_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({48.50}_{-3.82}^{+2.90}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.11}^{+0.11}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.38}_{-0.12}^{+0.12}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.59}_{-0.17}^{+0.16}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({131.40}_{-6.14}^{+5.85}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({131.32}_{-5.96}^{+5.81}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.55}_{-0.07}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW191222_033537.html"><span class="doc std std-doc">GW191222_033537</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW191222_033537.html"><span class="doc std std-doc"><img alt="GW191222_033537_thumbnail.png" src="../_images/GW191222_033537_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({33.77}_{-3.40}^{+4.16}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW191222_033537.html"><span class="std std-doc">GW191222_033537</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW191222_033537.html"><span class="std std-doc"><img alt="GW191222_033537_thumbnail.png" src="../_images/GW191222_033537_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({33.82}_{-3.41}^{+4.07}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.79}_{-0.19}^{+0.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.05}_{-0.14}^{+0.11}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.05}_{-0.13}^{+0.11}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.41}_{-0.22}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({112.31}_{-6.88}^{+7.56}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({112.38}_{-6.80}^{+7.57}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.05}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW191230_180458.html"><span class="doc std std-doc">GW191230_180458</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW191230_180458.html"><span class="doc std std-doc"><img alt="GW191230_180458_thumbnail.png" src="../_images/GW191230_180458_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({36.20}_{-3.36}^{+4.63}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW191230_180458.html"><span class="std std-doc">GW191230_180458</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW191230_180458.html"><span class="std std-doc"><img alt="GW191230_180458_thumbnail.png" src="../_images/GW191230_180458_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({36.27}_{-3.43}^{+4.55}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.19}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.06}_{-0.16}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.47}_{-0.24}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({137.06}_{-9.45}^{+9.40}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.05}_{-0.17}^{+0.15}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.47}_{-0.25}^{+0.28}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({137.25}_{-9.64}^{+9.34}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.67}_{-0.06}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200112_155838.html"><span class="doc std std-doc">GW200112_155838</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200112_155838.html"><span class="doc std std-doc"><img alt="GW200112_155838_thumbnail.png" src="../_images/GW200112_155838_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.04}_{-1.21}^{+1.41}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200112_155838.html"><span class="std std-doc">GW200112_155838</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200112_155838.html"><span class="std std-doc"><img alt="GW200112_155838_thumbnail.png" src="../_images/GW200112_155838_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.05}_{-1.22}^{+1.46}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.16}^{+0.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.04}_{-0.07}^{+0.09}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.32}_{-0.18}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({74.57}_{-2.27}^{+2.96}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.69}_{-0.03}^{+0.03}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.04}_{-0.08}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.32}_{-0.17}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({74.60}_{-2.30}^{+2.93}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.03}^{+0.03}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200128_022011.html"><span class="doc std std-doc">GW200128_022011</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200128_022011.html"><span class="doc std std-doc"><img alt="GW200128_022011_thumbnail.png" src="../_images/GW200128_022011_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({32.58}_{-3.92}^{+4.31}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.81}_{-0.17}^{+0.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.11}_{-0.13}^{+0.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.25}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({109.81}_{-6.50}^{+6.96}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200128_022011.html"><span class="std std-doc">GW200128_022011</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200128_022011.html"><span class="std std-doc"><img alt="GW200128_022011_thumbnail.png" src="../_images/GW200128_022011_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({32.57}_{-3.84}^{+4.30}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.81}_{-0.16}^{+0.13}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.12}_{-0.13}^{+0.13}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.57}_{-0.26}^{+0.23}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({110.07}_{-6.58}^{+6.70}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.05}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200129_065458.html"><span class="doc std std-doc">GW200129_065458</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200129_065458.html"><span class="doc std std-doc"><img alt="GW200129_065458_thumbnail.png" src="../_images/GW200129_065458_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({25.95}_{-1.26}^{+1.51}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200129_065458.html"><span class="std std-doc">GW200129_065458</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200129_065458.html"><span class="std std-doc"><img alt="GW200129_065458_thumbnail.png" src="../_images/GW200129_065458_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({25.94}_{-1.26}^{+1.46}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.62}_{-0.16}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.06}_{-0.10}^{+0.08}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.76}_{-0.28}^{+0.15}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({70.89}_{-1.75}^{+1.90}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.06}_{-0.09}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.75}_{-0.28}^{+0.16}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({70.87}_{-1.79}^{+1.95}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.03}^{+0.03}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200208_130117.html"><span class="doc std std-doc">GW200208_130117</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200208_130117.html"><span class="doc std std-doc"><img alt="GW200208_130117_thumbnail.png" src="../_images/GW200208_130117_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.61}_{-1.79}^{+2.13}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.19}^{+0.18}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200208_130117.html"><span class="std std-doc">GW200208_130117</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200208_130117.html"><span class="std std-doc"><img alt="GW200208_130117_thumbnail.png" src="../_images/GW200208_130117_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.55}_{-1.77}^{+2.12}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.73}_{-0.20}^{+0.18}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.08}_{-0.14}^{+0.12}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.36}_{-0.19}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({87.31}_{-5.43}^{+5.56}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.37}_{-0.19}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({87.19}_{-5.18}^{+5.60}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.06}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200209_085452.html"><span class="doc std std-doc">GW200209_085452</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200209_085452.html"><span class="doc std std-doc"><img alt="GW200209_085452_thumbnail.png" src="../_images/GW200209_085452_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({26.28}_{-2.54}^{+3.42}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200209_085452.html"><span class="std std-doc">GW200209_085452</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200209_085452.html"><span class="std std-doc"><img alt="GW200209_085452_thumbnail.png" src="../_images/GW200209_085452_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({26.38}_{-2.59}^{+3.42}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.78}_{-0.19}^{+0.15}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.12}_{-0.16}^{+0.14}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.50}_{-0.25}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({92.80}_{-8.26}^{+9.43}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.51}_{-0.25}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({92.87}_{-8.49}^{+9.33}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.06}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200216_220804.html"><span class="doc std std-doc">GW200216_220804</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200216_220804.html"><span class="doc std std-doc"><img alt="GW200216_220804_thumbnail.png" src="../_images/GW200216_220804_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({32.27}_{-4.57}^{+5.19}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.60}_{-0.27}^{+0.27}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200216_220804.html"><span class="std std-doc">GW200216_220804</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200216_220804.html"><span class="std std-doc"><img alt="GW200216_220804_thumbnail.png" src="../_images/GW200216_220804_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({32.30}_{-4.60}^{+5.17}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.60}_{-0.28}^{+0.26}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.09}_{-0.19}^{+0.20}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.46}_{-0.25}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({128.11}_{-19.21}^{+14.58}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.46}_{-0.26}^{+0.28}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({128.21}_{-18.55}^{+14.75}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.11}^{+0.09}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200219_094415.html"><span class="doc std std-doc">GW200219_094415</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200219_094415.html"><span class="doc std std-doc"><img alt="GW200219_094415_thumbnail.png" src="../_images/GW200219_094415_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.58}_{-2.60}^{+3.65}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200219_094415.html"><span class="std std-doc">GW200219_094415</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200219_094415.html"><span class="std std-doc"><img alt="GW200219_094415_thumbnail.png" src="../_images/GW200219_094415_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.61}_{-2.63}^{+3.65}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.76}_{-0.19}^{+0.16}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({-0.11}_{-0.16}^{+0.13}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.44}_{-0.23}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({96.94}_{-6.49}^{+6.66}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({96.98}_{-6.41}^{+6.51}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.06}^{+0.05}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200220_061928.html"><span class="doc std std-doc">GW200220_061928</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200220_061928.html"><span class="doc std std-doc"><img alt="GW200220_061928_thumbnail.png" src="../_images/GW200220_061928_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({60.81}_{-9.69}^{+12.10}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200220_061928.html"><span class="std std-doc">GW200220_061928</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200220_061928.html"><span class="std std-doc"><img alt="GW200220_061928_thumbnail.png" src="../_images/GW200220_061928_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({60.61}_{-9.57}^{+12.11}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.75}_{-0.23}^{+0.17}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.05}_{-0.22}^{+0.23}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.46}_{-0.23}^{+0.27}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({266.29}_{-20.57}^{+21.68}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.05}_{-0.21}^{+0.24}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.47}_{-0.24}^{+0.26}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({266.35}_{-20.06}^{+22.03}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.08}^{+0.08}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200220_124850.html"><span class="doc std std-doc">GW200220_124850</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200220_124850.html"><span class="doc std std-doc"><img alt="GW200220_124850_thumbnail.png" src="../_images/GW200220_124850_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({27.58}_{-3.11}^{+4.06}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200220_124850.html"><span class="std std-doc">GW200220_124850</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200220_124850.html"><span class="std std-doc"><img alt="GW200220_124850_thumbnail.png" src="../_images/GW200220_124850_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({27.60}_{-3.12}^{+3.98}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.70}_{-0.22}^{+0.20}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.10}_{-0.19}^{+0.16}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.50}_{-0.25}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({104.66}_{-7.30}^{+7.54}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.10}_{-0.20}^{+0.17}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.51}_{-0.25}^{+0.25}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({104.62}_{-7.35}^{+7.56}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.65}_{-0.08}^{+0.06}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200224_222234.html"><span class="doc std std-doc">GW200224_222234</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200224_222234.html"><span class="doc std std-doc"><img alt="GW200224_222234_thumbnail.png" src="../_images/GW200224_222234_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({30.93}_{-1.65}^{+2.05}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.84}_{-0.16}^{+0.11}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200224_222234.html"><span class="std std-doc">GW200224_222234</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200224_222234.html"><span class="std std-doc"><img alt="GW200224_222234_thumbnail.png" src="../_images/GW200224_222234_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({30.94}_{-1.63}^{+2.06}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.83}_{-0.15}^{+0.11}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.09}_{-0.09}^{+0.09}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.43}_{-0.24}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({89.52}_{-3.65}^{+3.75}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.43}_{-0.23}^{+0.27}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({89.54}_{-3.73}^{+3.76}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.72}_{-0.04}^{+0.04}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200302_015811.html"><span class="doc std std-doc">GW200302_015811</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200302_015811.html"><span class="doc std std-doc"><img alt="GW200302_015811_thumbnail.png" src="../_images/GW200302_015811_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({22.94}_{-1.53}^{+2.12}\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference internal" href="GW200302_015811.html"><span class="std std-doc">GW200302_015811</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200302_015811.html"><span class="std std-doc"><img alt="GW200302_015811_thumbnail.png" src="../_images/GW200302_015811_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({22.97}_{-1.54}^{+2.12}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.49}_{-0.11}^{+0.21}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.02}_{-0.12}^{+0.12}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.30}_{-0.16}^{+0.28}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({70.51}_{-3.97}^{+4.97}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.07}^{+0.07}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({70.45}_{-3.94}^{+5.01}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({0.64}_{-0.07}^{+0.08}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200311_115853.html"><span class="doc std std-doc">GW200311_115853</span></a></p></td>
-<td class="text-left"><p><a class="reference internal" href="GW200311_115853.html"><span class="doc std std-doc"><img alt="GW200311_115853_thumbnail.png" src="../_images/GW200311_115853_thumbnail.png" /></span></a></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({26.48}_{-1.15}^{+1.42}\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><a class="reference internal" href="GW200311_115853.html"><span class="std std-doc">GW200311_115853</span></a></p></td>
+<td class="text-left"><p><a class="reference internal" href="GW200311_115853.html"><span class="std std-doc"><img alt="GW200311_115853_thumbnail.png" src="../_images/GW200311_115853_thumbnail.png" /></span></a></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({26.49}_{-1.14}^{+1.43}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.83}_{-0.15}^{+0.12}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.03}_{-0.10}^{+0.08}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({-0.03}_{-0.09}^{+0.08}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.40}_{-0.22}^{+0.26}\)</span></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\({71.87}_{-2.62}^{+2.71}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\({71.91}_{-2.53}^{+2.76}\)</span></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\({0.68}_{-0.04}^{+0.03}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p>Look at the <a class="reference internal" href="../catalog_plots.html"><span class="doc std std-doc">Catalog plots</span></a> to see how to make a larger summary table of the catalog.
+</div>
+<p>Look at the <a class="reference internal" href="../catalog_plots.html"><span class="std std-doc">Catalog plots</span></a> to see how to make a larger summary table of the catalog.
 Some parameters included are shown below.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Parameter</p></th>
-<th class="text-left head"><p>Latex Label</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Latex Label</p></th>
 </tr>
 </thead>
 <tbody>
@@ -987,6 +1005,7 @@ Some parameters included are shown below.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -1016,11 +1035,10 @@ Some parameters included are shown below.</p>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../intro.html"
@@ -1040,10 +1058,7 @@ Some parameters included are shown below.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1066,9 +1081,10 @@ By The NRSurrogate Catalog Team
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1092,8 +1108,8 @@ By The NRSurrogate Catalog Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
